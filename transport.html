@@ -1,0 +1,1220 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Indian Shipping Agency - Connecting the World</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="nav.css" />
+    <!-- <link rel="stylesheet" href="styles.css" /> -->
+    <style>
+      :root {
+        --primary-color: #1a5f7a;
+        --secondary-color: #159895;
+        --accent-color: #57c5b6;
+        --light-color: #ffffff;
+        --bg-color: #f8fafc;
+        --text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+      }
+
+      body {
+        background: var(--bg-color);
+        line-height: 1.6;
+      }
+
+      /* Hero Section */
+      .hero {
+        background: linear-gradient(
+          135deg,
+          var(--primary-color),
+          var(--secondary-color)
+        );
+        min-height: 80vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 2rem;
+        position: relative;
+        overflow: hidden;
+        margin-top: 60px;
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M54.627 0l.83.828-1.415 1.415L51.8 0h2.827zM5.373 0l-.83.828L5.96 2.243 8.2 0H5.374zM48.97 0l3.657 3.657-1.414 1.414L46.143 0h2.828zM11.03 0L7.372 3.657 8.787 5.07 13.857 0H11.03zm32.284 0L49.8 6.485 48.384 7.9l-7.9-7.9h2.83zM16.686 0L10.2 6.485 11.616 7.9l7.9-7.9h-2.83zM22.344 0L13.858 8.485 15.272 9.9l7.9-7.9h-.828zm5.656 0L17.515 10.485 18.93 11.9l7.9-7.9h-2.83zm5.656 0l-9.9 9.9 1.414 1.414 7.9-7.9h-2.83zm5.656 0l-9.9 9.9 1.415 1.415 7.9-7.9h-2.83zm5.657 0l-9.9 9.9 1.414 1.414 8.485-8.485h-2.83zm5.657 0l-9.9 9.9 1.414 1.414 8.485-8.485h-2.83zm5.657 0l-9.9 9.9 1.415 1.415 8.485-8.485h-2.83zm5.657 0l-9.9 9.9 1.415 1.415L54.627 0h-2.83zM32 0l1.414 1.414 1.415-1.414h-2.83zm5.657 0l1.414 1.414L40.485 0h-2.828zm5.657 0l1.414 1.414L46.142 0h-2.83zm5.657 0l1.414 1.414L51.8 0h-2.83zm5.657 0l1.414 1.414L57.456 0h-2.83z' fill='%23ffffff' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
+        opacity: 0.6;
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 1;
+        max-width: 800px;
+      }
+
+      .hero h1 {
+        color: var(--light-color);
+        font-size: clamp(2.5rem, 5vw, 4rem);
+        margin-bottom: 1.5rem;
+        font-weight: 800;
+        text-shadow: var(--text-shadow);
+      }
+
+      .hero p {
+        color: rgba(255, 255, 255, 0.9);
+        font-size: clamp(1.1rem, 2vw, 1.3rem);
+        max-width: 600px;
+        margin: 0 auto;
+        text-shadow: var(--text-shadow);
+      }
+
+      /* Services Section */
+      .services-section {
+        padding: 6rem 2rem;
+        background: var(--bg-color);
+      }
+
+      .section-title {
+        text-align: center;
+        color: var(--primary-color);
+        font-size: 2.5rem;
+        margin-bottom: 3rem;
+      }
+
+      .section-subtitle {
+        text-align: center;
+        color: #666;
+        font-size: 1.2rem;
+        margin: -2rem 0 3rem;
+      }
+
+      .services-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .service-card {
+        background: var(--light-color);
+        border-radius: 20px;
+        padding: 2.5rem;
+        text-align: center;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        transition: all 0.4s ease;
+      }
+
+      .service-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+      }
+
+      .service-card i {
+        font-size: 2.5rem;
+        color: var(--secondary-color);
+        margin-bottom: 1.5rem;
+      }
+
+      .service-card h3 {
+        color: var(--primary-color);
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+      }
+
+      .service-card p {
+        color: #555;
+      }
+
+      Additional Services Section .additional-services {
+        padding: 6rem 0 0 0;
+        background: white;
+        overflow: hidden;
+      }
+
+      .services-container {
+        position: relative;
+        width: 100%;
+        height: 350px;
+        overflow: hidden;
+        padding: 2rem 0;
+        margin-bottom: 2rem;
+      }
+
+      .services-scroll {
+        display: flex;
+        gap: 2rem;
+        position: absolute;
+        left: 0;
+        top: 0;
+        animation: scroll 30s linear infinite;
+        will-change: transform;
+        backface-visibility: hidden;
+      }
+
+      .services-container:hover .services-scroll {
+        animation-play-state: paused;
+      }
+
+      .service-box {
+        flex: 0 0 300px;
+        background: var(--bg-color);
+        padding: 2rem;
+        border-radius: 15px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+      }
+
+      .service-box:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+      }
+
+      .service-box h3 {
+        color: var(--primary-color);
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+      }
+
+      .service-box p {
+        color: #555;
+        margin-bottom: 1rem;
+      }
+
+      .read-more {
+        display: inline-block;
+        color: var(--accent-color);
+        text-decoration: none;
+        position: relative;
+      }
+
+      .read-more::after {
+        content: "→";
+        margin-left: 5px;
+        transition: transform 0.3s ease;
+      }
+
+      .read-more:hover::after {
+        transform: translateX(5px);
+      }
+
+      @keyframes scroll {
+        0% {
+          transform: translateX(0);
+        }
+
+        100% {
+          transform: translateX(calc(-300px * 5 - 2rem * 5));
+        }
+      }
+
+      @media (max-width: 768px) {
+        .services-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .section-title {
+          font-size: 2rem;
+        }
+
+        .service-box {
+          flex: 0 0 280px;
+        }
+      }
+
+      .detail-features {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      /* Sectors */
+      .sectors {
+        background: var(--bg-color);
+        line-height: 1.6;
+      }
+
+      .section-header {
+        text-align: center;
+        padding: 2rem 0 4rem;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .section-header h2 {
+        color: var(--primary-color);
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        font-weight: 800;
+        letter-spacing: -0.02em;
+        transform: translateY(20px);
+        opacity: 0;
+        animation: fadeInUp 0.6s ease forwards;
+      }
+
+      .section-header p {
+        color: var(--secondary-color);
+        font-size: 1.2rem;
+        font-weight: 300;
+        letter-spacing: 0.5px;
+        transform: translateY(20px);
+        opacity: 0;
+        animation: fadeInUp 0.6s ease 0.2s forwards;
+      }
+
+      @media (max-width: 768px) {
+        .section-divider {
+          margin: 4rem auto 2rem;
+        }
+
+        .section-header {
+          padding: 1rem 0 2rem;
+        }
+
+        .section-header h2 {
+          font-size: 2rem;
+        }
+
+        .section-header p {
+          font-size: 1rem;
+        }
+      }
+
+      /* Sector Boxes Section */
+      .sector-boxes {
+        max-width: 1200px;
+        margin: -100px auto 0;
+        padding: 0 2rem;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+        position: relative;
+        z-index: 2;
+      }
+
+      .sector-box {
+        background: var(--light-color);
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        position: relative;
+      }
+
+      .sector-box:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+      }
+
+      .sector-image {
+        height: 200px;
+        background-size: cover;
+        background-position: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .sector-image::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.4), transparent);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      .sector-box:hover .sector-image::after {
+        opacity: 1;
+      }
+
+      .sector-content {
+        padding: 2rem;
+        position: relative;
+      }
+
+      .sector-icon {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        transition: transform 0.3s ease;
+      }
+
+      .sector-box:hover .sector-icon {
+        transform: scale(1.1) rotate(5deg);
+      }
+
+      .sector-title {
+        color: var(--primary-color);
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+        font-weight: 700;
+        letter-spacing: -0.01em;
+        position: relative;
+        padding-bottom: 0.5rem;
+        transition: color 0.3s ease;
+      }
+
+      .sector-title::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 30px;
+        height: 3px;
+        background: var(--accent-color);
+        transition: width 0.3s ease;
+      }
+
+      .sector-box:hover .sector-title {
+        color: var(--accent-color);
+      }
+
+      .sector-description {
+        color: #555;
+        line-height: 1.8;
+        margin-bottom: 1.5rem;
+        font-size: 1.05rem;
+        font-weight: 400;
+        transition: color 0.3s ease;
+      }
+
+      .sector-box:hover .sector-description {
+        color: #333;
+      }
+
+      .sector-link {
+        display: inline-flex;
+        align-items: center;
+        padding: 0.8rem 1.5rem;
+        background: var(--accent-color);
+        color: white;
+        text-decoration: none;
+        border-radius: 25px;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .sector-link::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: var(--primary-color);
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+      }
+
+      .sector-link span {
+        position: relative;
+        z-index: 1;
+      }
+
+      .sector-link:hover::before {
+        transform: translateX(0);
+      }
+
+      /* Detailed Sections */
+      .sector-details {
+        max-width: 1200px;
+        margin: 6rem auto;
+        padding: 0 2rem;
+      }
+
+      .detail-section {
+        margin: 8rem 0;
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.6s ease;
+        background: white;
+        border-radius: 30px;
+        overflow: hidden;
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+      }
+
+      .detail-section.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .detail-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+      }
+
+      .detail-content {
+        padding: 4rem;
+      }
+
+      .detail-title {
+        color: var(--primary-color);
+        font-size: 2.5rem;
+        margin-bottom: 2rem;
+        font-weight: 800;
+        letter-spacing: -0.02em;
+        position: relative;
+        transition: transform 0.3s ease;
+      }
+
+      .detail-section:hover .detail-title {
+        transform: translateX(10px);
+      }
+
+      .detail-text {
+        color: #444;
+        font-size: 1.1rem;
+        line-height: 1.8;
+        margin-bottom: 2rem;
+        font-weight: 400;
+        letter-spacing: 0.2px;
+        transition: all 0.3s ease;
+      }
+
+      .detail-section:hover .detail-text {
+        color: #222;
+        transform: translateX(5px);
+      }
+
+      .detail-features li {
+        font-size: 1.05rem;
+        font-weight: 400;
+        letter-spacing: 0.2px;
+        transition: all 0.3s ease;
+      }
+
+      .detail-section:hover .detail-features li {
+        transform: translateX(15px);
+        color: #222;
+      }
+
+      /* Scroll Animation */
+      .detail-section {
+        opacity: 0;
+        transform: translateY(50px);
+        transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .detail-section.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .detail-features li {
+        margin: 1rem 0;
+        padding-left: 2rem;
+        position: relative;
+        transition: transform 0.3s ease;
+      }
+
+      .detail-features li::before {
+        content: "→";
+        position: absolute;
+        left: 0;
+        color: var(--accent-color);
+        transition: transform 0.3s ease;
+      }
+
+      .detail-features li:hover {
+        transform: translateX(10px);
+      }
+
+      .detail-features li:hover::before {
+        transform: translateX(5px);
+      }
+
+      .detail-image {
+        height: 100%;
+        min-height: 400px;
+        background-size: cover;
+        background-position: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .detail-image::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(45deg, rgba(26, 95, 122, 0.2), transparent);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      .detail-section:hover .detail-image::after {
+        opacity: 1;
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @media (max-width: 768px) {
+        .detail-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .detail-content {
+          padding: 2rem;
+        }
+
+        .detail-image {
+          min-height: 300px;
+          order: -1;
+        }
+
+        .sector-details {
+          margin: 3rem auto;
+        }
+
+        .detail-section {
+          margin: 4rem 0;
+        }
+      }
+
+      /* Enhanced Hover Effects */
+      .sector-box {
+        transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+      }
+
+      .sector-box:hover {
+        transform: translateY(-15px) scale(1.02);
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+      }
+
+      /* Responsive Adjustments */
+      @media (max-width: 768px) {
+        .detail-section:hover .detail-title,
+        .detail-section:hover .detail-text,
+        .detail-section:hover .detail-features li {
+          transform: translateX(0);
+        }
+
+        .sector-box:hover {
+          transform: translateY(-10px) scale(1.01);
+        }
+      }
+
+      /* New CSS for alternating layouts */
+      .detail-section:nth-child(even) .detail-grid {
+        direction: rtl;
+      }
+
+      .detail-section:nth-child(even) .detail-content {
+        direction: ltr;
+      }
+
+      @media (max-width: 1024px) {
+        .sector-boxes {
+          grid-template-columns: repeat(2, 1fr);
+          margin-top: -50px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .sector-boxes {
+          grid-template-columns: 1fr;
+          margin-top: -30px;
+        }
+
+        .detail-grid {
+          grid-template-columns: 1fr;
+          gap: 2rem;
+        }
+
+        .detail-content {
+          padding: 2rem;
+        }
+
+        .detail-image {
+          min-height: 300px;
+          order: -1;
+        }
+
+        .detail-section {
+          margin: 4rem 0;
+        }
+
+        /* Reset direction for mobile view */
+        .detail-section:nth-child(even) .detail-grid {
+          direction: ltr;
+        }
+
+        .hero h1 {
+          font-size: 2rem;
+        }
+
+        .hero p {
+          font-size: 1rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .sector-boxes {
+          padding: 0 1rem;
+        }
+
+        .sector-content {
+          padding: 1.5rem;
+        }
+
+        .detail-title {
+          font-size: 2rem;
+        }
+
+        .detail-text {
+          font-size: 1rem;
+        }
+
+        .hero {
+          min-height: 40vh;
+          padding: 1rem;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="nav-overlay"></div>
+
+    <nav class="navbar" id="smart-navbar">
+      <div class="container navbar__content">
+        <a href="Home.html" target="_blank" class="logo">
+          <img src="logo.png" alt="Indian Agency Logo" />
+        </a>
+
+        <div class="nav-links">
+          <div class="nav-item">
+            <a href="Home.html" target="_blank">Home</a>
+          </div>
+
+          <div class="nav-item dropdown">
+            <a href="services.html" target="_blank">Services</a>
+            <div class="dropdown-content">
+              <a href="ff.html" target="_blank"
+                ><i class="fas fa-ship"></i> Freight Forwarding</a
+              >
+              <a href="transport.html" target="_blank"
+                ><i class="fas fa-truck-moving"></i> Transportation</a
+              >
+              <a href="#consulting" target="_blank"
+                ><i class="fas fa-chart-line"></i> Consulting</a
+              >
+              <a href="#consulting" target="_blank"
+                ><i class="fas fa-chart-line"></i> Checking</a
+              >
+            </div>
+          </div>
+
+          <div class="nav-item dropdown">
+            <a href="sectors.html" target="_blank">Sectors</a>
+            <div class="dropdown-content">
+              <a href="sectors.html" target="_blank"><i class="fas fa-capsules"></i> Energy</a>
+              <a href="sectors.html" target="_blank"
+                ><i class="fas fa-capsules"></i> Pharmaceutical</a
+              >
+              <a href="sectors.html" target="_blank"
+                ><i class="fas fa-industry"></i> Manufacturing</a
+              >
+            </div>
+          </div>
+          <div class="nav-item">
+            <a href="solutions.html" target="_blank">Solutions
+            </a>
+          </div>
+
+          <div class="nav-item">
+            <a href="About.html" target="_blank">About Us</a>
+          </div>
+
+          <div class="nav-item">
+            <a href="Home.html#contact" target="_blank">Contact</a>
+          </div>
+
+          <div class="nav-item">
+            <a href="login.html" class="cta-button">Login</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <button class="mobile-nav-toggle">
+      <i class="fas fa-bars"></i>
+    </button>
+
+    <nav class="side-nav">
+      <div class="side-nav-links">
+        <a href="Home.html" class="side-nav-item">
+          <span>Home</span>
+          <i class="fas fa-home"></i>
+        </a>
+
+        <div class="side-nav-dropdown">
+          <div class="side-nav-item">
+            <span>Services</span>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="side-nav-dropdown-content">
+            <a href="ff.html">
+              <i class="fas fa-ship"></i>
+              <span>Freight Forwarding</span>
+            </a>
+            <a href="transport.html">
+              <i class="fas fa-truck-moving"></i>
+              <span>Transportation</span>
+            </a>
+            <a href="#consulting">
+              <i class="fas fa-chart-line"></i>
+              <span>Consulting</span>
+            </a>
+            <a href="#consulting">
+              <i class="fas fa-chart-line"></i>
+              <span>Services</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="side-nav-dropdown">
+          <div class="side-nav-item">
+            <span>Sectors</span>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="side-nav-dropdown-content">
+            <a href="sectors.html" target="_blank">
+              <i class="fas fa-capsules"></i>
+              <span>Energy</span>
+            </a>
+            <a href="sectors.html" target="_blank">
+              <i class="fas fa-capsules"></i>
+              <span>Pharmaceutical</span>
+            </a>
+            <a href="sectors.html" target="_blank">
+              <i class="fas fa-industry"></i>
+              <span>Manufacturing</span>
+            </a>
+          </div>
+        </div>
+
+        <a href="solutions.html" target="_blank" class="side-nav-item">
+          <span>Solutions</span>
+          <i class="fa-solid fa-lightbulb"></i>
+        </a>
+
+        <a href="About.html" class="side-nav-item">
+          <span>About Us</span>
+          <i class="fas fa-info-circle"></i>
+        </a>
+
+        <a href="Home.html#contact" class="side-nav-item">
+          <span>Contact</span>
+          <i class="fas fa-envelope"></i>
+        </a>
+
+        <a href="login.html" class="side-nav-item cta-button">
+          <span>Login</span>
+          <i class="fas fa-sign-in-alt"></i>
+        </a>
+      </div>
+    </nav>
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-content">
+        <h1>Your Trusted Logistics Partner</h1>
+        <p>
+          Delivering excellence through comprehensive transportation and
+          logistics solutions
+        </p>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services-section">
+      <h2 class="section-title">Our Customized Transport Solutions</h2>
+      <p class="section-subtitle">
+        Comprehensive logistics services tailored to your needs
+      </p>
+      <div class="services-grid">
+        <div class="service-card">
+          <i class="fas fa-truck"></i>
+          <h3>Drayage</h3>
+          <p>
+            Efficient port-to-door container transportation services ensuring
+            timely delivery of your cargo.
+          </p>
+        </div>
+        <div class="service-card">
+          <i class="fas fa-box"></i>
+          <h3>Last Mile</h3>
+          <p>
+            Reliable final-leg delivery services ensuring your products reach
+            their destination safely.
+          </p>
+        </div>
+        <div class="service-card">
+          <i class="fas fa-shipping-fast"></i>
+          <h3>Expedite</h3>
+          <p>
+            Fast and reliable delivery solutions for time-sensitive shipments
+            with priority handling.
+          </p>
+        </div>
+        <div class="service-card">
+          <i class="fas fa-train"></i>
+          <h3>Intermodal</h3>
+          <p>
+            Seamless integration of multiple transportation modes for optimal
+            efficiency.
+          </p>
+        </div>
+        <div class="service-card">
+          <i class="fas fa-truck-loading"></i>
+          <h3>Less Than Truckload</h3>
+          <p>
+            Cost-effective solutions for smaller shipments with flexible
+            scheduling options.
+          </p>
+        </div>
+        <div class="service-card">
+          <i class="fas fa-warehouse"></i>
+          <h3>Warehousing</h3>
+          <p>
+            Strategic storage solutions with advanced inventory management
+            systems.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <div class="sectors">
+      <div class="section-header">
+        <h2>Detailed Overview</h2>
+        <p>In-depth Industry Solutions</p>
+      </div>
+
+      <section class="sector-details">
+        <div id="energy" class="detail-section">
+          <div class="detail-grid">
+            <div class="detail-content">
+              <h2 class="detail-title">
+                Efficient Transportation Solutions for Seamless Supply Chain
+                Management
+              </h2>
+              <p class="detail-text">
+                Our transportation solutions are designed to optimise your
+                supply chain, ensuring efficient and timely delivery of goods
+              </p>
+              <ul class="detail-features">
+                <!-- <li>Oversized cargo handling for wind turbines and solar panels</li>
+                <li>Specialized transportation for oil & gas equipment</li>
+                <li>Time-critical shipments for power generation components</li>
+                <li>Project cargo management for energy infrastructure</li>
+                <li>Custom solutions for renewable energy logistics</li> -->
+                <p>
+                  From instant quotes, bookings, and cargo tracking, to complex
+                  operational optimization and prediction, Indian Shipping
+                  Agency’s proprietary software adapts to your quickly changing
+                  supply chain requirements. We also provide a Live Tracking
+                  system to our customers to control their shipments at their
+                  convenience
+                </p>
+              </ul>
+            </div>
+            <div class="detail-image" style="background-image: url(trans-1.jpg)"></div>
+          </div>
+        </div>
+
+        <div id="pharma" class="detail-section">
+          <div class="detail-grid">
+            <div class="detail-content">
+              <h2 class="detail-title">Our Customized transport solutions</h2>
+              <p class="detail-text">
+                Unlock the potential of tailored transport solutions that cater
+                to your unique logistical needs, ensuring efficient and reliable
+                delivery every time
+              </p>
+              <ul class="detail-features">
+                <li>Drayage</li>
+                <li>Last Mile</li>
+                <li>Expedite</li>
+                <li>Intermodal</li>
+                <li>Less Than truckload</li>
+              </ul>
+            </div>
+            <div
+              class="detail-image"
+              style="background-image: url(trans-2.jpg)"
+            ></div>
+          </div>
+        </div>
+
+        <div id="manufacturing" class="detail-section">
+          <div class="detail-grid">
+            <div class="detail-content">
+              <h2 class="detail-title">
+                Exceeding Expectations Unparalleled Expertise in Plant
+                Dismantling and Assembly
+              </h2>
+              <p class="detail-text">
+                From Maharashtra to Indonesia, Indian Shipping Agency Delivers
+                Seamless Solutions
+              </p>
+              <ul class="detail-features">
+                <p>
+                  When a leading supplier of tubes for the energy industry
+                  sought to dismantle their plant in Maharashtra, India and
+                  reassemble it in Indonesia, they turned to Indian Shipping
+                  Agency for our comprehensive expertise. Our dedicated team
+                  meticulously planned and executed the dismantling,
+                  transportation, and assembly process, ensuring the utmost
+                  precision and adherence to safety protocols. With our
+                  unwavering commitment, we delivered exceptional results, once
+                  again serving our clients to the best of our capabilities
+                </p>
+              </ul>
+            </div>
+            <div
+              class="detail-image"
+              style="background-image: url(trans-3.jpg)"
+            ></div>
+          </div>
+        </div>
+
+        <div id="tyre" class="detail-section">
+          <div class="detail-grid">
+            <div class="detail-content">
+              <h2 class="detail-title">
+                Indian Shipping Agnecy delivers Safe, Seamless, and Compliant
+                Gas Logistics Worldwide
+              </h2>
+              <p class="detail-text">
+                Indian Shipping Agency’s Role – Comprehensive PO Monitoring and
+                Seamless DOOR-to-DOOR Logistics. Value Addition – Expertise in
+                Dangerous Goods Regulations (DGR) ensuring safe movement of
+                highly hazardous gas cylinders from consumption to refilling
+                points across multiple countries
+              </p>
+              <ul class="detail-features">
+                Procedure for Successful Execution:
+                <li>
+                  Analysing current requirements and maintaining close
+                  collaboration with the Supply Chain Team
+                </li>
+                <li>
+                  Ensuring compatibility of various DG Classes through
+                  meticulous checks
+                </li>
+                <li>
+                  Ensuring prompt clearance and timely delivery at the
+                  destination
+                </li>
+                <li>
+                  Obtaining all necessary approvals for proper storage of gases
+                </li>
+                <li>
+                  Re-exporting empty cylinders back to the supplier for
+                  efficient refilling
+                </li>
+              </ul>
+            </div>
+            <div
+              class="detail-image"
+              style="background-image: url(trans-4.jpg) "
+            ></div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Additional Services -->
+    <!-- <section class="additional-services">
+      <h2 class="section-title">More Services</h2>
+      <div class="services-container">
+        <div class="services-scroll">
+          <div class="service-box">
+            <h3>Customs Clearance</h3>
+            <p>Expert handling of all customs documentation and procedures.</p>
+            <a href="#" class="read-more">Learn More</a>
+          </div>
+          <div class="service-box">
+            <h3>Equipment Hiring</h3>
+            <p>Hire our modern machinery for transitions and operations.</p>
+            <a href="#" class="read-more">Learn More</a>
+          </div>
+          <div class="service-box">
+            <h3>Project Cargo</h3>
+            <p>Specialized handling of oversized and complex cargo.</p>
+            <a href="#" class="read-more">Learn More</a>
+          </div>
+          <div class="service-box">
+            <h3>Air Freight</h3>
+            <p>Global air cargo services for time-sensitive deliveries.</p>
+            <a href="#" class="read-more">Learn More</a>
+          </div>
+          <div class="service-box">
+            <h3>Marines Logistics</h3>
+            <p>Reliable sea freight solutions for global shipping.</p>
+            <a href="#" class="read-more">Learn More</a>
+          </div>
+           Duplicate set for seamless loop
+          <div class="service-box">
+            <h3>Transportation</h3>
+            <p>Our services offer timely delivery across the globe.</p>
+            <a href="#" class="read-more">Learn More</a>
+          </div>
+          <div class="service-box">
+            <h3>Cross Trade Service</h3>
+            <p>Simplify global logistics with international shipments.</p>
+            <a href="#" class="read-more">Learn More</a>
+          </div>
+          <div class="service-box">
+            <h3>Domestic Services</h3>
+            <p>
+              Enjoy swift, reliable logistics with timely deliveries and
+              transport.
+            </p>
+            <a href="#" class="read-more">Learn More</a>
+          </div>
+          <div class="service-box">
+            <h3>Air Freight</h3>
+            <p>Global air cargo services for time-sensitive deliveries.</p>
+            <a href="#" class="read-more">Learn More</a>
+          </div>
+          <div class="service-box">
+            <h3>Warehouse</h3>
+            <p>
+              Secure storage near ports ensures efficient, cost-effective
+              warehousing.
+            </p>
+            <a href="#" class="read-more">Learn More</a>
+          </div>
+        </div>
+      </div>
+    </section> -->
+
+    <!--Footer Section-->
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-col">
+          <h3>About Us</h3>
+          <p>
+            Indian Shipping Agency is your trusted partner for global freight
+            forwarding and logistics solutions. With years of experience, we
+            deliver excellence in shipping services.
+          </p>
+        </div>
+        <div class="footer-col">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="#services">Our Services</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#quote">Get Quote</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Services</h3>
+          <ul>
+            <li><a href="sectors.html">Air Freight</a></li>
+            <li><a href="sectors.html">Ocean Freight</a></li>
+            <li><a href="services.html">Land Freight</a></li>
+            <li><a href="sectors.html">Custom Clearance</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Sectors</h3>
+          <ul>
+            <li><a href="sectors.html">Energy & Resources</a></li>
+            <li><a href="sectors.html">Pharmaceutical</a></li>
+            <li><a href="sectors.html">Manufacturing</a></li>
+            <li><a href="sectors.html">Chemical</a></li>
+            <li><a href="sectors.html">Automotive</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Connect With Us</h3>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 Indian Shipping Agency. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script src="script.js" defer></script>
+    <script>
+      // Clone scroll content for seamless loop
+      document.addEventListener("DOMContentLoaded", () => {
+        const scrollContainer = document.querySelector(".services-scroll");
+        scrollContainer.innerHTML += scrollContainer.innerHTML;
+      });
+
+      // Intersection Observer for animations
+      const observerOptions13 = {
+        threshold: 0.2,
+        rootMargin: "0px 0px -100px 0px",
+      };
+
+      const observer13 = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+          }
+        });
+      }, observerOptions13);
+
+      // Observe elements
+      document
+        .querySelectorAll(".section-title, .section-subtitle, .services-grid")
+        .forEach((element) => {
+          observer13.observe(element);
+        });
+
+      // Intersection Observer for fade-in animations
+      const observer1 = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+            }
+          });
+        },
+        {
+          threshold: 0.1,
+          rootMargin: "50px",
+        }
+      );
+
+      document.querySelectorAll(".detail-section").forEach((section) => {
+        observer1.observe(section);
+      });
+    </script>
+  </body>
+</html>

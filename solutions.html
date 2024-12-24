@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Indian Shipping Agency - Connecting the World</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="nav.css" class="" />
+    <style>
+      :root {
+        --primary-color: #1a5f7a;
+        --secondary-color: #159895;
+        --accent-color: #57c5b6;
+        --light-color: #ffffff;
+        --bg-color: #f8fafc;
+        --text-color: #2d3748;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Inter", sans-serif;
+        scroll-behavior: smooth;
+      }
+
+      body {
+        background: var(--bg-color);
+        color: var(--text-color);
+        line-height: 1.6;
+      }
+
+      /* Redesigned heroqq Section */
+      .heroq {
+        min-height: 80vh;
+        background: linear-gradient(
+          135deg,
+          var(--primary-color),
+          var(--secondary-color)
+        );
+        padding: 4rem 2rem;
+        display: flex;
+        align-items: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .heroq::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url("/api/placeholder/1920/1080") center/cover;
+        opacity: 0.1;
+        animation: pulse 4s infinite alternate;
+      }
+
+      .heroq-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        width: 100%;
+        color: var(--light-color);
+        z-index: 1;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 2rem;
+      }
+
+      .heroq-text {
+        flex: 1;
+      }
+
+      .heroq h1 {
+        font-size: clamp(2.5rem, 4vw, 4rem);
+        font-weight: 800;
+        margin-bottom: 1.5rem;
+        line-height: 1.2;
+      }
+
+      .heroq p {
+        font-size: clamp(1rem, 1.5vw, 1.2rem);
+        opacity: 0.9;
+        max-width: 600px;
+      }
+
+      .solutionqs-section {
+        padding: 6rem 0;
+        background: var(--bg-color);
+      }
+
+      .solutionq-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+      }
+
+      .solutionq-item {
+        display: flex;
+        align-items: center;
+        gap: 4rem;
+        margin-bottom: 8rem;
+        min-height: 400px;
+        padding: 2rem;
+        border-radius: 20px;
+        position: relative;
+        background: rgba(255, 255, 255, 0.6);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+        border: 1px solid #159895;;
+      }
+
+      /* New hover effects for solutionq items */
+      .solutionq-item:hover {
+        transform: translateY(-10px);
+        background: rgba(255, 255, 255, 0.8);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      }
+
+      .solutionq-item:last-child {
+        margin-bottom: 0;
+      }
+
+      .solutionq-item:nth-child(even) {
+        flex-direction: row-reverse;
+      }
+
+      .solutionq-image {
+        flex: 1;
+        position: relative;
+        min-height: 400px;
+        border-radius: 20px;
+        overflow: hidden;
+        transition: all 0.5s ease;
+      }
+
+      .solutionq-image::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(
+          135deg,
+          var(--primary-color),
+          var(--secondary-color)
+        );
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      .solutionq-item:hover .solutionq-image::after {
+        opacity: 0.2;
+      }
+
+      .solutionq-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.6s ease;
+      }
+
+      .solutionq-item:hover .solutionq-image img {
+        transform: scale(1.1);
+      }
+
+      .solutionq-content {
+        flex: 1;
+        padding: 2rem;
+        transition: transform 0.3s ease;
+      }
+
+      .solutionq-item:hover .solutionq-content {
+        transform: translateX(10px);
+      }
+
+      .solutionq-icon {
+        font-size: 2.5rem;
+        background: linear-gradient(
+          135deg,
+          var(--primary-color),
+          var(--secondary-color)
+        );
+        --webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        margin-bottom: 1.5rem;
+        transition: transform 0.3s ease;
+      }
+
+      .solutionq-item:hover .solutionq-icon {
+        transform: scale(1.1);
+      }
+
+      .solutionq-title {
+        font-size: 2.5rem;
+        color: var(--primary-color);
+        margin-bottom: 1.5rem;
+        line-height: 1.2;
+        transition: color 0.3s ease;
+      }
+
+      .solutionq-item:hover .solutionq-title {
+        color: var(--secondary-color);
+      }
+
+      .solutionq-description {
+        font-size: 1.1rem;
+        color: var(--text-color);
+        margin-bottom: 2rem;
+        opacity: 0.9;
+        transition: opacity 0.3s ease;
+      }
+
+      .solutionq-item:hover .solutionq-description {
+        opacity: 1;
+      }
+
+      .solutionq-features {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+        margin-bottom: 2rem;
+      }
+
+      .feature-item {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        font-size: 1.1rem;
+        transition: transform 0.3s ease;
+      }
+
+      .solutionq-item:hover .feature-item {
+        transform: translateX(5px);
+      }
+
+      .feature-item i {
+        color: var(--secondary-color);
+        transition: transform 0.3s ease;
+      }
+
+      .solutionq-item:hover .feature-item i {
+        transform: scale(1.2);
+      }
+
+      @media (max-width: 968px) {
+        .heroq-content {
+          flex-direction: column;
+          text-align: center;
+        }
+
+        .solutionq-item {
+          flex-direction: column !important;
+          gap: 2rem;
+          margin-bottom: 4rem;
+        }
+
+        .solutionq-image {
+          width: 100%;
+          min-height: 300px;
+        }
+
+        .solutionq-features {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* Mobile-specific enhancements */
+      @media (max-width: 968px) {
+        .solutionq-item {
+          flex-direction: column !important;
+          gap: 2rem;
+          margin-bottom: 4rem;
+          transform: none !important; /* Disable hover transform on mobile */
+          background: rgba(
+            255,
+            255,
+            255,
+            0.95
+          ); /* Slightly more opaque for mobile */
+        }
+
+        .solutionq-image {
+          width: 100%;
+          min-height: 300px;
+        }
+
+        .solutionq-image::after {
+          opacity: 0.2; /* Always show overlay on mobile */
+        }
+
+        .solutionq-content {
+          transform: none !important; /* Disable content hover transform */
+        }
+
+        .solutionq-icon {
+          transform: scale(1.1); /* Always show enlarged icon on mobile */
+        }
+
+        .feature-item {
+          transform: translateX(
+            5px
+          ); /* Always show shifted features on mobile */
+        }
+
+        /* Disable hover animations on mobile */
+        .solutionq-item:hover {
+          transform: none;
+        }
+
+        .solutionq-item:hover .solutionq-image img {
+          transform: none;
+        }
+
+        .solutionq-item:hover .solutionq-content {
+          transform: none;
+        }
+      }
+
+      /* Desktop hover effects - only apply when hover is available */
+      @media (hover: hover) {
+        .solutionq-item {
+          background: transparent;
+          box-shadow: none;
+        }
+
+        .solutionq-item:hover {
+          transform: translateY(-10px);
+          background: rgba(255, 255, 255, 0.8);
+          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Keep other hover effects for desktop */
+        .solutionq-item:hover .solutionq-image::after {
+          opacity: 0.2;
+        }
+
+        .solutionq-item:hover .solutionq-image img {
+          transform: scale(1.1);
+        }
+
+        .solutionq-item:hover .solutionq-content {
+          transform: translateX(10px);
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="nav-overlay"></div>
+
+    <nav class="navbar" id="smart-navbar">
+      <div class="container navbar__content">
+        <a href="Home.html" target="_blank" class="logo">
+          <img src="logo.png" alt="Indian Agency Logo" />
+          <!-- <span>Indian Agency</span> -->
+        </a>
+
+        <div class="nav-links">
+          <div class="nav-item">
+            <a href="Home.html" target="_blank">Home</a>
+          </div>
+
+          <div class="nav-item dropdown">
+            <a href="services.html" target="_blank">Services</a>
+            <div class="dropdown-content">
+              <a href="ff.html" target="_blank"
+                ><i class="fas fa-ship"></i> Freight Forwarding</a
+              >
+              <a href="transport.html" target="_blank"
+                ><i class="fas fa-truck-moving"></i> Transportation</a
+              >
+              <a href="#consulting"
+                ><i class="fas fa-chart-line"></i> Consulting</a
+              >
+              <a href="#consulting"
+                ><i class="fas fa-chart-line"></i> Checking</a
+              >
+            </div>
+          </div>
+
+
+          <div class="nav-item dropdown">
+            <a href="sectors.html" target="_blank">Sectors</a>
+            <div class="dropdown-content">
+              <a href="sectors.html" target="_blank"><i class="fas fa-oil-well"></i> Energy</a>
+              <a href="sectors.html" target="_blank"
+                ><i class="fas fa-capsules"></i> Pharmaceutical</a
+              >
+              <a href="sectors.html" target="_blank"
+                ><i class="fas fa-industry"></i> Manufacturing</a
+              >
+            </div>
+          </div>
+
+          <a class="nav-item">
+            <a href="solutions.html" target="_blank">Solutions</a>
+          </a>
+
+          <div class="nav-item">
+            <a href="About.html" target="_blank">About Us</a>
+          </div>
+
+          <div class="nav-item">
+            <a href="Home.html#contact">Contact</a>
+          </div>
+
+          <div class="nav-item">
+            <a href="login.html" class="cta-button">Login</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <button class="mobile-nav-toggle">
+      <i class="fas fa-bars"></i>
+    </button>
+
+    <nav class="side-nav">
+      <div class="side-nav-links">
+        <a href="Home.html" target="_blank" class="side-nav-item">
+          <span>Home</span>
+          <i class="fas fa-home"></i>
+        </a>
+
+        <div class="side-nav-dropdown">
+          <div class="side-nav-item">
+            <span>Services</span>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="side-nav-dropdown-content">
+            <a href="ff.html" target="_blank">
+              <i class="fas fa-ship"></i>
+              <span>Freight Forwarding</span>
+            </a>
+            <a href="transport.html" target="_blank">
+              <i class="fas fa-truck-moving"></i>
+              <span>Transportation</span>
+            </a>
+            <a href="#consulting">
+              <i class="fas fa-chart-line"></i>
+              <span>Consulting</span>
+            </a>
+            <a href="#consulting">
+              <i class="fas fa-chart-line"></i>
+              <span>Services</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="side-nav-dropdown">
+          <div class="side-nav-item">
+            <span>Sectors</span>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="side-nav-dropdown-content">
+            <a href="#energy" target="_blank">
+              <i class="fas fa-oil-well"></i>
+              <span>Energy</span>
+            </a>
+            <a href="#pharma" target="_blank">
+              <i class="fas fa-capsules"></i>
+              <span>Pharmaceutical</span>
+            </a>
+            <a href="#manufacturing" target="_blank">
+              <i class="fas fa-industry"></i>
+              <span>Manufacturing</span>
+            </a>
+          </div>
+        </div>
+        
+        <a href="solutions.html" target="_blank" class="side-nav-item">
+          <span>Solutions</span>
+          <i class="fa-solid fa-lightbulb"></i>
+        </a>
+
+        <a href="About.html" target="_blank" class="side-nav-item">
+          <span>About Us</span>
+          <i class="fas fa-info-circle"></i>
+        </a>
+
+        <a href="Home.html#contact" target="_blank" class="side-nav-item">
+          <span>Contact</span>
+          <i class="fas fa-envelope"></i>
+        </a>
+
+        <a href="login.html" class="side-nav-item cta-button">
+          <span>Login</span>
+          <i class="fas fa-sign-in-alt"></i>
+        </a>
+      </div>
+    </nav>
+
+    <section class="heroq">
+      <div class="heroq-content" data-aos="fade-up">
+        <div class="heroq-text">
+          <h1>Innovative Logistics solutions</h1>
+          <p>
+            Transforming global logistics with cutting-edge solutions and
+            unmatched expertise in shipping and supply chain management.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="solutionqs-section">
+      <div class="solutionq-container">
+        <!-- Integrated Project Management -->
+        <div class="solutionq-item" data-aos="fade-up">
+          <div class="solutionq-image">
+            <img src="Solution-1.jpg" alt="Integrated Project Management" />
+          </div>
+          <div class="solutionq-content">
+            <i class="fas fa-boxes solutionq-icon"></i>
+            <h2 class="solutionq-title">Integrated Project Management</h2>
+            <p class="solutionq-description">
+              Our dedicated team offers customised and innovative solutions to
+              handle cargo of any size, volume, or weight, delivering it to your
+              desired location worldwide.
+            </p>
+            <div class="solutionq-features">
+              <div class="feature-item">
+                <i class="fas fa-check"></i>
+                <span>Global Reach</span>
+              </div>
+              <div class="feature-item">
+                <i class="fas fa-check"></i>
+                <span>24/7 Support</span>
+              </div>
+              <div class="feature-item">
+                <i class="fas fa-check"></i>
+                <span>Real-time Tracking</span>
+              </div>
+              <div class="feature-item">
+                <i class="fas fa-check"></i>
+                <span>Custom solutions</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Door to Door solutionq -->
+        <div class="solutionq-item" data-aos="fade-up">
+          <div class="solutionq-image">
+            <img src="Solution-2.jpg" alt="Door to Door solutionq" />
+          </div>
+          <div class="solutionq-content">
+            <i class="fas fa-truck-loading solutionq-icon"></i>
+            <h2 class="solutionq-title">Door to Door solution</h2>
+            <p class="solutionq-description">
+              Our comprehensive in-house operations cover various transportation
+              verticals, ensuring seamless delivery of your goods to your
+              doorstep.
+            </p>
+            <div class="solutionq-features">
+              <div class="feature-item">
+                <i class="fas fa-check"></i>
+                <span>End-to-end Delivery</span>
+              </div>
+              <div class="feature-item">
+                <i class="fas fa-check"></i>
+                <span>Multiple Transport Options</span>
+              </div>
+              <div class="feature-item">
+                <i class="fas fa-check"></i>
+                <span>Customs Clearance</span>
+              </div>
+              <div class="feature-item">
+                <i class="fas fa-check"></i>
+                <span>Last Mile Delivery</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4PL solutionqs -->
+        <div class="solutionq-item" data-aos="fade-up">
+          <div class="solutionq-image">
+            <img src="Soltuion-3.jpg" alt="4PL solutionqs" />
+          </div>
+          <div class="solutionq-content">
+            <i class="fas fa-globe solutionq-icon"></i>
+            <h2 class="solutionq-title">4PL solutions</h2>
+            <p class="solutionq-description">
+              Our supply chain activities involve integrating, curating,
+              evaluating, and managing resources, procedures, and technology for
+              efficient operations.
+            </p>
+            <div class="solutionq-features">
+              <div class="feature-item">
+                <i class="fas fa-check"></i>
+                <span>Supply Chain Optimization</span>
+              </div>
+              <div class="feature-item">
+                <i class="fas fa-check"></i>
+                <span>Resource Management</span>
+              </div>
+              <div class="feature-item">
+                <i class="fas fa-check"></i>
+                <span>Technology Integration</span>
+              </div>
+              <div class="feature-item">
+                <i class="fas fa-check"></i>
+                <span>Process Automation</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Value Added Services -->
+        <div class="solutionq-item" data-aos="fade-up">
+          <div class="solutionq-image">
+            <img src="Solution-4.jpg" alt="Value Added Services" />
+          </div>
+          <div class="solutionq-content">
+            <i class="fas fa-plus-circle solutionq-icon"></i>
+            <h2 class="solutionq-title">Value Added Services</h2>
+            <p class="solutionq-description">
+              Our industry-specific experts provide insightful assistance with
+              services like FSSAI, SVB, Duty Drawback, AEO, and more.
+            </p>
+            <div class="solutionq-features">
+              <div class="feature-item">
+                <i class="fas fa-check"></i>
+                <span>FSSAI Assistance</span>
+              </div>
+              <div class="feature-item">
+                <i class="fas fa-check"></i>
+                <span>SVB Support</span>
+              </div>
+              <div class="feature-item">
+                <i class="fas fa-check"></i>
+                <span>Duty Drawback</span>
+              </div>
+              <div class="feature-item">
+                <i class="fas fa-check"></i>
+                <span>AEO Certification</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- DG Transport solutionqs -->
+        <div class="solutionq-item" data-aos="fade-up">
+          <div class="solutionq-image">
+            <img src="Solution-5.jpg" alt="DG Transport solutionqs" />
+          </div>
+          <div class="solutionq-content">
+            <i class="fas fa-exclamation-triangle solutionq-icon"></i>
+            <h2 class="solutionq-title">DG Transport solutions</h2>
+            <p class="solutionq-description">
+              Our dedicated team ensures the safe and smooth movement of
+              dangerous cargo, prioritizing quality control and regulatory
+              compliance.
+            </p>
+            <div class="solutionq-features">
+              <div class="feature-item">
+                <i class="fas fa-check"></i>
+                <span>Safety Protocols</span>
+              </div>
+              <div class="feature-item">
+                <i class="fas fa-check"></i>
+                <span>Compliance Management</span>
+              </div>
+              <div class="feature-item">
+                <i class="fas fa-check"></i>
+                <span>Expert Handling</span>
+              </div>
+              <div class="feature-item">
+                <i class="fas fa-check"></i>
+                <span>Risk Assessment</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Technology for SCM -->
+        <div class="solutionq-item" data-aos="fade-up">
+          <div class="solutionq-image">
+            <img src="Solution-6.jpg" alt="Technology for SCM" />
+          </div>
+          <div class="solutionq-content">
+            <i class="fas fa-microchip solutionq-icon"></i>
+            <h2 class="solutionq-title">Technology for SCM</h2>
+            <p class="solutionq-description">
+              Our workflow tracker provides real-time visibility of your
+              shipment, while our cutting-edge technology automates processes
+              for enhanced efficiency.
+            </p>
+            <div class="solutionq-features">
+              <div class="feature-item">
+                <i class="fas fa-check"></i>
+                <span>Real-time Tracking</span>
+              </div>
+              <div class="feature-item">
+                <i class="fas fa-check"></i>
+                <span>Process Automation</span>
+              </div>
+              <div class="feature-item">
+                <i class="fas fa-check"></i>
+                <span>Data Analytics</span>
+              </div>
+              <div class="feature-item">
+                <i class="fas fa-check"></i>
+                <span>Cloud Integration</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!--Footer Section-->
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-col">
+          <h3>About Us</h3>
+          <p>
+            Indian Shipping Agency is your trusted partner for global freight
+            forwarding and logistics solutions. With years of experience, we
+            deliver excellence in shipping services.
+          </p>
+        </div>
+        <div class="footer-col">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="#services">Our Services</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#quote">Get Quote</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Services</h3>
+          <ul>
+            <li><a href="#">Air Freight</a></li>
+            <li><a href="#">Ocean Freight</a></li>
+            <li><a href="#">Land Freight</a></li>
+            <li><a href="#">Custom Clearance</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Sectors</h3>
+          <ul>
+            <li><a href="#">Energy & Resources</a></li>
+            <li><a href="#">Pharmaceutical</a></li>
+            <li><a href="#">Manufacturing</a></li>
+            <li><a href="#">Chemical</a></li>
+            <li><a href="#">Automotive</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Connect With Us</h3>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 Indian Shipping Agency. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script src="script.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+      AOS.init({
+        duration: 1000,
+        once: true,
+        offset: 100,
+      });
+
+      // Enhanced hover effects
+      document.querySelectorAll(".solutionq-item").forEach((item) => {
+        item.addEventListener("mouseenter", () => {
+          item.querySelector(".solutionq-image img").style.transform =
+            "scale(1.1)";
+          item.querySelector(".solutionq-icon").style.transform = "scale(1.1)";
+        });
+
+        item.addEventListener("mouseleave", () => {
+          item.querySelector(".solutionq-image img").style.transform =
+            "scale(1)";
+          item.querySelector(".solutionq-icon").style.transform = "scale(1)";
+        });
+      });
+
+      // Smooth scroll for the scroll indicator
+      document
+        .querySelector(".scroll-indicator")
+        .addEventListener("click", () => {
+          document.querySelector(".solutionqs-section").scrollIntoView({
+            behavior: "smooth",
+          });
+        });
+    </script>
+  </body>
+</html>

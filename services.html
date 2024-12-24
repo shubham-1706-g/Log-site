@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Our Services</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="nav.css" class="" />
+    <style>
+      :root {
+        --primary-color: #1a5f7a;
+        --secondary-color: #159895;
+        --accent-color: #57c5b6;
+        --light-color: #ffffff;
+        --bg-color: #f8fafc;
+        --text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, "Helvetica Neue", sans-serif;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      body {
+        background: var(--bg-color);
+        line-height: 1.6;
+      }
+
+      .hero {
+        background: linear-gradient(
+          135deg,
+          var(--primary-color),
+          var(--secondary-color)
+        );
+        min-height: 80vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 2rem;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 1;
+      }
+
+      .hero h1 {
+        color: var(--light-color);
+        font-size: clamp(2.5rem, 5vw, 4rem);
+        margin-bottom: 1rem;
+        font-weight: 800;
+        letter-spacing: -0.02em;
+        text-shadow: var(--text-shadow);
+        opacity: 0;
+        transform: translateY(30px);
+        animation: fadeInUp 0.8s ease forwards;
+      }
+
+      .hero p {
+        color: rgba(255, 255, 255, 0.9);
+        font-size: clamp(1.1rem, 2vw, 1.3rem);
+        max-width: 800px;
+        margin: 0 auto;
+        font-weight: 300;
+        letter-spacing: 0.5px;
+        text-shadow: var(--text-shadow);
+        opacity: 0;
+        transform: translateY(30px);
+        animation: fadeInUp 0.8s ease 0.2s forwards;
+      }
+
+      .service-boxes {
+        max-width: 1200px;
+        margin: 100px auto 100px;
+        padding: 0 2rem;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+        position: relative;
+        z-index: 2;
+      }
+
+      .service-box {
+        background: var(--light-color);
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        position: relative;
+      }
+
+      .service-box:hover {
+        transform: translateY(-15px) scale(1.02);
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+      }
+
+      .service-image {
+        height: 200px;
+        background-size: cover;
+        background-position: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .service-content {
+        padding: 2rem;
+        position: relative;
+      }
+
+      .service-icon {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        transition: transform 0.3s ease;
+      }
+
+      .service-box:hover .service-icon {
+        transform: scale(1.1) rotate(5deg);
+      }
+
+      .service-title {
+        color: var(--primary-color);
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+        font-weight: 700;
+        letter-spacing: -0.01em;
+        position: relative;
+        padding-bottom: 0.5rem;
+        transition: color 0.3s ease;
+      }
+
+      .service-box:hover .service-title {
+        color: var(--accent-color);
+      }
+
+      .service-description {
+        color: #555;
+        line-height: 1.8;
+        margin-bottom: 1.5rem;
+        font-size: 1.05rem;
+        font-weight: 400;
+        transition: color 0.3s ease;
+      }
+
+      .service-box:hover .service-description {
+        color: #333;
+      }
+
+      .service-link {
+        display: inline-flex;
+        align-items: center;
+        padding: 0.8rem 1.5rem;
+        background: var(--accent-color);
+        color: white;
+        text-decoration: none;
+        border-radius: 25px;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .service-link::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: var(--primary-color);
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+      }
+
+      .service-link:hover::before {
+        transform: translateX(0);
+      }
+
+      .service-link span {
+        position: relative;
+        z-index: 1;
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @media (max-width: 1024px) {
+        .service-boxes {
+          grid-template-columns: repeat(2, 1fr);
+          margin-top: -50px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .service-boxes {
+          grid-template-columns: 1fr;
+          margin-top: 30px;
+          margin: 30px 20px 30px;
+        }
+
+        .service-box:hover {
+          transform: translateY(-10px) scale(1.01);
+        }
+      }
+
+      @media (max-width: 480px) {
+        .service-boxes {
+          padding: 0 1rem;
+        }
+
+        .service-content {
+          padding: 1.5rem;
+        }
+
+        .hero {
+          min-height: 40vh;
+          padding: 1rem;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="nav-overlay"></div>
+
+    <nav class="navbar" id="smart-navbar">
+        <div class="container navbar__content">
+            <a href="Home.html" target="_blank" class="logo">
+                <img src="logo.png" alt="Indian Agency Logo">
+            </a>
+
+            <div class="nav-links">
+                <div class="nav-item">
+                    <a href="Home.html" target="_blank">Home</a>
+                </div>
+
+                <div class="nav-item dropdown">
+                    <a href="services.html" target="_blank">Services</a>
+                    <div class="dropdown-content">
+                        <a href="ff.html" target="_blank"><i class="fas fa-ship"></i> Freight Forwarding</a>
+                        <a href="transport.html" target="_blank"><i class="fas fa-truck-moving"></i> Transportation</a>
+                        <a href="#consulting"><i class="fas fa-chart-line"></i> Consulting</a>
+                        <a href="#consulting"><i class="fas fa-chart-line"></i> Checking</a>
+                    </div>
+                </div>
+
+                <div class="nav-item dropdown">
+                    <a href="sectors.html" target="_blank">Sectors</a>
+                    <div class="dropdown-content">
+                        <a href="sectors.html" target="_blank"><i class="fas fa-oil-well"></i> Energy</a>
+                        <a href="sectors.html" target="_blank"><i class="fas fa-capsules"></i> Pharmaceutical</a>
+                        <a href="sectors.html" target="_blank"><i class="fas fa-industry"></i> Manufacturing</a>
+                    </div>
+                </div>
+
+                <div class="nav-item">
+                  <a href="solutions.html" target="_blank">Solutions</a>
+                </div>
+
+                <div class="nav-item">
+                    <a href="About.html" target="_blank">About Us</a>
+                </div>
+
+                <div class="nav-item">
+                    <a href="Home.html#contact" target="_blank">Contact</a>
+                </div>
+                <div class="nav-item">
+                    <a href="login.html" class="cta-button">Login</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <button class="mobile-nav-toggle">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <nav class="side-nav">
+        <div class="side-nav-links">
+            <a href="Home.html" target="_blank" class="side-nav-item">
+                <span>Home</span>
+                <i class="fas fa-home"></i>
+            </a>
+
+            <div class="side-nav-dropdown">
+                <div class="side-nav-item">
+                    <span>Services</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="side-nav-dropdown-content">
+                    <a href="ff.html" target="_blank">
+                        <i class="fas fa-ship"></i>
+                        <span>Freight Forwarding</span>
+                    </a>
+                    <a href="transport.html" target="_blank">
+                        <i class="fas fa-truck-moving"></i>
+                        <span>Transportation</span>
+                    </a>
+                    <a href="#consulting">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Consulting</span>
+                    </a>
+                    <a href="#consulting">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Services</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="side-nav-dropdown">
+                <div class="side-nav-item">
+                    <span>Sectors</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="side-nav-dropdown-content">
+                    <a href="sectors.html#energy" target="_blank">
+                        <i class="fas fa-oil-well"></i>
+                        <span>Energy</span>
+                    </a>
+                    <a href="sectors.html#pharma" target="_blank">
+                        <i class="fas fa-capsules"></i>
+                        <span>Pharmaceutical</span>
+                    </a>
+                    <a href="sectors.html#manufacturing" target="_blank">
+                        <i class="fas fa-industry"></i>
+                        <span>Manufacturing</span>
+                    </a>
+                </div>
+            </div>
+
+            <a href="solutions.html" target="_blank" class="side-nav-item">
+              <span>Solutions</span>
+              <i class="fa-solid fa-lightbulb"></i>
+            </a>
+
+            <a href="About.html" target="_blank" class="side-nav-item">
+                <span>About Us</span>
+                <i class="fas fa-info-circle"></i>
+            </a>
+
+            <a href="Home.html#contact" target="_blank" class="side-nav-item">
+                <span>Contact</span>
+                <i class="fas fa-envelope"></i>
+            </a>
+
+            <a href="login.html" class="side-nav-item cta-button">
+                <span>Login</span>
+                <i class="fas fa-sign-in-alt"></i>
+            </a>
+        </div>
+    </nav>
+
+    <section class="hero">
+      <div class="hero-content">
+        <h1>A Look At Our Services</h1>
+        <p>
+          Our logistics brand offers a comprehensive range of services to meet
+          diverse transportation and supply chain needs. With expertise in
+          freight forwarding, warehousing, and distribution, we ensure seamless
+          movement of goods across various modes of transport.
+        </p>
+      </div>
+    </section>
+
+    <section class="service-boxes">
+      <div class="service-box">
+        <div class="service-image" style="background-image: url(service-ff.jpg)"></div>
+        <div class="service-content">
+          <h3 class="service-title">Freight Forwarding</h3>
+          <p class="service-description">
+            Our freight forwarding services provide the best solutions with
+            competitive rates, ensuring your cargo reaches its destination
+            safely and on time.
+          </p>
+          <a href="#freight" class="service-link"><span>Read More</span></a>
+        </div>
+      </div>
+
+      <div class="service-box">
+        <div class="service-image" style="background-image: url(service-custom.jpeg)"></div>
+        <div class="service-content">
+          <h3 class="service-title">Custom Clearance</h3>
+          <p class="service-description">
+            Our team of experts handles all aspects of custom clearance,
+            including filing special permissions for hazardous and prohibited
+            goods.
+          </p>
+          <a href="#customs" class="service-link"><span>Read More</span></a>
+        </div>
+      </div>
+
+      <div class="service-box">
+        <div
+          class="service-image"
+          style="background-image: url(service-project.png)"
+        ></div>
+        <div class="service-content">
+          <h3 class="service-title">Project Management</h3>
+          <p class="service-description">
+            We understand that every project has unique requirements, which is
+            why we offer customised, cost-effective solutions to meet your
+            specific needs.
+          </p>
+          <a href="#project" class="service-link"><span>Read More</span></a>
+        </div>
+      </div>
+
+      <div class="service-box">
+        <div
+          class="service-image"
+          style="background-image: url(service-trans.jpg)"
+        ></div>
+        <div class="service-content">
+          <h3 class="service-title">Transportation</h3>
+          <p class="service-description">
+            Our services offer timely delivery across the globe, utilising our
+            extensive network of carriers and agents. We ensure your cargo is
+            transported safely.
+          </p>
+          <a href="#transport" class="service-link"><span>Read More</span></a>
+        </div>
+      </div>
+
+    </section>
+
+    <!--Footer Section-->
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-col">
+          <h3>About Us</h3>
+          <p>
+            Indian Shipping Agency is your trusted partner for global freight
+            forwarding and logistics solutions. With years of experience, we
+            deliver excellence in shipping services.
+          </p>
+        </div>
+        <div class="footer-col">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="services.html">Our Services</a></li>
+            <li><a href="aboutus.html">About Us</a></li>
+            <li><a href="Home.html#contact">Contact</a></li>
+            <li><a href="#">Get Quote</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Services</h3>
+          <ul>
+            <li><a href="ff.html">Air Freight</a></li>
+            <li><a href="ff.html">Ocean Freight</a></li>
+            <li><a href="ff.html">Land Freight</a></li>
+            <li><a href="ff.html">Custom Clearance</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Sectors</h3>
+          <ul>
+            <li><a href="sectors.html">Energy & Resources</a></li>
+            <li><a href="sectors.html">Pharmaceutical</a></li>
+            <li><a href="sectors.html">Manufacturing</a></li>
+            <li><a href="sectors.html">Chemical</a></li>
+            <li><a href="sectors.html">Automotive</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Connect With Us</h3>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 Indian Shipping Agency. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script src="script.js" defer></script>
+    <script>
+      // Intersection Observer for fade-in animations
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+            }
+          });
+        },
+        {
+          threshold: 0.1,
+          rootMargin: "50px",
+        }
+      );
+
+      document.querySelectorAll(".service-box").forEach((box) => {
+        observer.observe(box);
+      });
+    </script>
+  </body>
+</html>

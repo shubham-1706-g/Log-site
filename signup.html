@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - Logistics Portal</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #1c403b, #55c4b5);
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .logo {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .logo h1 {
+            color: #1c403b;
+            font-size: 24px;
+            margin-top: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 6px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus {
+            border-color: #1c403b;
+            outline: none;
+        }
+
+        .form-group .error {
+            color: #dc3545;
+            font-size: 14px;
+            margin-top: 5px;
+            display: none;
+        }
+
+        .signup-btn {
+            width: 100%;
+            padding: 14px;
+            background: #1c403b;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+            margin-top: 10px;
+        }
+
+        .signup-btn:hover {
+            background: #003380;
+        }
+
+        .login-link {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .login-link a {
+            color: #1c403b;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .login-link a:hover {
+            text-decoration: underline;
+        }
+
+        .terms {
+            font-size: 12px;
+            color: #666;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .signup-btn:disabled {
+            background: #cccccc;
+            cursor: not-allowed;
+            opacity: 0.7;
+        }
+
+        .form-group input.error-input {
+            border-color: #dc3545;
+        }
+
+        .error.visible {
+            display: block;
+        }
+
+        .password-requirements {
+            font-size: 12px;
+            color: #666;
+            margin-top: 5px;
+        }
+
+        .requirement {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            margin: 2px 0;
+        }
+
+        .requirement.met {
+            color: #28a745;
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <svg width="50" height="50" viewBox="0 0 50 50">
+                <rect x="10" y="10" width="30" height="30" fill="#1c403b" rx="5"/>
+                <path d="M20 25 L30 25 M25 20 L25 30" stroke="white" stroke-width="3"/>
+            </svg>
+            <h1>Create Account</h1>
+        </div>
+        
+        <form id="signupForm" action="form_tracker.php" method="post">
+            <div class="form-group">
+                <label for="fullName">Full Name</label>
+                <input type="text" id="fullName" name="fullName" required>
+                <div class="error" id="nameError">Please enter your full name (minimum 2 characters)</div>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+                <div class="error" id="emailError">Please enter a valid email address</div>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+                <div class="error" id="passwordError">Password does not meet requirements</div>
+                <div class="password-requirements">
+                    <div class="requirement" id="lengthReq">• Minimum 8 characters</div>
+                    <div class="requirement" id="letterReq">• At least one letter</div>
+                    <div class="requirement" id="numberReq">• At least one number</div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="confirmPassword">Confirm Password</label>
+                <input type="password" id="confirmPassword" name="confirmPassword" required>
+                <div class="error" id="confirmPasswordError">Passwords do not match</div>
+            </div>
+
+            <button type="submit" class="signup-btn" id="signupButton" disabled>Create Account</button>
+        </form>
+
+        <div class="login-link">
+            Already have an account? <a href="login.html">Log in</a>
+        </div>
+
+        <div class="terms">
+            By creating an account, you agree to our Terms of Service and Privacy Policy
+        </div>
+    </div>
+
+    <script>
+        const form = document.getElementById('signupForm');
+        const fullName = document.getElementById('fullName');
+        const email = document.getElementById('email');
+        const password = document.getElementById('password');
+        const confirmPassword = document.getElementById('confirmPassword');
+        const signupButton = document.getElementById('signupButton');
+
+        // Requirements elements
+        const lengthReq = document.getElementById('lengthReq');
+        const letterReq = document.getElementById('letterReq');
+        const numberReq = document.getElementById('numberReq');
+
+        function validateEmail(email) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+
+        function validatePassword(password) {
+            const hasLength = password.length >= 8;
+            const hasLetter = /[A-Za-z]/.test(password);
+            const hasNumber = /\d/.test(password);
+
+            lengthReq.classList.toggle('met', hasLength);
+            letterReq.classList.toggle('met', hasLetter);
+            numberReq.classList.toggle('met', hasNumber);
+
+            return hasLength && hasLetter && hasNumber;
+        }
+
+        function checkFormValidity() {
+            const isNameValid = fullName.value.trim().length >= 2;
+            const isEmailValid = validateEmail(email.value);
+            const isPasswordValid = validatePassword(password.value);
+            const doPasswordsMatch = password.value === confirmPassword.value && password.value !== '';
+
+            fullName.classList.toggle('error-input', !isNameValid && fullName.value !== '');
+            email.classList.toggle('error-input', !isEmailValid && email.value !== '');
+            password.classList.toggle('error-input', !isPasswordValid && password.value !== '');
+            confirmPassword.classList.toggle('error-input', !doPasswordsMatch && confirmPassword.value !== '');
+
+            document.getElementById('nameError').classList.toggle('visible', !isNameValid && fullName.value !== '');
+            document.getElementById('emailError').classList.toggle('visible', !isEmailValid && email.value !== '');
+            document.getElementById('passwordError').classList.toggle('visible', !isPasswordValid && password.value !== '');
+            document.getElementById('confirmPasswordError').classList.toggle('visible', !doPasswordsMatch && confirmPassword.value !== '');
+
+            signupButton.disabled = !(isNameValid && isEmailValid && isPasswordValid && doPasswordsMatch);
+        }
+
+        // Real-time validation
+        fullName.addEventListener('input', checkFormValidity);
+        email.addEventListener('input', checkFormValidity);
+        password.addEventListener('input', checkFormValidity);
+        confirmPassword.addEventListener('input', checkFormValidity);
+
+        function validateForm(event) {
+            event.preventDefault();
+            
+            if (fullName.value.trim().length < 2) {
+                alert('Please enter your full name (minimum 2 characters)');
+                fullName.focus();
+                return false;
+            }
+            
+            if (!validateEmail(email.value)) {
+                alert('Please enter a valid email address');
+                email.focus();
+                return false;
+            }
+            
+            if (!validatePassword(password.value)) {
+                alert('Password must meet all requirements');
+                password.focus();
+                return false;
+            }
+            
+            if (password.value !== confirmPassword.value) {
+                alert('Passwords do not match');
+                confirmPassword.focus();
+                return false;
+            }
+            
+            alert('Account created successfully! Redirecting to login page...');
+            window.location.href = 'login.html';
+            return true;
+        }
+    </script>
+</body>
+</html>
