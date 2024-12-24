@@ -33,8 +33,8 @@
         line-height: 1.6;
       }
 
-      /* Redesigned heroqq Section */
-      .heroq {
+      /* Redesigned heroq Section */
+      .hero {
         min-height: 80vh;
         background: linear-gradient(
           135deg,
@@ -48,7 +48,7 @@
         overflow: hidden;
       }
 
-      .heroq::before {
+      .hero::before {
         content: "";
         position: absolute;
         top: 0;
@@ -60,7 +60,7 @@
         animation: pulse 4s infinite alternate;
       }
 
-      .heroq-content {
+      .hero-content {
         max-width: 1200px;
         margin: 0 auto;
         width: 100%;
@@ -72,18 +72,18 @@
         gap: 2rem;
       }
 
-      .heroq-text {
+      .hero-text {
         flex: 1;
       }
 
-      .heroq h1 {
+      .hero h1 {
         font-size: clamp(2.5rem, 4vw, 4rem);
         font-weight: 800;
         margin-bottom: 1.5rem;
         line-height: 1.2;
       }
 
-      .heroq p {
+      .hero p {
         font-size: clamp(1rem, 1.5vw, 1.2rem);
         opacity: 0.9;
         max-width: 600px;
@@ -102,7 +102,7 @@
 
       .solutionq-item {
         display: flex;
-        align-items: center;
+        align-items: stretch;
         gap: 4rem;
         margin-bottom: 8rem;
         min-height: 400px;
@@ -112,7 +112,7 @@
         background: rgba(255, 255, 255, 0.6);
         box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
         transition: transform 0.3s ease;
-        border: 1px solid #159895;;
+        border: 1px solid #159895;
       }
 
       /* New hover effects for solutionq items */
@@ -180,19 +180,6 @@
         transform: translateX(10px);
       }
 
-      .solutionq-icon {
-        font-size: 2.5rem;
-        background: linear-gradient(
-          135deg,
-          var(--primary-color),
-          var(--secondary-color)
-        );
-        --webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        margin-bottom: 1.5rem;
-        transition: transform 0.3s ease;
-      }
-
       .solutionq-item:hover .solutionq-icon {
         transform: scale(1.1);
       }
@@ -250,7 +237,7 @@
       }
 
       @media (max-width: 968px) {
-        .heroq-content {
+        .hero-content {
           flex-direction: column;
           text-align: center;
         }
@@ -286,6 +273,14 @@
           ); /* Slightly more opaque for mobile */
         }
 
+        .solutionq-title {
+          font-size: 28px;
+        }
+
+        .solutionq-description {
+          font-size: 15px;
+        }
+
         .solutionq-image {
           width: 100%;
           min-height: 300px;
@@ -297,6 +292,7 @@
 
         .solutionq-content {
           transform: none !important; /* Disable content hover transform */
+          padding: 0;
         }
 
         .solutionq-icon {
@@ -307,6 +303,7 @@
           transform: translateX(
             5px
           ); /* Always show shifted features on mobile */
+          font-size: 16px;
         }
 
         /* Disable hover animations on mobile */
@@ -320,6 +317,28 @@
 
         .solutionq-item:hover .solutionq-content {
           transform: none;
+        }
+      }
+
+      @media (max-width: 576px) {
+        .solutionq-item {
+          gap: 1rem;
+        }
+
+        .solutionq-image {
+          height: auto; /* Remove fixed height */
+          min-height: unset; /* Remove any minimum height */
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .solutionq-image img {
+          width: 100%;
+          height: auto; /* Let height adjust naturally */
+          object-fit: contain;
+          max-height: none; /* Remove max-height constraint */
+          aspect-ratio: 16/9; /* Maintain a consistent aspect ratio */
         }
       }
 
@@ -385,11 +404,12 @@
             </div>
           </div>
 
-
           <div class="nav-item dropdown">
             <a href="sectors.html" target="_blank">Sectors</a>
             <div class="dropdown-content">
-              <a href="sectors.html" target="_blank"><i class="fas fa-oil-well"></i> Energy</a>
+              <a href="sectors.html" target="_blank"
+                ><i class="fa-solid fa-bolt"></i> Energy</a
+              >
               <a href="sectors.html" target="_blank"
                 ><i class="fas fa-capsules"></i> Pharmaceutical</a
               >
@@ -399,9 +419,9 @@
             </div>
           </div>
 
-          <a class="nav-item">
+          <div class="nav-item">
             <a href="solutions.html" target="_blank">Solutions</a>
-          </a>
+          </div>
 
           <div class="nav-item">
             <a href="About.html" target="_blank">About Us</a>
@@ -461,7 +481,7 @@
           </div>
           <div class="side-nav-dropdown-content">
             <a href="#energy" target="_blank">
-              <i class="fas fa-oil-well"></i>
+              <i class="fa-solid fa-bolt"></i>
               <span>Energy</span>
             </a>
             <a href="#pharma" target="_blank">
@@ -474,32 +494,32 @@
             </a>
           </div>
         </div>
-        
-        <a href="solutions.html" target="_blank" class="side-nav-item">
+
+        <div href="solutions.html" target="_blank" class="side-nav-item">
           <span>Solutions</span>
           <i class="fa-solid fa-lightbulb"></i>
-        </a>
+        </div>
 
-        <a href="About.html" target="_blank" class="side-nav-item">
+        <div href="About.html" target="_blank" class="side-nav-item">
           <span>About Us</span>
           <i class="fas fa-info-circle"></i>
-        </a>
+        </div>
 
-        <a href="Home.html#contact" target="_blank" class="side-nav-item">
+        <div href="Home.html#contact" target="_blank" class="side-nav-item">
           <span>Contact</span>
           <i class="fas fa-envelope"></i>
-        </a>
+        </div>
 
-        <a href="login.html" class="side-nav-item cta-button">
+        <div href="login.html" class="side-nav-item cta-button">
           <span>Login</span>
           <i class="fas fa-sign-in-alt"></i>
-        </a>
+        </div>
       </div>
     </nav>
 
-    <section class="heroq">
-      <div class="heroq-content" data-aos="fade-up">
-        <div class="heroq-text">
+    <section class="hero">
+      <div class="hero-content" data-aos="fade-up">
+        <div class="hero-text">
           <h1>Innovative Logistics solutions</h1>
           <p>
             Transforming global logistics with cutting-edge solutions and
@@ -517,7 +537,6 @@
             <img src="Solution-1.jpg" alt="Integrated Project Management" />
           </div>
           <div class="solutionq-content">
-            <i class="fas fa-boxes solutionq-icon"></i>
             <h2 class="solutionq-title">Integrated Project Management</h2>
             <p class="solutionq-description">
               Our dedicated team offers customised and innovative solutions to
@@ -551,7 +570,6 @@
             <img src="Solution-2.jpg" alt="Door to Door solutionq" />
           </div>
           <div class="solutionq-content">
-            <i class="fas fa-truck-loading solutionq-icon"></i>
             <h2 class="solutionq-title">Door to Door solution</h2>
             <p class="solutionq-description">
               Our comprehensive in-house operations cover various transportation
@@ -585,7 +603,6 @@
             <img src="Soltuion-3.jpg" alt="4PL solutionqs" />
           </div>
           <div class="solutionq-content">
-            <i class="fas fa-globe solutionq-icon"></i>
             <h2 class="solutionq-title">4PL solutions</h2>
             <p class="solutionq-description">
               Our supply chain activities involve integrating, curating,
@@ -619,7 +636,6 @@
             <img src="Solution-4.jpg" alt="Value Added Services" />
           </div>
           <div class="solutionq-content">
-            <i class="fas fa-plus-circle solutionq-icon"></i>
             <h2 class="solutionq-title">Value Added Services</h2>
             <p class="solutionq-description">
               Our industry-specific experts provide insightful assistance with
@@ -652,7 +668,6 @@
             <img src="Solution-5.jpg" alt="DG Transport solutionqs" />
           </div>
           <div class="solutionq-content">
-            <i class="fas fa-exclamation-triangle solutionq-icon"></i>
             <h2 class="solutionq-title">DG Transport solutions</h2>
             <p class="solutionq-description">
               Our dedicated team ensures the safe and smooth movement of
@@ -686,7 +701,6 @@
             <img src="Solution-6.jpg" alt="Technology for SCM" />
           </div>
           <div class="solutionq-content">
-            <i class="fas fa-microchip solutionq-icon"></i>
             <h2 class="solutionq-title">Technology for SCM</h2>
             <p class="solutionq-description">
               Our workflow tracker provides real-time visibility of your
