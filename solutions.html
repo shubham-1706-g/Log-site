@@ -33,62 +33,6 @@
         line-height: 1.6;
       }
 
-      /* Redesigned heroq Section */
-      .hero {
-        min-height: 80vh;
-        background: linear-gradient(
-          135deg,
-          var(--primary-color),
-          var(--secondary-color)
-        );
-        padding: 4rem 2rem;
-        display: flex;
-        align-items: center;
-        position: relative;
-        overflow: hidden;
-      }
-
-      .hero::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: url("/api/placeholder/1920/1080") center/cover;
-        opacity: 0.1;
-        animation: pulse 4s infinite alternate;
-      }
-
-      .hero-content {
-        max-width: 1200px;
-        margin: 0 auto;
-        width: 100%;
-        color: var(--light-color);
-        z-index: 1;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        gap: 2rem;
-      }
-
-      .hero-text {
-        flex: 1;
-      }
-
-      .hero h1 {
-        font-size: clamp(2.5rem, 4vw, 4rem);
-        font-weight: 800;
-        margin-bottom: 1.5rem;
-        line-height: 1.2;
-      }
-
-      .hero p {
-        font-size: clamp(1rem, 1.5vw, 1.2rem);
-        opacity: 0.9;
-        max-width: 600px;
-      }
-
       .solutionqs-section {
         padding: 6rem 0;
         background: var(--bg-color);
@@ -375,169 +319,190 @@
     <div class="nav-overlay"></div>
 
     <nav class="navbar" id="smart-navbar">
-     <div class="container navbar__content">
-       <a href="Home.html"  class="logo">
-         <img src="logo.png" alt="Indian Agency Logo" />
-         <!-- <span>Indian Agency</span> -->
-       </a>
+      <div class="container navbar__content">
+        <a href="Home.html" class="logo">
+          <img src="logo.png" alt="Indian Agency Logo" />
+          <!-- <span>Indian Agency</span> -->
+        </a>
 
-       <div class="nav-links">
-         <div class="nav-item">
-           <a href="Home.html" >Home</a>
-         </div>
+        <div class="nav-links">
+          <div class="nav-item">
+            <a href="Home.html">Home</a>
+          </div>
 
-         <div class="nav-item dropdown">
-           <a href="services.html" >Services</a>
-           <div class="dropdown-content">
-             <a href="ff.html" 
-               ><i class="fas fa-ship"></i> Freight Forwarding</a
-             >
-             <a href="transport.html" 
-               ><i class="fas fa-truck-moving"></i> Transportation</a
-             >
-             <a href="cc.html"
-               ><i class="fas fa-file-contract"></i> Custom Clearance</a
-             >
-             <a href="wd.html"
-               ><i class="fas fa-warehouse"></i> Warehousing & Distribution</a
-             >
-             
-           </div>
-         </div>
+          <div class="nav-item dropdown">
+            <a href="services.html">Services</a>
+            <div class="dropdown-content">
+              <a href="ff.html"
+                ><i class="fas fa-ship"></i> Freight Forwarding</a
+              >
+              <a href="transport.html"
+                ><i class="fas fa-truck-moving"></i> Transportation</a
+              >
+              <a href="cc.html"
+                ><i class="fas fa-file-contract"></i> Custom Clearance</a
+              >
+              <a href="wd.html"
+                ><i class="fas fa-warehouse"></i> Warehousing & Distribution</a
+              >
+            </div>
+          </div>
 
-         <div class="nav-item">
-           <a href="solutions.html" >Solutions</a>
-         </div>
+          <div class="nav-item">
+            <a href="solutions.html">Solutions</a>
+          </div>
 
-         <div class="nav-item dropdown">
-           <a href="sectors.html" >Sectors</a>
-           <div class="dropdown-content">
-             <a href="sectors.html" 
-               ><i class="fa-solid fa-bolt"></i> Energy</a
-             >
-             <a href="sectors.html" 
-               ><i class="fas fa-capsules"></i> Pharmaceutical</a
-             >
-             <a href="sectors.html" 
-               ><i class="fas fa-industry"></i> Manufacturing</a
-             >
-             <a href="sectors.html" 
-               ><i class="fa-solid fa-plus"></i> More</a
-             >
-           </div>
-         </div>
+          <div class="nav-item dropdown">
+            <a href="sectors.html">Sectors</a>
+            <div class="dropdown-content">
+              <a href="sectors.html"><i class="fa-solid fa-bolt"></i> Energy</a>
+              <a href="sectors.html"
+                ><i class="fas fa-capsules"></i> Pharmaceutical</a
+              >
+              <a href="sectors.html"
+                ><i class="fas fa-industry"></i> Manufacturing</a
+              >
+              <a href="sectors.html"><i class="fa-solid fa-plus"></i> More</a>
+            </div>
+          </div>
 
-       
+          <div class="nav-item">
+            <a href="About.html">About Us</a>
+          </div>
 
-         <div class="nav-item">
-           <a href="About.html" >About Us</a>
-         </div>
+          <div class="nav-item">
+            <a href="Home.html#contact">Contact</a>
+          </div>
 
-         <div class="nav-item">
-           <a href="Home.html#contact">Contact</a>
-         </div>
-
-         <div class="nav-item">
-           <a href="login.html" class="cta-button">Login</a>
-         </div>
-       </div>
-     </div>
-   </nav>
-
-   <button class="mobile-nav-toggle">
-     <i class="fas fa-bars"></i>
-   </button>
-
-   <nav class="side-nav">
-     <div class="side-nav-links">
-       <a href="Home.html"  class="side-nav-item">
-         <span>Home</span>
-         <i class="fas fa-home"></i>
-       </a>
-
-       <div class="side-nav-dropdown">
-         <div class="side-nav-item">
-           <span>Services</span>
-           <i class="fas fa-chevron-down"></i>
-         </div>
-         <div class="side-nav-dropdown-content">
-           <a href="ff.html" >
-             <i class="fas fa-ship"></i>
-             <span>Freight Forwarding</span>
-           </a>
-           <a href="transport.html" >
-             <i class="fas fa-truck-moving"></i>
-             <span>Transportation</span>
-           </a>
-           <a href="cc.html">
-             <i class="fas fa-file-contract"></i>
-             <span>Customs Clearance</span>
-           </a>
-           <a href="wd.html">
-             <i class="fas fa-warehouse"></i>
-             <span>Warehousing & Distribution</span>
-           </a>
-         </div>
-       </div>
-
-       <div href="solutions.html"  class="side-nav-item">
-         <span>Solutions</span>
-         <i class="fa-solid fa-lightbulb"></i>
-       </div>
-
-       <div class="side-nav-dropdown">
-         <div class="side-nav-item">
-           <span>Sectors</span>
-           <i class="fas fa-chevron-down"></i>
-         </div>
-         <div class="side-nav-dropdown-content">
-           <a href="sectors.html" >
-             <i class="fa-solid fa-bolt"></i>
-             <span>Energy</span>
-           </a>
-           <a href="sectors.html" >
-             <i class="fas fa-capsules"></i>
-             <span>Pharmaceutical</span>
-           </a>
-           <a href="sectors.html" >
-             <i class="fas fa-industry"></i>
-             <span>Manufacturing</span>
-           </a>
-           <a href="sectors.html" >
-             <i class="fa-solid fa-plus"></i>
-             <span>More</span>
-           </a>
-         </div>
-       </div>
-
-       
-
-       <div href="About.html"  class="side-nav-item">
-         <span>About Us</span>
-         <i class="fas fa-info-circle"></i>
-       </div>
-
-       <div href="Home.html#contact"  class="side-nav-item">
-         <span>Contact</span>
-         <i class="fas fa-envelope"></i>
-       </div>
-
-       <div href="login.html" class="side-nav-item cta-button">
-         <span>Login</span>
-         <i class="fas fa-sign-in-alt"></i>
-       </div>
-     </div>
-   </nav>
-
-    <section class="hero">
-      <div class="hero-content" data-aos="fade-up">
-        <div class="hero-text">
-          <h1>Innovative Logistics solutions</h1>
-          <p>
-            Transforming global logistics with cutting-edge solutions and
-            unmatched expertise in shipping and supply chain management.
-          </p>
+          <div class="nav-item">
+            <a href="login.html" class="cta-button">Login</a>
+          </div>
         </div>
+      </div>
+    </nav>
+
+    <button class="mobile-nav-toggle">
+      <i class="fas fa-bars"></i>
+    </button>
+
+    <nav class="side-nav">
+      <div class="side-nav-links">
+        <a href="Home.html" class="side-nav-item">
+          <span>Home</span>
+          <i class="fas fa-home"></i>
+        </a>
+
+        <div class="side-nav-dropdown">
+          <div class="side-nav-item">
+            <span>Services</span>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="side-nav-dropdown-content">
+            <a href="ff.html">
+              <i class="fas fa-ship"></i>
+              <span>Freight Forwarding</span>
+            </a>
+            <a href="transport.html">
+              <i class="fas fa-truck-moving"></i>
+              <span>Transportation</span>
+            </a>
+            <a href="cc.html">
+              <i class="fas fa-file-contract"></i>
+              <span>Customs Clearance</span>
+            </a>
+            <a href="wd.html">
+              <i class="fas fa-warehouse"></i>
+              <span>Warehousing & Distribution</span>
+            </a>
+          </div>
+        </div>
+
+        <div href="solutions.html" class="side-nav-item">
+          <span>Solutions</span>
+          <i class="fa-solid fa-lightbulb"></i>
+        </div>
+
+        <div class="side-nav-dropdown">
+          <div class="side-nav-item">
+            <span>Sectors</span>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="side-nav-dropdown-content">
+            <a href="sectors.html">
+              <i class="fa-solid fa-bolt"></i>
+              <span>Energy</span>
+            </a>
+            <a href="sectors.html">
+              <i class="fas fa-capsules"></i>
+              <span>Pharmaceutical</span>
+            </a>
+            <a href="sectors.html">
+              <i class="fas fa-industry"></i>
+              <span>Manufacturing</span>
+            </a>
+            <a href="sectors.html">
+              <i class="fa-solid fa-plus"></i>
+              <span>More</span>
+            </a>
+          </div>
+        </div>
+
+        <div href="About.html" class="side-nav-item">
+          <span>About Us</span>
+          <i class="fas fa-info-circle"></i>
+        </div>
+
+        <div href="Home.html#contact" class="side-nav-item">
+          <span>Contact</span>
+          <i class="fas fa-envelope"></i>
+        </div>
+
+        <div href="login.html" class="side-nav-item cta-button">
+          <span>Login</span>
+          <i class="fas fa-sign-in-alt"></i>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Corousel section-->
+    <section id="home" class="hero">
+      <div class="hero-carousel">
+        <div
+          class="carousel-slide"
+          style="background-image: url('ff-land.jpg')"
+        ></div>
+        <div
+          class="carousel-slide"
+          style="background-image: url('ff-air.jpg')"
+        ></div>
+        <div
+          class="carousel-slide"
+          style="background-image: url('ff-ocean.jpg')"
+        ></div>
+        <div
+          class="carousel-slide"
+          style="background-image: url('Solution-2.jpg')"
+        ></div>
+        <div
+          class="carousel-slide"
+          style="background-image: url('trans-4.jpg')"
+        ></div>
+        <div
+          class="carousel-slide"
+          style="background-image: url('ff-NVOCC.jpg')"
+        ></div>
+      </div>
+      <div class="hero-content">
+        <h1>Innovative Logistics solutions</h1>
+        <p>Transforming global logistics with cutting-edge solutions and unmatched expertise in shipping and supply chain management</p>
+      </div>
+      <div class="carousel-dots">
+        <span class="dot active"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
       </div>
     </section>
 
