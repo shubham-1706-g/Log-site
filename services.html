@@ -32,59 +32,6 @@
         line-height: 1.6;
       }
 
-      .hero {
-        background: linear-gradient(
-          135deg,
-          var(--primary-color),
-          var(--secondary-color)
-        );
-        min-height: 80vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        padding: 2rem;
-        position: relative;
-        overflow: hidden;
-      }
-
-      .hero::before {
-        content: "";
-        position: absolute;
-        width: 100%;
-        height: 100%;
-      }
-
-      .hero-content {
-        position: relative;
-        z-index: 1;
-      }
-
-      .hero h1 {
-        color: var(--light-color);
-        font-size: clamp(2.5rem, 5vw, 4rem);
-        margin-bottom: 1rem;
-        font-weight: 800;
-        letter-spacing: -0.02em;
-        text-shadow: var(--text-shadow);
-        opacity: 0;
-        transform: translateY(30px);
-        animation: fadeInUp 0.8s ease forwards;
-      }
-
-      .hero p {
-        color: rgba(255, 255, 255, 0.9);
-        font-size: clamp(1.1rem, 2vw, 1.3rem);
-        max-width: 800px;
-        margin: 0 auto;
-        font-weight: 300;
-        letter-spacing: 0.5px;
-        text-shadow: var(--text-shadow);
-        opacity: 0;
-        transform: translateY(30px);
-        animation: fadeInUp 0.8s ease 0.2s forwards;
-      }
-
       .service-boxes {
         max-width: 1200px;
         margin: 100px auto 100px;
@@ -392,15 +339,45 @@
       </div>
     </nav>
 
-    <section class="hero">
+    <!-- Corousel section-->
+    <section id="home" class="hero">
+      <div class="hero-carousel">
+        <div
+          class="carousel-slide"
+          style="background-image: url('ff-land.jpg')"
+        ></div>
+        <div
+          class="carousel-slide"
+          style="background-image: url('ff-air.jpg')"
+        ></div>
+        <div
+          class="carousel-slide"
+          style="background-image: url('ff-ocean.jpg')"
+        ></div>
+        <div
+          class="carousel-slide"
+          style="background-image: url('Solution-2.jpg')"
+        ></div>
+        <div
+          class="carousel-slide"
+          style="background-image: url('trans-4.jpg')"
+        ></div>
+        <div
+          class="carousel-slide"
+          style="background-image: url('ff-NVOCC.jpg')"
+        ></div>
+      </div>
       <div class="hero-content">
-        <h1>A Look At Our Services</h1>
-        <p>
-          Our logistics brand offers a comprehensive range of services to meet
-          diverse transportation and supply chain needs. With expertise in
-          freight forwarding, warehousing, and distribution, we ensure seamless
-          movement of goods across various modes of transport.
-        </p>
+        <h1>Unveiling a World of Logistics Excellence</h1>
+        <p>Where we redefine logistics solutions with a touch of brilliance</p>
+      </div>
+      <div class="carousel-dots">
+        <span class="dot active"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
       </div>
     </section>
 
@@ -471,60 +448,60 @@
       </div>
     </section>
 
-   <!--Footer Section-->
-   <footer class="footer">
-    <div class="footer-container">
-      <div class="footer-col">
-        <h3>About Us</h3>
-        <p>
-          Indian Shipping Agency is your trusted partner for global freight
-          forwarding and logistics solutions. With years of experience, we
-          deliver excellence in shipping services.
-        </p>
-      </div>
-      <div class="footer-col">
-        <h3>Quick Links</h3>
-        <ul>
-          <li><a href="services.html">Our Services</a></li>
-          <li><a href="About.html">About Us</a></li>
-          <li><a href="Home.html#contact">Contact</a></li>
-          <li><a href="solutions.html">Solutions</a></li>
-          <li><a href="Home.html#contact">Get Quote</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h3>Services</h3>
-        <ul>
-          <li><a href="ff.html">Freight Forwarding</a></li>
-          <li><a href="transport.html">Transportation</a></li>
-          <li><a href="cc.html">Custom Clearance</a></li>
-          <li><a href="wd.html">Warehouse and Distribution</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h3>Sectors</h3>
-        <ul>
-          <li><a href="sectors.html">Energy & Resources</a></li>
-          <li><a href="sectors.html">Pharmaceutical</a></li>
-          <li><a href="sectors.html">Manufacturing</a></li>
-          <li><a href="sectors.html">Chemical</a></li>
-          <li><a href="sectors.html">More</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h3>Connect With Us</h3>
-        <div class="social-links">
-          <a href="#"><i class="fab fa-facebook-f"></i></a>
-          <a href="#"><i class="fab fa-twitter"></i></a>
-          <a href="#"><i class="fab fa-linkedin-in"></i></a>
-          <a href="#"><i class="fab fa-instagram"></i></a>
+    <!--Footer Section-->
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-col">
+          <h3>About Us</h3>
+          <p>
+            Indian Shipping Agency is your trusted partner for global freight
+            forwarding and logistics solutions. With years of experience, we
+            deliver excellence in shipping services.
+          </p>
+        </div>
+        <div class="footer-col">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="services.html">Our Services</a></li>
+            <li><a href="About.html">About Us</a></li>
+            <li><a href="Home.html#contact">Contact</a></li>
+            <li><a href="solutions.html">Solutions</a></li>
+            <li><a href="Home.html#contact">Get Quote</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Services</h3>
+          <ul>
+            <li><a href="ff.html">Freight Forwarding</a></li>
+            <li><a href="transport.html">Transportation</a></li>
+            <li><a href="cc.html">Custom Clearance</a></li>
+            <li><a href="wd.html">Warehouse and Distribution</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Sectors</h3>
+          <ul>
+            <li><a href="sectors.html">Energy & Resources</a></li>
+            <li><a href="sectors.html">Pharmaceutical</a></li>
+            <li><a href="sectors.html">Manufacturing</a></li>
+            <li><a href="sectors.html">Chemical</a></li>
+            <li><a href="sectors.html">More</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Connect With Us</h3>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="footer-bottom">
-      <p>&copy; 2024 Indian Shipping Agency. All rights reserved.</p>
-    </div>
-  </footer>
+      <div class="footer-bottom">
+        <p>&copy; 2024 Indian Shipping Agency. All rights reserved.</p>
+      </div>
+    </footer>
 
     <script src="script.js"></script>
     <script>
