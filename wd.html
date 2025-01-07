@@ -32,58 +32,6 @@
         line-height: 1.6;
       }
 
-      /* Hero Section */
-      .hero {
-        background: linear-gradient(
-          135deg,
-          var(--primary-color),
-          var(--secondary-color)
-        );
-        min-height: 80vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        padding: 2rem;
-        position: relative;
-        overflow: hidden;
-        margin-top: 60px;
-      }
-
-      .hero::before {
-        content: "";
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(
-            rgba(26, 95, 122, 0.8),
-            rgba(21, 152, 149, 0.9)
-          );
-        opacity: 0.6;
-      }
-
-      .hero-content {
-        position: relative;
-        z-index: 1;
-        max-width: 800px;
-      }
-
-      .hero h1 {
-        color: var(--light-color);
-        font-size: clamp(2.5rem, 5vw, 4rem);
-        margin-bottom: 1.5rem;
-        font-weight: 800;
-        text-shadow: var(--text-shadow);
-      }
-
-      .hero p {
-        color: rgba(255, 255, 255, 0.9);
-        font-size: clamp(1.1rem, 2vw, 1.3rem);
-        max-width: 600px;
-        margin: 0 auto;
-        text-shadow: var(--text-shadow);
-      }
-
       /* Services Section */
       .services-section {
         padding: 6rem 2rem;
@@ -225,9 +173,8 @@
       }
 
       @media (max-width: 768px) {
-
-        .hero{
-            margin-top: 0;
+        .hero {
+          margin-top: 0;
         }
         .services-grid {
           grid-template-columns: 1fr;
@@ -701,7 +648,6 @@
           padding: 1rem;
         }
       }
-      
     </style>
   </head>
 
@@ -709,212 +655,246 @@
     <div class="nav-overlay"></div>
 
     <nav class="navbar" id="smart-navbar">
-     <div class="container navbar__content">
-       <a href="Home.html"  class="logo">
-         <img src="logo.png" alt="Indian Agency Logo" />
-         <!-- <span>Indian Agency</span> -->
-       </a>
+      <div class="container navbar__content">
+        <a href="Home.html" class="logo">
+          <img src="logo.png" alt="Indian Agency Logo" />
+          <!-- <span>Indian Agency</span> -->
+        </a>
 
-       <div class="nav-links">
-         <div class="nav-item">
-           <a href="Home.html" >Home</a>
-         </div>
+        <div class="nav-links">
+          <div class="nav-item">
+            <a href="Home.html">Home</a>
+          </div>
 
-         <div class="nav-item dropdown">
-           <a href="services.html" >Services</a>
-           <div class="dropdown-content">
-             <a href="ff.html" 
-               ><i class="fas fa-ship"></i> Freight Forwarding</a
-             >
-             <a href="transport.html" 
-               ><i class="fas fa-truck-moving"></i> Transportation</a
-             >
-             <a href="cc.html"
-               ><i class="fas fa-file-contract"></i> Custom Clearance</a
-             >
-             <a href="wd.html"
-               ><i class="fas fa-warehouse"></i> Warehousing & Distribution</a
-             >
-             
-           </div>
-         </div>
+          <div class="nav-item dropdown">
+            <a href="services.html">Services</a>
+            <div class="dropdown-content">
+              <a href="ff.html"
+                ><i class="fas fa-ship"></i> Freight Forwarding</a
+              >
+              <a href="transport.html"
+                ><i class="fas fa-truck-moving"></i> Transportation</a
+              >
+              <a href="cc.html"
+                ><i class="fas fa-file-contract"></i> Custom Clearance</a
+              >
+              <a href="wd.html"
+                ><i class="fas fa-warehouse"></i> Warehousing & Distribution</a
+              >
+            </div>
+          </div>
 
-         <div class="nav-item">
-           <a href="solutions.html" >Solutions</a>
-         </div>
+          <div class="nav-item">
+            <a href="solutions.html">Solutions</a>
+          </div>
 
-         <div class="nav-item dropdown">
-           <a href="sectors.html" >Sectors</a>
-           <div class="dropdown-content">
-             <a href="sectors.html" 
-               ><i class="fa-solid fa-bolt"></i> Energy</a
-             >
-             <a href="sectors.html" 
-               ><i class="fas fa-capsules"></i> Pharmaceutical</a
-             >
-             <a href="sectors.html" 
-               ><i class="fas fa-industry"></i> Manufacturing</a
-             >
-             <a href="sectors.html" 
-               ><i class="fa-solid fa-plus"></i> More</a
-             >
-           </div>
-         </div>
+          <div class="nav-item dropdown">
+            <a href="sectors.html">Sectors</a>
+            <div class="dropdown-content">
+              <a href="sectors.html"><i class="fa-solid fa-bolt"></i> Energy</a>
+              <a href="sectors.html"
+                ><i class="fas fa-capsules"></i> Pharmaceutical</a
+              >
+              <a href="sectors.html"
+                ><i class="fas fa-industry"></i> Manufacturing</a
+              >
+              <a href="sectors.html"><i class="fa-solid fa-plus"></i> More</a>
+            </div>
+          </div>
 
-       
+          <div class="nav-item">
+            <a href="About.html">About Us</a>
+          </div>
 
-         <div class="nav-item">
-           <a href="About.html" >About Us</a>
-         </div>
+          <div class="nav-item">
+            <a href="Home.html#contact">Contact</a>
+          </div>
 
-         <div class="nav-item">
-           <a href="Home.html#contact">Contact</a>
-         </div>
+          <div class="nav-item">
+            <a href="login.html" class="cta-button">Login</a>
+          </div>
+        </div>
+      </div>
+    </nav>
 
-         <div class="nav-item">
-           <a href="login.html" class="cta-button">Login</a>
-         </div>
-       </div>
-     </div>
-   </nav>
+    <button class="mobile-nav-toggle">
+      <i class="fas fa-bars"></i>
+    </button>
 
-   <button class="mobile-nav-toggle">
-     <i class="fas fa-bars"></i>
-   </button>
+    <nav class="side-nav">
+      <div class="side-nav-links">
+        <a href="Home.html" class="side-nav-item">
+          <span>Home</span>
+          <i class="fas fa-home"></i>
+        </a>
 
-   <nav class="side-nav">
-     <div class="side-nav-links">
-       <a href="Home.html"  class="side-nav-item">
-         <span>Home</span>
-         <i class="fas fa-home"></i>
-       </a>
+        <div class="side-nav-dropdown">
+          <div class="side-nav-item">
+            <span>Services</span>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="side-nav-dropdown-content">
+            <a href="ff.html">
+              <i class="fas fa-ship"></i>
+              <span>Freight Forwarding</span>
+            </a>
+            <a href="transport.html">
+              <i class="fas fa-truck-moving"></i>
+              <span>Transportation</span>
+            </a>
+            <a href="cc.html">
+              <i class="fas fa-file-contract"></i>
+              <span>Customs Clearance</span>
+            </a>
+            <a href="wd.html">
+              <i class="fas fa-warehouse"></i>
+              <span>Warehousing & Distribution</span>
+            </a>
+          </div>
+        </div>
 
-       <div class="side-nav-dropdown">
-         <div class="side-nav-item">
-           <span>Services</span>
-           <i class="fas fa-chevron-down"></i>
-         </div>
-         <div class="side-nav-dropdown-content">
-           <a href="ff.html" >
-             <i class="fas fa-ship"></i>
-             <span>Freight Forwarding</span>
-           </a>
-           <a href="transport.html" >
-             <i class="fas fa-truck-moving"></i>
-             <span>Transportation</span>
-           </a>
-           <a href="cc.html">
-             <i class="fas fa-file-contract"></i>
-             <span>Customs Clearance</span>
-           </a>
-           <a href="wd.html">
-             <i class="fas fa-warehouse"></i>
-             <span>Warehousing & Distribution</span>
-           </a>
-         </div>
-       </div>
+        <div href="solutions.html" class="side-nav-item">
+          <span>Solutions</span>
+          <i class="fa-solid fa-lightbulb"></i>
+        </div>
 
-       <div href="solutions.html"  class="side-nav-item">
-         <span>Solutions</span>
-         <i class="fa-solid fa-lightbulb"></i>
-       </div>
+        <div class="side-nav-dropdown">
+          <div class="side-nav-item">
+            <span>Sectors</span>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="side-nav-dropdown-content">
+            <a href="sectors.html">
+              <i class="fa-solid fa-bolt"></i>
+              <span>Energy</span>
+            </a>
+            <a href="sectors.html">
+              <i class="fas fa-capsules"></i>
+              <span>Pharmaceutical</span>
+            </a>
+            <a href="sectors.html">
+              <i class="fas fa-industry"></i>
+              <span>Manufacturing</span>
+            </a>
+            <a href="sectors.html">
+              <i class="fa-solid fa-plus"></i>
+              <span>More</span>
+            </a>
+          </div>
+        </div>
 
-       <div class="side-nav-dropdown">
-         <div class="side-nav-item">
-           <span>Sectors</span>
-           <i class="fas fa-chevron-down"></i>
-         </div>
-         <div class="side-nav-dropdown-content">
-           <a href="sectors.html" >
-             <i class="fa-solid fa-bolt"></i>
-             <span>Energy</span>
-           </a>
-           <a href="sectors.html" >
-             <i class="fas fa-capsules"></i>
-             <span>Pharmaceutical</span>
-           </a>
-           <a href="sectors.html" >
-             <i class="fas fa-industry"></i>
-             <span>Manufacturing</span>
-           </a>
-           <a href="sectors.html" >
-             <i class="fa-solid fa-plus"></i>
-             <span>More</span>
-           </a>
-         </div>
-       </div>
+        <div href="About.html" class="side-nav-item">
+          <span>About Us</span>
+          <i class="fas fa-info-circle"></i>
+        </div>
 
-       
+        <div href="Home.html#contact" class="side-nav-item">
+          <span>Contact</span>
+          <i class="fas fa-envelope"></i>
+        </div>
 
-       <div href="About.html"  class="side-nav-item">
-         <span>About Us</span>
-         <i class="fas fa-info-circle"></i>
-       </div>
+        <div href="login.html" class="side-nav-item cta-button">
+          <span>Login</span>
+          <i class="fas fa-sign-in-alt"></i>
+        </div>
+      </div>
+    </nav>
 
-       <div href="Home.html#contact"  class="side-nav-item">
-         <span>Contact</span>
-         <i class="fas fa-envelope"></i>
-       </div>
-
-       <div href="login.html" class="side-nav-item cta-button">
-         <span>Login</span>
-         <i class="fas fa-sign-in-alt"></i>
-       </div>
-     </div>
-   </nav>
-
-
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="hero-content">
+    <!-- Corousel section-->
+    <section id="home" class="hero">
+      <div class="hero-carousel">
+        <div
+          class="carousel-slide"
+          style="background-image: url('ff-land.jpg')"
+        ></div>
+        <div
+          class="carousel-slide"
+          style="background-image: url('ff-air.jpg')"
+        ></div>
+        <div
+          class="carousel-slide"
+          style="background-image: url('ff-ocean.jpg')"
+        ></div>
+        <div
+          class="carousel-slide"
+          style="background-image: url('Solution-2.jpg')"
+        ></div>
+        <div
+          class="carousel-slide"
+          style="background-image: url('trans-4.jpg')"
+        ></div>
+        <div
+          class="carousel-slide"
+          style="background-image: url('ff-NVOCC.jpg')"
+        ></div>
+      </div>
+      <div class="hero-content">
         <h1>Warehousing & Distribution</h1>
         <p>Gain a Competitive Edge with Seasoned Management and Ample Storage Solutions</p>
-    </div>
-</section>
+      </div>
+      <div class="carousel-dots">
+        <span class="dot active"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+      </div>
+    </section>
 
-
-<!-- Detailed Section -->
-<section class="sector-details">
-    <div class="detail-section">
+    <!-- Detailed Section -->
+    <section class="sector-details">
+      <div class="detail-section">
         <div class="detail-grid">
-            <div class="detail-content">
-                <h2 class="detail-title">Comprehensive Warehousing Solutions</h2>
-                <p class="detail-text">
-                    Our distribution frameworks are designed with core principles in mind, ensuring they are competent, competitive, and effective. Our warehouses are strategically located across India, in close proximity to major ports and business centres.
-                </p>
-                <ul class="detail-features">
-                    <li>Comprehensive inventory planning and restocking</li>
-                    <li>Strategic warehouse locations near major ports</li>
-                    <li>Advanced material handling equipment</li>
-                    <li>IT-enabled Management Information Systems</li>
-                    <li>Vendor-Managed Inventory solutions</li>
-                </ul>
-            </div>
-            <div class="detail-image" style="background-image: url('wd1.jpg')"></div>
+          <div class="detail-content">
+            <h2 class="detail-title">Comprehensive Warehousing Solutions</h2>
+            <p class="detail-text">
+              Our distribution frameworks are designed with core principles in
+              mind, ensuring they are competent, competitive, and effective. Our
+              warehouses are strategically located across India, in close
+              proximity to major ports and business centres.
+            </p>
+            <ul class="detail-features">
+              <li>Comprehensive inventory planning and restocking</li>
+              <li>Strategic warehouse locations near major ports</li>
+              <li>Advanced material handling equipment</li>
+              <li>IT-enabled Management Information Systems</li>
+              <li>Vendor-Managed Inventory solutions</li>
+            </ul>
+          </div>
+          <div
+            class="detail-image"
+            style="background-image: url('wd1.jpg')"
+          ></div>
         </div>
-    </div>
+      </div>
 
-    <div class="detail-section">
+      <div class="detail-section">
         <div class="detail-grid">
-            <div class="detail-content">
-                <h2 class="detail-title">Value-Added Services</h2>
-                <p class="detail-text">
-                    Our commitment to pushing boundaries and finding unique solutions sets us apart as pioneers in the logistics industry, creating exceptional value for our clients.
-                </p>
-                <ul class="detail-features">
-                    <li>Custom labeling and packaging services</li>
-                    <li>CBEC supervised operations</li>
-                    <li>Flexible customs clearance</li>
-                    <li>Cost optimization solutions</li>
-                    <li>Comprehensive supply chain management</li>
-                </ul>
-            </div>
-            <div class="detail-image" style="background-image: url('wd2.png')"></div>
+          <div class="detail-content">
+            <h2 class="detail-title">Value-Added Services</h2>
+            <p class="detail-text">
+              Our commitment to pushing boundaries and finding unique solutions
+              sets us apart as pioneers in the logistics industry, creating
+              exceptional value for our clients.
+            </p>
+            <ul class="detail-features">
+              <li>Custom labeling and packaging services</li>
+              <li>CBEC supervised operations</li>
+              <li>Flexible customs clearance</li>
+              <li>Cost optimization solutions</li>
+              <li>Comprehensive supply chain management</li>
+            </ul>
+          </div>
+          <div
+            class="detail-image"
+            style="background-image: url('wd2.png')"
+          ></div>
         </div>
-    </div>
-</section>
+      </div>
+    </section>
 
-        <!--Footer Section-->
+    <!--Footer Section-->
     <!--Footer Section-->
     <footer class="footer">
       <div class="footer-container">
