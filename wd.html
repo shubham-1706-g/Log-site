@@ -1,0 +1,1022 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Indian Shipping Agency - Connecting the World</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="nav.css" />
+    <!-- <link rel="stylesheet" href="styles.css" /> -->
+    <style>
+      :root {
+        --primary-color: #1a5f7a;
+        --secondary-color: #159895;
+        --accent-color: #57c5b6;
+        --light-color: #ffffff;
+        --bg-color: #f8fafc;
+        --text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+      }
+
+      body {
+        background: var(--bg-color);
+        line-height: 1.6;
+      }
+
+      /* Hero Section */
+      .hero {
+        background: linear-gradient(
+          135deg,
+          var(--primary-color),
+          var(--secondary-color)
+        );
+        min-height: 80vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 2rem;
+        position: relative;
+        overflow: hidden;
+        margin-top: 60px;
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+            rgba(26, 95, 122, 0.8),
+            rgba(21, 152, 149, 0.9)
+          );
+        opacity: 0.6;
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 1;
+        max-width: 800px;
+      }
+
+      .hero h1 {
+        color: var(--light-color);
+        font-size: clamp(2.5rem, 5vw, 4rem);
+        margin-bottom: 1.5rem;
+        font-weight: 800;
+        text-shadow: var(--text-shadow);
+      }
+
+      .hero p {
+        color: rgba(255, 255, 255, 0.9);
+        font-size: clamp(1.1rem, 2vw, 1.3rem);
+        max-width: 600px;
+        margin: 0 auto;
+        text-shadow: var(--text-shadow);
+      }
+
+      /* Services Section */
+      .services-section {
+        padding: 6rem 2rem;
+        background: var(--bg-color);
+      }
+
+      .section-title {
+        text-align: center;
+        color: var(--primary-color);
+        font-size: 2.5rem;
+        margin-bottom: 3rem;
+      }
+
+      .section-subtitle {
+        text-align: center;
+        color: #666;
+        font-size: 1.2rem;
+        margin: -2rem 0 3rem;
+      }
+
+      .services-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .service-card {
+        background: var(--light-color);
+        border-radius: 20px;
+        padding: 2.5rem;
+        text-align: center;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        transition: all 0.4s ease;
+      }
+
+      .service-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+      }
+
+      .service-card i {
+        font-size: 2.5rem;
+        color: var(--secondary-color);
+        margin-bottom: 1.5rem;
+      }
+
+      .service-card h3 {
+        color: var(--primary-color);
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+      }
+
+      .service-card p {
+        color: #555;
+      }
+
+      Additional Services Section .additional-services {
+        padding: 6rem 0 0 0;
+        background: white;
+        overflow: hidden;
+      }
+
+      .services-container {
+        position: relative;
+        width: 100%;
+        height: 350px;
+        overflow: hidden;
+        padding: 2rem 0;
+        margin-bottom: 2rem;
+      }
+
+      .services-scroll {
+        display: flex;
+        gap: 2rem;
+        position: absolute;
+        left: 0;
+        top: 0;
+        animation: scroll 30s linear infinite;
+        will-change: transform;
+        backface-visibility: hidden;
+      }
+
+      .services-container:hover .services-scroll {
+        animation-play-state: paused;
+      }
+
+      .service-box {
+        flex: 0 0 300px;
+        background: var(--bg-color);
+        padding: 2rem;
+        border-radius: 15px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+      }
+
+      .service-box:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+      }
+
+      .service-box h3 {
+        color: var(--primary-color);
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+      }
+
+      .service-box p {
+        color: #555;
+        margin-bottom: 1rem;
+      }
+
+      .read-more {
+        display: inline-block;
+        color: var(--accent-color);
+        text-decoration: none;
+        position: relative;
+      }
+
+      .read-more::after {
+        content: "→";
+        margin-left: 5px;
+        transition: transform 0.3s ease;
+      }
+
+      .read-more:hover::after {
+        transform: translateX(5px);
+      }
+
+      @keyframes scroll {
+        0% {
+          transform: translateX(0);
+        }
+
+        100% {
+          transform: translateX(calc(-300px * 5 - 2rem * 5));
+        }
+      }
+
+      @media (max-width: 768px) {
+
+        .hero{
+            margin-top: 0;
+        }
+        .services-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .section-title {
+          font-size: 2rem;
+        }
+
+        .service-box {
+          flex: 0 0 280px;
+        }
+      }
+
+      .detail-features {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      /* Sectors */
+      .sectors {
+        background: var(--bg-color);
+        line-height: 1.6;
+      }
+
+      .section-header {
+        text-align: center;
+        padding: 2rem 0 4rem;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .section-header h2 {
+        color: var(--primary-color);
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        font-weight: 800;
+        letter-spacing: -0.02em;
+        transform: translateY(20px);
+        opacity: 0;
+        animation: fadeInUp 0.6s ease forwards;
+      }
+
+      .section-header p {
+        color: var(--secondary-color);
+        font-size: 1.2rem;
+        font-weight: 300;
+        letter-spacing: 0.5px;
+        transform: translateY(20px);
+        opacity: 0;
+        animation: fadeInUp 0.6s ease 0.2s forwards;
+      }
+
+      @media (max-width: 768px) {
+        .section-divider {
+          margin: 4rem auto 2rem;
+        }
+
+        .section-header {
+          padding: 1rem 0 2rem;
+        }
+
+        .section-header h2 {
+          font-size: 2rem;
+        }
+
+        .section-header p {
+          font-size: 1rem;
+        }
+      }
+
+      /* Sector Boxes Section */
+      .sector-boxes {
+        max-width: 1200px;
+        margin: -100px auto 0;
+        padding: 0 2rem;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+        position: relative;
+        z-index: 2;
+      }
+
+      .sector-box {
+        background: var(--light-color);
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        position: relative;
+      }
+
+      .sector-box:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+      }
+
+      .sector-image {
+        height: 200px;
+        background-size: cover;
+        background-position: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .sector-image::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.4), transparent);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      .sector-box:hover .sector-image::after {
+        opacity: 1;
+      }
+
+      .sector-content {
+        padding: 2rem;
+        position: relative;
+      }
+
+      .sector-icon {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        transition: transform 0.3s ease;
+      }
+
+      .sector-box:hover .sector-icon {
+        transform: scale(1.1) rotate(5deg);
+      }
+
+      .sector-title {
+        color: var(--primary-color);
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+        font-weight: 700;
+        letter-spacing: -0.01em;
+        position: relative;
+        padding-bottom: 0.5rem;
+        transition: color 0.3s ease;
+      }
+
+      .sector-title::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 30px;
+        height: 3px;
+        background: var(--accent-color);
+        transition: width 0.3s ease;
+      }
+
+      .sector-box:hover .sector-title {
+        color: var(--accent-color);
+      }
+
+      .sector-description {
+        color: #555;
+        line-height: 1.8;
+        margin-bottom: 1.5rem;
+        font-size: 1.05rem;
+        font-weight: 400;
+        transition: color 0.3s ease;
+      }
+
+      .sector-box:hover .sector-description {
+        color: #333;
+      }
+
+      .sector-link {
+        display: inline-flex;
+        align-items: center;
+        padding: 0.8rem 1.5rem;
+        background: var(--accent-color);
+        color: white;
+        text-decoration: none;
+        border-radius: 25px;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .sector-link::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: var(--primary-color);
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+      }
+
+      .sector-link span {
+        position: relative;
+        z-index: 1;
+      }
+
+      .sector-link:hover::before {
+        transform: translateX(0);
+      }
+
+      /* Detailed Sections */
+      .sector-details {
+        max-width: 1200px;
+        margin: 6rem auto;
+        padding: 0 2rem;
+      }
+
+      .detail-section {
+        margin: 8rem 0;
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.6s ease;
+        background: white;
+        border-radius: 30px;
+        overflow: hidden;
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+      }
+
+      .detail-section.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .detail-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+      }
+
+      .detail-content {
+        padding: 4rem;
+      }
+
+      .detail-title {
+        color: var(--primary-color);
+        font-size: 2.5rem;
+        margin-bottom: 2rem;
+        font-weight: 800;
+        letter-spacing: -0.02em;
+        position: relative;
+        transition: transform 0.3s ease;
+      }
+
+      .detail-section:hover .detail-title {
+        transform: translateX(10px);
+      }
+
+      .detail-text {
+        color: #444;
+        font-size: 1.1rem;
+        line-height: 1.8;
+        margin-bottom: 2rem;
+        font-weight: 400;
+        letter-spacing: 0.2px;
+        transition: all 0.3s ease;
+      }
+
+      .detail-section:hover .detail-text {
+        color: #222;
+        transform: translateX(5px);
+      }
+
+      .detail-features li {
+        font-size: 1.05rem;
+        font-weight: 400;
+        letter-spacing: 0.2px;
+        transition: all 0.3s ease;
+      }
+
+      .detail-section:hover .detail-features li {
+        transform: translateX(15px);
+        color: #222;
+      }
+
+      /* Scroll Animation */
+      .detail-section {
+        opacity: 0;
+        transform: translateY(50px);
+        transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .detail-section.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .detail-features li {
+        margin: 1rem 0;
+        padding-left: 2rem;
+        position: relative;
+        transition: transform 0.3s ease;
+      }
+
+      .detail-features li::before {
+        content: "→";
+        position: absolute;
+        left: 0;
+        color: var(--accent-color);
+        transition: transform 0.3s ease;
+      }
+
+      .detail-features li:hover {
+        transform: translateX(10px);
+      }
+
+      .detail-features li:hover::before {
+        transform: translateX(5px);
+      }
+
+      .detail-image {
+        height: 100%;
+        min-height: 400px;
+        background-size: cover;
+        background-position: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .detail-image::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(45deg, rgba(26, 95, 122, 0.2), transparent);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      .detail-section:hover .detail-image::after {
+        opacity: 1;
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @media (max-width: 768px) {
+        .detail-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .detail-content {
+          padding: 2rem;
+        }
+
+        .detail-image {
+          min-height: 300px;
+          order: -1;
+        }
+
+        .sector-details {
+          margin: 3rem auto;
+        }
+
+        .detail-section {
+          margin: 4rem 0;
+        }
+      }
+
+      /* Enhanced Hover Effects */
+      .sector-box {
+        transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+      }
+
+      .sector-box:hover {
+        transform: translateY(-15px) scale(1.02);
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+      }
+
+      /* Responsive Adjustments */
+      @media (max-width: 768px) {
+        .detail-section:hover .detail-title,
+        .detail-section:hover .detail-text,
+        .detail-section:hover .detail-features li {
+          transform: translateX(0);
+        }
+
+        .sector-box:hover {
+          transform: translateY(-10px) scale(1.01);
+        }
+      }
+
+      /* New CSS for alternating layouts */
+      .detail-section:nth-child(even) .detail-grid {
+        direction: rtl;
+      }
+
+      .detail-section:nth-child(even) .detail-content {
+        direction: ltr;
+      }
+
+      @media (max-width: 1024px) {
+        .sector-boxes {
+          grid-template-columns: repeat(2, 1fr);
+          margin-top: -50px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .sector-boxes {
+          grid-template-columns: 1fr;
+          margin-top: -30px;
+        }
+
+        .detail-grid {
+          grid-template-columns: 1fr;
+          gap: 2rem;
+        }
+
+        .detail-content {
+          padding: 2rem;
+        }
+
+        .detail-image {
+          min-height: 300px;
+          order: -1;
+        }
+
+        .detail-section {
+          margin: 4rem 0;
+        }
+
+        /* Reset direction for mobile view */
+        .detail-section:nth-child(even) .detail-grid {
+          direction: ltr;
+        }
+
+        .hero h1 {
+          font-size: 2rem;
+        }
+
+        .hero p {
+          font-size: 1rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .sector-boxes {
+          padding: 0 1rem;
+        }
+
+        .sector-content {
+          padding: 1.5rem;
+        }
+
+        .detail-title {
+          font-size: 2rem;
+        }
+
+        .detail-text {
+          font-size: 1rem;
+        }
+
+        .hero {
+          min-height: 40vh;
+          padding: 1rem;
+        }
+      }
+      
+    </style>
+  </head>
+
+  <body>
+    <div class="nav-overlay"></div>
+
+    <nav class="navbar" id="smart-navbar">
+     <div class="container navbar__content">
+       <a href="Home.html"  class="logo">
+         <img src="logo.png" alt="Indian Agency Logo" />
+         <!-- <span>Indian Agency</span> -->
+       </a>
+
+       <div class="nav-links">
+         <div class="nav-item">
+           <a href="Home.html" >Home</a>
+         </div>
+
+         <div class="nav-item dropdown">
+           <a href="services.html" >Services</a>
+           <div class="dropdown-content">
+             <a href="ff.html" 
+               ><i class="fas fa-ship"></i> Freight Forwarding</a
+             >
+             <a href="transport.html" 
+               ><i class="fas fa-truck-moving"></i> Transportation</a
+             >
+             <a href="cc.html"
+               ><i class="fas fa-file-contract"></i> Custom Clearance</a
+             >
+             <a href="wd.html"
+               ><i class="fas fa-warehouse"></i> Warehousing & Distribution</a
+             >
+             
+           </div>
+         </div>
+
+         <div class="nav-item">
+           <a href="solutions.html" >Solutions</a>
+         </div>
+
+         <div class="nav-item dropdown">
+           <a href="sectors.html" >Sectors</a>
+           <div class="dropdown-content">
+             <a href="sectors.html" 
+               ><i class="fa-solid fa-bolt"></i> Energy</a
+             >
+             <a href="sectors.html" 
+               ><i class="fas fa-capsules"></i> Pharmaceutical</a
+             >
+             <a href="sectors.html" 
+               ><i class="fas fa-industry"></i> Manufacturing</a
+             >
+             <a href="sectors.html" 
+               ><i class="fa-solid fa-plus"></i> More</a
+             >
+           </div>
+         </div>
+
+       
+
+         <div class="nav-item">
+           <a href="About.html" >About Us</a>
+         </div>
+
+         <div class="nav-item">
+           <a href="Home.html#contact">Contact</a>
+         </div>
+
+         <div class="nav-item">
+           <a href="login.html" class="cta-button">Login</a>
+         </div>
+       </div>
+     </div>
+   </nav>
+
+   <button class="mobile-nav-toggle">
+     <i class="fas fa-bars"></i>
+   </button>
+
+   <nav class="side-nav">
+     <div class="side-nav-links">
+       <a href="Home.html"  class="side-nav-item">
+         <span>Home</span>
+         <i class="fas fa-home"></i>
+       </a>
+
+       <div class="side-nav-dropdown">
+         <div class="side-nav-item">
+           <span>Services</span>
+           <i class="fas fa-chevron-down"></i>
+         </div>
+         <div class="side-nav-dropdown-content">
+           <a href="ff.html" >
+             <i class="fas fa-ship"></i>
+             <span>Freight Forwarding</span>
+           </a>
+           <a href="transport.html" >
+             <i class="fas fa-truck-moving"></i>
+             <span>Transportation</span>
+           </a>
+           <a href="cc.html">
+             <i class="fas fa-file-contract"></i>
+             <span>Customs Clearance</span>
+           </a>
+           <a href="wd.html">
+             <i class="fas fa-warehouse"></i>
+             <span>Warehousing & Distribution</span>
+           </a>
+         </div>
+       </div>
+
+       <div href="solutions.html"  class="side-nav-item">
+         <span>Solutions</span>
+         <i class="fa-solid fa-lightbulb"></i>
+       </div>
+
+       <div class="side-nav-dropdown">
+         <div class="side-nav-item">
+           <span>Sectors</span>
+           <i class="fas fa-chevron-down"></i>
+         </div>
+         <div class="side-nav-dropdown-content">
+           <a href="sectors.html" >
+             <i class="fa-solid fa-bolt"></i>
+             <span>Energy</span>
+           </a>
+           <a href="sectors.html" >
+             <i class="fas fa-capsules"></i>
+             <span>Pharmaceutical</span>
+           </a>
+           <a href="sectors.html" >
+             <i class="fas fa-industry"></i>
+             <span>Manufacturing</span>
+           </a>
+           <a href="sectors.html" >
+             <i class="fa-solid fa-plus"></i>
+             <span>More</span>
+           </a>
+         </div>
+       </div>
+
+       
+
+       <div href="About.html"  class="side-nav-item">
+         <span>About Us</span>
+         <i class="fas fa-info-circle"></i>
+       </div>
+
+       <div href="Home.html#contact"  class="side-nav-item">
+         <span>Contact</span>
+         <i class="fas fa-envelope"></i>
+       </div>
+
+       <div href="login.html" class="side-nav-item cta-button">
+         <span>Login</span>
+         <i class="fas fa-sign-in-alt"></i>
+       </div>
+     </div>
+   </nav>
+
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+        <h1>Warehousing & Distribution</h1>
+        <p>Gain a Competitive Edge with Seasoned Management and Ample Storage Solutions</p>
+    </div>
+</section>
+
+
+<!-- Detailed Section -->
+<section class="sector-details">
+    <div class="detail-section">
+        <div class="detail-grid">
+            <div class="detail-content">
+                <h2 class="detail-title">Comprehensive Warehousing Solutions</h2>
+                <p class="detail-text">
+                    Our distribution frameworks are designed with core principles in mind, ensuring they are competent, competitive, and effective. Our warehouses are strategically located across India, in close proximity to major ports and business centres.
+                </p>
+                <ul class="detail-features">
+                    <li>Comprehensive inventory planning and restocking</li>
+                    <li>Strategic warehouse locations near major ports</li>
+                    <li>Advanced material handling equipment</li>
+                    <li>IT-enabled Management Information Systems</li>
+                    <li>Vendor-Managed Inventory solutions</li>
+                </ul>
+            </div>
+            <div class="detail-image" style="background-image: url('wd1.jpg')"></div>
+        </div>
+    </div>
+
+    <div class="detail-section">
+        <div class="detail-grid">
+            <div class="detail-content">
+                <h2 class="detail-title">Value-Added Services</h2>
+                <p class="detail-text">
+                    Our commitment to pushing boundaries and finding unique solutions sets us apart as pioneers in the logistics industry, creating exceptional value for our clients.
+                </p>
+                <ul class="detail-features">
+                    <li>Custom labeling and packaging services</li>
+                    <li>CBEC supervised operations</li>
+                    <li>Flexible customs clearance</li>
+                    <li>Cost optimization solutions</li>
+                    <li>Comprehensive supply chain management</li>
+                </ul>
+            </div>
+            <div class="detail-image" style="background-image: url('wd2.png')"></div>
+        </div>
+    </div>
+</section>
+
+        <!--Footer Section-->
+    <!--Footer Section-->
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-col">
+          <h3>About Us</h3>
+          <p>
+            Indian Shipping Agency is your trusted partner for global freight
+            forwarding and logistics solutions. With years of experience, we
+            deliver excellence in shipping services.
+          </p>
+        </div>
+        <div class="footer-col">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="services.html">Our Services</a></li>
+            <li><a href="About.html">About Us</a></li>
+            <li><a href="Home.html#contact">Contact</a></li>
+            <li><a href="solutions.html">Solutions</a></li>
+            <li><a href="Home.html#contact">Get Quote</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Services</h3>
+          <ul>
+            <li><a href="ff.html">Freight Forwarding</a></li>
+            <li><a href="transport.html">Transportation</a></li>
+            <li><a href="cc.html">Custom Clearance</a></li>
+            <li><a href="wd.html">Warehouse and Distribution</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Sectors</h3>
+          <ul>
+            <li><a href="sectors.html">Energy & Resources</a></li>
+            <li><a href="sectors.html">Pharmaceutical</a></li>
+            <li><a href="sectors.html">Manufacturing</a></li>
+            <li><a href="sectors.html">Chemical</a></li>
+            <li><a href="sectors.html">More</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Connect With Us</h3>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 Indian Shipping Agency. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script src="script.js" defer></script>
+    <script>
+      // Clone scroll content for seamless loop
+      document.addEventListener("DOMContentLoaded", () => {
+        const scrollContainer = document.querySelector(".services-scroll");
+        scrollContainer.innerHTML += scrollContainer.innerHTML;
+      });
+
+      // Intersection Observer for animations
+      const observerOptions13 = {
+        threshold: 0.2,
+        rootMargin: "0px 0px -100px 0px",
+      };
+
+      const observer13 = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+          }
+        });
+      }, observerOptions13);
+
+      // Observe elements
+      document
+        .querySelectorAll(".section-title, .section-subtitle, .services-grid")
+        .forEach((element) => {
+          observer13.observe(element);
+        });
+
+      // Intersection Observer for fade-in animations
+      const observer1 = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+            }
+          });
+        },
+        {
+          threshold: 0.1,
+          rootMargin: "50px",
+        }
+      );
+
+      document.querySelectorAll(".detail-section").forEach((section) => {
+        observer1.observe(section);
+      });
+    </script>
+  </body>
+</html>
