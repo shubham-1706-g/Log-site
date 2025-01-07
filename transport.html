@@ -32,53 +32,7 @@
         line-height: 1.6;
       }
 
-      /* Hero Section */
-      .hero {
-        background: linear-gradient(
-          135deg,
-          var(--primary-color),
-          var(--secondary-color)
-        );
-        min-height: 80vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        padding: 2rem;
-        position: relative;
-        overflow: hidden;
-        margin-top: 60px;
-      }
-
-      .hero::before {
-        content: "";
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        opacity: 0.6;
-      }
-
-      .hero-content {
-        position: relative;
-        z-index: 1;
-        max-width: 800px;
-      }
-
-      .hero h1 {
-        color: var(--light-color);
-        font-size: clamp(2.5rem, 5vw, 4rem);
-        margin-bottom: 1.5rem;
-        font-weight: 800;
-        text-shadow: var(--text-shadow);
-      }
-
-      .hero p {
-        color: rgba(255, 255, 255, 0.9);
-        font-size: clamp(1.1rem, 2vw, 1.3rem);
-        max-width: 600px;
-        margin: 0 auto;
-        text-shadow: var(--text-shadow);
-      }
+      
 
       /* Services Section */
       .services-section {
@@ -861,15 +815,33 @@
 
     
     <!-- Hero Section -->
-    <section class="hero">
-      <div class="hero-content">
-        <h1>Transportation Service</h1>
-        <p>
-          Delivering excellence through comprehensive transportation and
-          logistics solutions
-        </p>
-      </div>
-    </section>
+  <!-- Corousel section-->
+  <section id="home" class="hero">
+    <div class="hero-carousel">
+      <div class="carousel-slide" style="background-image: url('ff-land.jpg')"></div>
+      <div class="carousel-slide" style="background-image: url('ff-air.jpg')"></div>
+      <div class="carousel-slide" style="background-image: url('ff-ocean.jpg')"></div>
+      <div class="carousel-slide" style="background-image: url('Solution-2.jpg')"></div>
+      <div class="carousel-slide" style="background-image: url('trans-4.jpg')"></div>
+      <div class="carousel-slide" style="background-image: url('ff-NVOCC.jpg')"></div>
+    </div>
+    <div class="hero-content">
+      <h1>Transportation Service</h1>
+      <p>
+        Delivering excellence through comprehensive transportation and logistics solutions
+      </p>
+      
+    </div>
+    <div class="carousel-dots">
+      <span class="dot active"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+    </div>
+  </section>
+
 
     <!-- Services Section -->
     <section class="services-section">
