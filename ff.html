@@ -1,875 +1,884 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Freight Forwarding| Services | ISA</title>
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-      rel="stylesheet"
-    />
-    <link rel="icon" href="logo.png" type="image/png">
-    <link rel="stylesheet" href="nav.css" class="" />
-    <style>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Freight Forwarding| Services | ISA</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+  <link rel="icon" href="logo.png" type="image/png">
+  <link rel="stylesheet" href="nav.css" class="" />
+  <style>
+    :root {
+      /* Color Variables */
+      --primary-color: #1a5f7a;
+      --secondary-color: #159895;
+      --accent-color: #57c5b6;
+      --text-color: #2c3e50;
+      --background-color: #f0f4f8;
+
+      /* Typography Scale */
+      --scale-ratio: 1.333;
+      /* Perfect fourth scale */
+      --base-size: 1.125rem;
+      /* 18px base */
+      --h1-size: calc(var(--base-size) * 3.5);
+      /* ~63px */
+      --h2-size: calc(var(--base-size) * 2.5);
+      /* ~45px */
+      --h3-size: calc(var(--base-size) * 1.75);
+      /* ~31px */
+      --h4-size: calc(var(--base-size) * 1.25);
+      /* ~22px */
+      --p-size: var(--base-size);
+
+      /* Spacing Scale */
+      --spacing-unit: 1rem;
+      --spacing-xs: calc(var(--spacing-unit) * 0.5);
+      --spacing-sm: var(--spacing-unit);
+      --spacing-md: calc(var(--spacing-unit) * 1.5);
+      --spacing-lg: calc(var(--spacing-unit) * 2);
+      --spacing-xl: calc(var(--spacing-unit) * 3);
+
+      /* Common Values */
+      --border-radius-sm: 10px;
+      --border-radius-md: 15px;
+      --border-radius-lg: 20px;
+      --border-radius-xl: 50px;
+    }
+
+    /* Base Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Arial", sans-serif;
+    }
+
+    html,
+    body {
+      overflow-x: hidden;
+      width: 100%;
+      max-width: 100%;
+      margin: 0;
+      padding: 0;
+      scroll-behavior: smooth;
+    }
+
+    /* Typography */
+    h1 {
+      font-size: var(--h1-size);
+      line-height: 1.2;
+      font-weight: 700;
+    }
+
+    h2 {
+      font-size: var(--h2-size);
+      line-height: 1.3;
+      font-weight: 600;
+    }
+
+    h3 {
+      font-size: var(--h3-size);
+      line-height: 1.4;
+      font-weight: 600;
+    }
+
+    /* Service Hero Section */
+    /* Section Titles */
+    .section-title {
+      text-align: center;
+      width: 100%;
+      max-width: 800px;
+      margin: 0 auto var(--spacing-xl);
+      padding: 0 var(--spacing-md);
+      position: relative;
+    }
+
+    .section-title h2 {
+      color: var(--primary-color);
+      margin-bottom: var(--spacing-sm);
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-title h2::after {
+      content: "";
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 3px;
+      background: var(--secondary-color);
+    }
+
+    .section-title p {
+      color: var(--text-color);
+      max-width: 600px;
+      margin: var(--spacing-md) auto 0;
+      opacity: 0.8;
+    }
+
+    /* Subtitle variations */
+    .section-title--light {
+      color: white;
+    }
+
+    .section-title--light h2 {
+      color: white;
+    }
+
+    .section-title--light p {
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    .section-title--left {
+      text-align: left;
+      margin-left: 0;
+    }
+
+    .section-title--left h2::after {
+      left: 0;
+      transform: none;
+    }
+
+    .service-hero {
+      height: 80vh;
+      background: linear-gradient(rgba(26, 95, 122, 0.8),
+          rgba(21, 152, 149, 0.9)),
+        url("https://source.unsplash.com/random/1920x1080?freight,shipping") no-repeat center;
+      background-size: cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      position: relative;
+      overflow: hidden;
+      padding-top: var(--spacing-xl);
+    }
+
+    .service-hero::before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.3);
+      animation: pulse 2s infinite;
+    }
+
+    .service-hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
+      padding: 0 var(--spacing-md);
+    }
+
+    .service-hero h1 {
+      margin-bottom: var(--spacing-md);
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeInUp 1s forwards;
+    }
+
+    .service-hero p {
+      margin-bottom: var(--spacing-lg);
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeInUp 1s 0.3s forwards;
+    }
+
+    /* Service Cards Section */
+    .service-types {
+      padding: var(--spacing-xl) 8%;
+      background: white;
+    }
+
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--spacing-lg);
+      margin-top: var(--spacing-xl);
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0;
+    }
+
+    .freight-card {
+      background: white;
+      border-radius: var(--border-radius-lg);
+      overflow: hidden;
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+      transition: all 0.4s ease;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+    }
+
+    .freight-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    }
+
+    .freight-card img {
+      width: 100%;
+      aspect-ratio: 1/1;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .freight-card:hover img {
+      transform: scale(1.1);
+    }
+
+    .freight-content {
+      padding: var(--spacing-lg);
+      position: relative;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .freight-content::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 50px;
+      height: 3px;
+      background: var(--secondary-color);
+      transition: width 0.3s ease;
+    }
+
+    .freight-card:hover .freight-content::before {
+      width: 100px;
+    }
+
+    .freight-content h3 {
+      color: var(--primary-color);
+      margin-bottom: var(--spacing-sm);
+    }
+
+    .freight-content p {
+      color: var(--text-color);
+      line-height: 1.6;
+      margin-bottom: auto;
+      padding-bottom: var(--spacing-md);
+    }
+
+    /* Features Section */
+    .features-section {
+      padding: var(--spacing-xl) 8%;
+      background: var(--background-color);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--spacing-lg);
+      margin-top: var(--spacing-xl);
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0;
+    }
+
+    .feature-item {
+      text-align: center;
+      padding: var(--spacing-xl) var(--spacing-md);
+      background: white;
+      border-radius: var(--border-radius-md);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+    }
+
+    .feature-item::before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(135deg,
+          var(--primary-color),
+          var(--secondary-color));
+      bottom: 0;
+      left: 0;
+      transform: scaleX(0);
+      transition: transform 0.3s ease;
+    }
+
+    .feature-item:hover::before {
+      transform: scaleX(1);
+    }
+
+    .feature-item i {
+      font-size: calc(var(--h1-size) * 1.2);
+      color: var(--secondary-color);
+      margin-bottom: var(--spacing-md);
+      transition: transform 0.3s ease;
+    }
+
+    .feature-item:hover i {
+      transform: rotateY(360deg);
+    }
+
+    .feature-item h4 {
+      color: var(--primary-color);
+      margin-bottom: var(--spacing-sm);
+    }
+
+    /* Process Section */
+    .process-section {
+      padding: var(--spacing-xl) 8%;
+      background: white;
+      position: relative;
+    }
+
+    .timeline {
+      position: relative;
+      max-width: 1200px;
+      margin: var(--spacing-xl) auto;
+    }
+
+    .timeline::after {
+      content: "";
+      position: absolute;
+      width: 6px;
+      background: var(--secondary-color);
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      margin-left: -3px;
+    }
+
+    .timeline-item {
+      padding: var(--spacing-xs) var(--spacing-xl);
+      position: relative;
+      width: 50%;
+      opacity: 0;
+      transform: translateX(-100px);
+      transition: all 0.3s ease;
+    }
+
+    .timeline-item.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .timeline-item:nth-child(even) {
+      left: 50%;
+    }
+
+    .timeline-content {
+      padding: var(--spacing-md);
+      background: white;
+      border-radius: var(--border-radius-sm);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .timeline-content h3 {
+      color: var(--primary-color);
+      margin-bottom: var(--spacing-xs);
+    }
+
+    /* CTA Buttons */
+    .cta-buttons,
+    .cta-button {
+      display: inline-block;
+      padding: var(--spacing-sm) var(--spacing-xl);
+      background-color: var(--accent-color);
+      color: white;
+      text-decoration: none;
+      border-radius: var(--border-radius-xl);
+      font-weight: 600;
+      transition: all 0.3s ease;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      width: auto;
+      min-width: 120px;
+      text-align: center;
+      margin-top: var(--spacing-md);
+    }
+
+    .cta-buttons:hover,
+    .cta-button:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3);
+      background: white;
+      color: var(--accent-color);
+      border: 2px solid var(--accent-color);
+    }
+
+    /* Animations */
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Media Queries */
+    @media (max-width: 1200px) {
       :root {
-        /* Color Variables */
-        --primary-color: #1a5f7a;
-        --secondary-color: #159895;
-        --accent-color: #57c5b6;
-        --text-color: #2c3e50;
-        --background-color: #f0f4f8;
-
-        /* Typography Scale */
-        --scale-ratio: 1.333; /* Perfect fourth scale */
-        --base-size: 1.125rem; /* 18px base */
-        --h1-size: calc(var(--base-size) * 3.5); /* ~63px */
-        --h2-size: calc(var(--base-size) * 2.5); /* ~45px */
-        --h3-size: calc(var(--base-size) * 1.75); /* ~31px */
-        --h4-size: calc(var(--base-size) * 1.25); /* ~22px */
-        --p-size: var(--base-size);
-
-        /* Spacing Scale */
-        --spacing-unit: 1rem;
-        --spacing-xs: calc(var(--spacing-unit) * 0.5);
-        --spacing-sm: var(--spacing-unit);
-        --spacing-md: calc(var(--spacing-unit) * 1.5);
-        --spacing-lg: calc(var(--spacing-unit) * 2);
-        --spacing-xl: calc(var(--spacing-unit) * 3);
-
-        /* Common Values */
-        --border-radius-sm: 10px;
-        --border-radius-md: 15px;
-        --border-radius-lg: 20px;
-        --border-radius-xl: 50px;
-      }
-
-      /* Base Styles */
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: "Arial", sans-serif;
-      }
-
-      html,
-      body {
-        overflow-x: hidden;
-        width: 100%;
-        max-width: 100%;
-        margin: 0;
-        padding: 0;
-        scroll-behavior: smooth;
-      }
-
-      /* Typography */
-      h1 {
-        font-size: var(--h1-size);
-        line-height: 1.2;
-        font-weight: 700;
-      }
-
-      h2 {
-        font-size: var(--h2-size);
-        line-height: 1.3;
-        font-weight: 600;
-      }
-
-      h3 {
-        font-size: var(--h3-size);
-        line-height: 1.4;
-        font-weight: 600;
-      }
-
-      /* Service Hero Section */
-      /* Section Titles */
-      .section-title {
-        text-align: center;
-        width: 100%;
-        max-width: 800px;
-        margin: 0 auto var(--spacing-xl);
-        padding: 0 var(--spacing-md);
-        position: relative;
-      }
-
-      .section-title h2 {
-        color: var(--primary-color);
-        margin-bottom: var(--spacing-sm);
-        position: relative;
-        display: inline-block;
-      }
-
-      .section-title h2::after {
-        content: "";
-        position: absolute;
-        bottom: -10px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 80px;
-        height: 3px;
-        background: var(--secondary-color);
-      }
-
-      .section-title p {
-        color: var(--text-color);
-        max-width: 600px;
-        margin: var(--spacing-md) auto 0;
-        opacity: 0.8;
-      }
-
-      /* Subtitle variations */
-      .section-title--light {
-        color: white;
-      }
-
-      .section-title--light h2 {
-        color: white;
-      }
-
-      .section-title--light p {
-        color: rgba(255, 255, 255, 0.9);
-      }
-
-      .section-title--left {
-        text-align: left;
-        margin-left: 0;
-      }
-
-      .section-title--left h2::after {
-        left: 0;
-        transform: none;
-      }
-      .service-hero {
-        height: 80vh;
-        background: linear-gradient(
-            rgba(26, 95, 122, 0.8),
-            rgba(21, 152, 149, 0.9)
-          ),
-          url("https://source.unsplash.com/random/1920x1080?freight,shipping")
-            no-repeat center;
-        background-size: cover;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        color: white;
-        position: relative;
-        overflow: hidden;
-        padding-top: var(--spacing-xl);
-      }
-
-      .service-hero::before {
-        content: "";
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.3);
-        animation: pulse 2s infinite;
-      }
-
-      .service-hero-content {
-        position: relative;
-        z-index: 2;
-        max-width: 800px;
-        padding: 0 var(--spacing-md);
-      }
-
-      .service-hero h1 {
-        margin-bottom: var(--spacing-md);
-        opacity: 0;
-        transform: translateY(30px);
-        animation: fadeInUp 1s forwards;
-      }
-
-      .service-hero p {
-        margin-bottom: var(--spacing-lg);
-        opacity: 0;
-        transform: translateY(30px);
-        animation: fadeInUp 1s 0.3s forwards;
-      }
-
-      /* Service Cards Section */
-      .service-types {
-        padding: var(--spacing-xl) 8%;
-        background: white;
+        --base-size: 1.0625rem;
+        /* 17px */
       }
 
       .service-grid {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: var(--spacing-lg);
-        margin-top: var(--spacing-xl);
-        width: 100%;
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0;
-      }
-
-      .freight-card {
-        background: white;
-        border-radius: var(--border-radius-lg);
-        overflow: hidden;
-        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-        transition: all 0.4s ease;
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-      }
-
-      .freight-card:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-      }
-
-      .freight-card img {
-        width: 100%;
-        aspect-ratio: 1/1;
-        object-fit: cover;
-        transition: transform 0.4s ease;
-      }
-
-      .freight-card:hover img {
-        transform: scale(1.1);
-      }
-
-      .freight-content {
-        padding: var(--spacing-lg);
-        position: relative;
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-      }
-
-      .freight-content::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 50px;
-        height: 3px;
-        background: var(--secondary-color);
-        transition: width 0.3s ease;
-      }
-
-      .freight-card:hover .freight-content::before {
-        width: 100px;
-      }
-
-      .freight-content h3 {
-        color: var(--primary-color);
-        margin-bottom: var(--spacing-sm);
-      }
-
-      .freight-content p {
-        color: var(--text-color);
-        line-height: 1.6;
-        margin-bottom: auto;
-        padding-bottom: var(--spacing-md);
-      }
-
-      /* Features Section */
-      .features-section {
-        padding: var(--spacing-xl) 8%;
-        background: var(--background-color);
-        position: relative;
-        overflow: hidden;
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--spacing-md);
       }
 
       .features-grid {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: var(--spacing-lg);
-        margin-top: var(--spacing-xl);
-        width: 100%;
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0;
-      }
-
-      .feature-item {
-        text-align: center;
-        padding: var(--spacing-xl) var(--spacing-md);
-        background: white;
-        border-radius: var(--border-radius-md);
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        transition: all 0.3s ease;
-        position: relative;
-        overflow: hidden;
-        width: 100%;
-      }
-
-      .feature-item::before {
-        content: "";
-        position: absolute;
-        width: 100%;
-        height: 3px;
-        background: linear-gradient(
-          135deg,
-          var(--primary-color),
-          var(--secondary-color)
-        );
-        bottom: 0;
-        left: 0;
-        transform: scaleX(0);
-        transition: transform 0.3s ease;
-      }
-
-      .feature-item:hover::before {
-        transform: scaleX(1);
-      }
-
-      .feature-item i {
-        font-size: calc(var(--h1-size) * 1.2);
-        color: var(--secondary-color);
-        margin-bottom: var(--spacing-md);
-        transition: transform 0.3s ease;
-      }
-
-      .feature-item:hover i {
-        transform: rotateY(360deg);
-      }
-
-      .feature-item h4 {
-        color: var(--primary-color);
-        margin-bottom: var(--spacing-sm);
-      }
-
-      /* Process Section */
-      .process-section {
-        padding: var(--spacing-xl) 8%;
-        background: white;
-        position: relative;
-      }
-
-      .timeline {
-        position: relative;
-        max-width: 1200px;
-        margin: var(--spacing-xl) auto;
+        grid-template-columns: repeat(2, 1fr);
       }
 
       .timeline::after {
-        content: "";
-        position: absolute;
-        width: 6px;
-        background: var(--secondary-color);
-        top: 0;
-        bottom: 0;
-        left: 50%;
-        margin-left: -3px;
+        left: 31px;
       }
 
       .timeline-item {
-        padding: var(--spacing-xs) var(--spacing-xl);
-        position: relative;
-        width: 50%;
-        opacity: 0;
-        transform: translateX(-100px);
-        transition: all 0.3s ease;
-      }
-
-      .timeline-item.visible {
-        opacity: 1;
-        transform: translateX(0);
+        width: 100%;
+        padding-left: 70px;
+        padding-right: var(--spacing-md);
       }
 
       .timeline-item:nth-child(even) {
-        left: 50%;
+        left: 0;
+      }
+    }
+
+    @media (max-width: 992px) {
+      :root {
+        --base-size: 1rem;
+        /* 16px */
+      }
+
+      h1 {
+        font-size: var(--h1-size-mobile);
+      }
+
+      h2 {
+        font-size: var(--h2-size-mobile);
+      }
+
+      h3 {
+        font-size: var(--h3-size-mobile);
+      }
+
+      p,
+      li,
+      input,
+      textarea,
+      button {
+        font-size: var(--p-size-mobile);
+      }
+
+      .section-title {
+        margin-bottom: var(--spacing-lg);
+      }
+
+      .service-hero h1 {
+        font-size: calc(var(--h1-size) * 0.75);
+      }
+
+      .service-hero p {
+        font-size: calc(var(--p-size) * 1.2);
+      }
+
+      .service-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      :root {
+        --base-size: 0.9375rem;
+        /* 15px */
+      }
+      .freight-card img {
+      width: 100%;
+      aspect-ratio: auto;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+      .section-title h2::after {
+        width: 60px;
+      }
+
+      .service-hero {
+        height: 60vh;
+      }
+
+      .service-grid,
+      .features-grid {
+        grid-template-columns: 1fr;
+        max-width: 500px;
+        margin: var(--spacing-lg) auto;
+      }
+
+      [data-aos] {
+        opacity: 1 !important;
+        transform: none !important;
       }
 
       .timeline-content {
-        padding: var(--spacing-md);
-        background: white;
-        border-radius: var(--border-radius-sm);
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        padding: var(--spacing-sm);
       }
 
-      .timeline-content h3 {
-        color: var(--primary-color);
+      .timeline-item {
+        padding-left: 50px;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .section-title {
+        padding: 0 var(--spacing-sm);
+      }
+
+      .section-title h2 {
         margin-bottom: var(--spacing-xs);
       }
 
-      /* CTA Buttons */
+      .service-hero {
+        height: 50vh;
+        padding: var(--spacing-md);
+      }
+
+
+
+      section {
+        padding: var(--spacing-xl) var(--spacing-md);
+      }
+
       .cta-buttons,
-      .cta-button {
-        display: inline-block;
-        padding: var(--spacing-sm) var(--spacing-xl);
-        background-color: var(--accent-color);
-        color: white;
-        text-decoration: none;
-        border-radius: var(--border-radius-xl);
-        font-weight: 600;
-        transition: all 0.3s ease;
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-        width: auto;
-        min-width: 120px;
-        text-align: center;
-        margin-top: var(--spacing-md);
+      .cta-button,
+      .submit-btn {
+        width: 100%;
+        max-width: 100%;
+      }
+    }
+
+    @media (max-width: 400px) {
+      .feature-item {
+        padding: var(--spacing-sm);
       }
 
-      .cta-buttons:hover,
-      .cta-button:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3);
-        background: white;
-        color: var(--accent-color);
-        border: 2px solid var(--accent-color);
+      .feature-item i {
+        font-size: calc(var(--h1-size) * 0.8);
+      }
+    }
+
+    @media (max-height: 700px) and (max-width: 768px) {
+      .service-hero {
+        height: 70vh;
+      }
+    }
+
+    @media (hover: hover) {
+      .submit-btn:hover {
+        background: var(--secondary-color);
       }
 
-      /* Animations */
-      @keyframes fadeInUp {
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
+      .social-links a:hover {
+        background: rgba(255, 255, 255, 0.2);
       }
+    }
+  </style>
+</head>
 
-      /* Media Queries */
-      @media (max-width: 1200px) {
-        :root {
-          --base-size: 1.0625rem; /* 17px */
-        }
+<body>
+  <div class="nav-overlay"></div>
 
-        .service-grid {
-          grid-template-columns: repeat(3, 1fr);
-          gap: var(--spacing-md);
-        }
+  <nav class="navbar" id="smart-navbar">
+    <div class="container navbar__content">
+      <a href="Home.html" class="logo">
+        <img src="logo.png" alt="Indian Agency Logo" />
+        <!-- <span>Indian Agency</span> -->
+      </a>
 
-        .features-grid {
-          grid-template-columns: repeat(2, 1fr);
-        }
+      <div class="nav-links">
+        <div class="nav-item">
+          <a href="Home.html">Home</a>
+        </div>
 
-        .timeline::after {
-          left: 31px;
-        }
+        <div class="nav-item dropdown">
+          <a href="services.html">Services</a>
+          <div class="dropdown-content">
+            <a href="ff.html"><i class="fas fa-ship"></i> Freight Forwarding</a>
+            <a href="transport.html"><i class="fas fa-truck-moving"></i> Transportation</a>
+            <a href="cc.html"><i class="fas fa-file-contract"></i> Custom Clearance</a>
+            <a href="wd.html"><i class="fas fa-warehouse"></i> Warehousing & Distribution</a>
 
-        .timeline-item {
-          width: 100%;
-          padding-left: 70px;
-          padding-right: var(--spacing-md);
-        }
-
-        .timeline-item:nth-child(even) {
-          left: 0;
-        }
-      }
-
-      @media (max-width: 992px) {
-        :root {
-          --base-size: 1rem; /* 16px */
-        }
-
-        h1 {
-          font-size: var(--h1-size-mobile);
-        }
-        h2 {
-          font-size: var(--h2-size-mobile);
-        }
-        h3 {
-          font-size: var(--h3-size-mobile);
-        }
-        p,
-        li,
-        input,
-        textarea,
-        button {
-          font-size: var(--p-size-mobile);
-        }
-
-        .section-title {
-          margin-bottom: var(--spacing-lg);
-        }
-
-        .service-hero h1 {
-          font-size: calc(var(--h1-size) * 0.75);
-        }
-
-        .service-hero p {
-          font-size: calc(var(--p-size) * 1.2);
-        }
-
-        .service-grid {
-          grid-template-columns: repeat(2, 1fr);
-        }
-      }
-
-      @media (max-width: 768px) {
-        :root {
-          --base-size: 0.9375rem; /* 15px */
-        }
-
-        .section-title h2::after {
-          width: 60px;
-        }
-
-        .service-hero {
-          height: 60vh;
-        }
-
-        .service-grid,
-        .features-grid {
-          grid-template-columns: 1fr;
-          max-width: 500px;
-          margin: var(--spacing-lg) auto;
-        }
-
-        [data-aos] {
-          opacity: 1 !important;
-          transform: none !important;
-        }
-
-        .timeline-content {
-          padding: var(--spacing-sm);
-        }
-
-        .timeline-item {
-          padding-left: 50px;
-        }
-      }
-
-      @media (max-width: 576px) {
-        .section-title {
-          padding: 0 var(--spacing-sm);
-        }
-
-        .section-title h2 {
-          margin-bottom: var(--spacing-xs);
-        }
-
-        .service-hero {
-          height: 50vh;
-          padding: var(--spacing-md);
-        }
-
-        .freight-card,
-        .feature-item {
-          margin: 0 var(--spacing-sm);
-        }
-
-        section {
-          padding: var(--spacing-xl) var(--spacing-md);
-        }
-
-        .cta-buttons,
-        .cta-button,
-        .submit-btn {
-          width: 100%;
-          max-width: 100%;
-        }
-      }
-
-      @media (max-width: 400px) {
-        .feature-item {
-          padding: var(--spacing-sm);
-        }
-
-        .feature-item i {
-          font-size: calc(var(--h1-size) * 0.8);
-        }
-      }
-
-      @media (max-height: 700px) and (max-width: 768px) {
-        .service-hero {
-          height: 70vh;
-        }
-      }
-
-      @media (hover: hover) {
-        .submit-btn:hover {
-          background: var(--secondary-color);
-        }
-
-        .social-links a:hover {
-          background: rgba(255, 255, 255, 0.2);
-        }
-      }
-    </style>
-  </head>
-
-  <body>
-    <div class="nav-overlay"></div>
-
-    <nav class="navbar" id="smart-navbar">
-     <div class="container navbar__content">
-       <a href="Home.html"  class="logo">
-         <img src="logo.png" alt="Indian Agency Logo" />
-         <!-- <span>Indian Agency</span> -->
-       </a>
-
-       <div class="nav-links">
-         <div class="nav-item">
-           <a href="Home.html" >Home</a>
-         </div>
-
-         <div class="nav-item dropdown">
-           <a href="services.html" >Services</a>
-           <div class="dropdown-content">
-             <a href="ff.html" 
-               ><i class="fas fa-ship"></i> Freight Forwarding</a
-             >
-             <a href="transport.html" 
-               ><i class="fas fa-truck-moving"></i> Transportation</a
-             >
-             <a href="cc.html"
-               ><i class="fas fa-file-contract"></i> Custom Clearance</a
-             >
-             <a href="wd.html"
-               ><i class="fas fa-warehouse"></i> Warehousing & Distribution</a
-             >
-             
-           </div>
-         </div>
-
-         <div class="nav-item">
-           <a href="solutions.html" >Solutions</a>
-         </div>
-
-         <div class="nav-item dropdown">
-           <a href="sectors.html" >Sectors</a>
-           <div class="dropdown-content">
-             <a href="sectors.html" 
-               ><i class="fa-solid fa-bolt"></i> Energy</a
-             >
-             <a href="sectors.html" 
-               ><i class="fas fa-capsules"></i> Pharmaceutical</a
-             >
-             <a href="sectors.html" 
-               ><i class="fas fa-industry"></i> Manufacturing</a
-             >
-             <a href="sectors.html" 
-               ><i class="fa-solid fa-plus"></i> More</a
-             >
-           </div>
-         </div>
-
-       
-
-         <div class="nav-item">
-           <a href="About.html" >About Us</a>
-         </div>
-
-         <div class="nav-item">
-           <a href="Home.html#contact">Contact</a>
-         </div>
-
-         <div class="nav-item">
-           <a href="login.html" class="cta-button">Login</a>
-         </div>
-       </div>
-     </div>
-   </nav>
-
-   <button class="mobile-nav-toggle">
-     <i class="fas fa-bars"></i>
-   </button>
-
-   <nav class="side-nav">
-     <div class="side-nav-links">
-       <a href="Home.html"  class="side-nav-item">
-         <span>Home</span>
-         <i class="fas fa-home"></i>
-       </a>
-
-       <div class="side-nav-dropdown">
-         <div class="side-nav-item">
-           <span>Services</span>
-           <i class="fas fa-chevron-down"></i>
-         </div>
-         <div class="side-nav-dropdown-content">
-           <a href="ff.html" >
-             <i class="fas fa-ship"></i>
-             <span>Freight Forwarding</span>
-           </a>
-           <a href="transport.html" >
-             <i class="fas fa-truck-moving"></i>
-             <span>Transportation</span>
-           </a>
-           <a href="cc.html">
-             <i class="fas fa-file-contract"></i>
-             <span>Customs Clearance</span>
-           </a>
-           <a href="wd.html">
-             <i class="fas fa-warehouse"></i>
-             <span>Warehousing & Distribution</span>
-           </a>
-         </div>
-       </div>
-
-       <div href="solutions.html"  class="side-nav-item">
-         <span>Solutions</span>
-         <i class="fa-solid fa-lightbulb"></i>
-       </div>
-
-       <div class="side-nav-dropdown">
-         <div class="side-nav-item">
-           <span>Sectors</span>
-           <i class="fas fa-chevron-down"></i>
-         </div>
-         <div class="side-nav-dropdown-content">
-           <a href="sectors.html" >
-             <i class="fa-solid fa-bolt"></i>
-             <span>Energy</span>
-           </a>
-           <a href="sectors.html" >
-             <i class="fas fa-capsules"></i>
-             <span>Pharmaceutical</span>
-           </a>
-           <a href="sectors.html" >
-             <i class="fas fa-industry"></i>
-             <span>Manufacturing</span>
-           </a>
-           <a href="sectors.html" >
-             <i class="fa-solid fa-plus"></i>
-             <span>More</span>
-           </a>
-         </div>
-       </div>
-
-       
-
-       <div href="About.html"  class="side-nav-item">
-         <span>About Us</span>
-         <i class="fas fa-info-circle"></i>
-       </div>
-
-       <div href="Home.html#contact"  class="side-nav-item">
-         <span>Contact</span>
-         <i class="fas fa-envelope"></i>
-       </div>
-
-       <div href="login.html" class="side-nav-item cta-button">
-         <span>Login</span>
-         <i class="fas fa-sign-in-alt"></i>
-       </div>
-     </div>
-   </nav>
-
-
-    <!-- Hero Section -->
-    <section class="service-hero">
-      <div class="service-hero-content">
-        <h1>Freight Forwarding Services</h1>
-        <p>
-          Your Global Logistics Partner for Air, Ocean, and Land Freight
-          Solutions
-        </p>
-        <a href="Home.html"  class="cta-buttons">Get Started</a>
-      </div>
-    </section>
-
-    <!-- Service Types Section -->
-    <section class="service-types">
-      <h2 class="section-title" data-aos="fade-up">Our Freight Services</h2>
-      <div class="service-grid">
-        <div class="freight-card" data-aos="fade-up" data-aos-delay="100">
-          <img src="ff-air.jpg" alt="Air Freight" />
-          <div class="freight-content">
-            <h3>Air Freight</h3>
-            <p>
-              Express worldwide air freight services with real-time tracking and
-              temperature-controlled options for time-sensitive cargo.
-            </p>
-            <!-- <a href="#" class="read-more-btn">Learn More</a> -->
           </div>
         </div>
-        <div class="freight-card" data-aos="fade-up" data-aos-delay="200">
-          <img src="ff-ocean.jpg" alt="Ocean Freight" />
-          <div class="freight-content">
-            <h3>Ocean Freight</h3>
-            <p>
-              Reliable sea freight solutions including FCL, LCL, and special
-              equipment for oversized cargo transportation.
-            </p>
-            <!-- <a href="#" class="read-more-btn">Learn More</a> -->
+
+        <div class="nav-item">
+          <a href="solutions.html">Solutions</a>
+        </div>
+
+        <div class="nav-item dropdown">
+          <a href="sectors.html">Sectors</a>
+          <div class="dropdown-content">
+            <a href="sectors.html"><i class="fa-solid fa-bolt"></i> Energy</a>
+            <a href="sectors.html"><i class="fas fa-capsules"></i> Pharmaceutical</a>
+            <a href="sectors.html"><i class="fas fa-industry"></i> Manufacturing</a>
+            <a href="sectors.html"><i class="fa-solid fa-plus"></i> More</a>
           </div>
         </div>
-        <div class="freight-card" data-aos="fade-up" data-aos-delay="300">
-          <img src="ff-land.jpg" alt="Land Freight" />
-          <div class="freight-content">
-            <h3>Land Freight</h3>
-            <p>
-              Comprehensive road transportation network with door-to-door
-              delivery and cross-border logistics services.
-            </p>
-            <!-- <a href="#" class="read-more-btn">Learn More</a> -->
-          </div>
+
+
+
+        <div class="nav-item">
+          <a href="About.html">About Us</a>
         </div>
-        <div class="freight-card" data-aos="fade-up" data-aos-delay="300">
-          <img src="ff-NVOCC.jpg" alt="Land Freight" />
-          <div class="freight-content">
-            <h3>NVOCC</h3>
-            <p>
-              Comprehensive road transportation network with door-to-door
-              delivery and cross-border logistics services.
-            </p>
-            <!-- <a href="#" class="read-more-btn">Learn More</a> -->
-          </div>
+
+        <div class="nav-item">
+          <a href="Home.html#contact">Contact</a>
+        </div>
+
+        <div class="nav-item">
+          <a href="login.html" class="cta-button">Login</a>
         </div>
       </div>
-    </section>
+    </div>
+  </nav>
 
-    <!-- Features Section -->
-    <section class="features-section">
-      <h2 class="section-title" data-aos="fade-up">
-        Why Choose Our Freight Services
-      </h2>
-      <div class="features-grid">
-        <div class="feature-item" data-aos="zoom-in" data-aos-delay="100">
-          <i class="fas fa-globe"></i>
-          <h4>Global Network</h4>
-          <p>Extensive worldwide network covering 150+ countries</p>
+  <button class="mobile-nav-toggle">
+    <i class="fas fa-bars"></i>
+  </button>
+
+  <nav class="side-nav">
+    <div class="side-nav-links">
+      <a href="Home.html" class="side-nav-item">
+        <span>Home</span>
+        <i class="fas fa-home"></i>
+      </a>
+
+      <div class="side-nav-dropdown">
+        <div class="side-nav-item">
+          <span>Services</span>
+          <i class="fas fa-chevron-down"></i>
         </div>
-        <div class="feature-item" data-aos="zoom-in" data-aos-delay="200">
-          <i class="fas fa-clock"></i>
-          <h4>24/7 Support</h4>
-          <p>Round-the-clock customer service and cargo monitoring</p>
-        </div>
-        <div class="feature-item" data-aos="zoom-in" data-aos-delay="300">
-          <i class="fas fa-shield-alt"></i>
-          <h4>Cargo Security</h4>
-          <p>Advanced tracking and security measures for your shipments</p>
-        </div>
-        <div class="feature-item" data-aos="zoom-in" data-aos-delay="400">
-          <i class="fas fa-leaf"></i>
-          <h4>Eco-Friendly</h4>
-          <p>Sustainable shipping solutions reducing carbon footprint</p>
+        <div class="side-nav-dropdown-content">
+          <a href="ff.html">
+            <i class="fas fa-ship"></i>
+            <span>Freight Forwarding</span>
+          </a>
+          <a href="transport.html">
+            <i class="fas fa-truck-moving"></i>
+            <span>Transportation</span>
+          </a>
+          <a href="cc.html">
+            <i class="fas fa-file-contract"></i>
+            <span>Customs Clearance</span>
+          </a>
+          <a href="wd.html">
+            <i class="fas fa-warehouse"></i>
+            <span>Warehousing & Distribution</span>
+          </a>
         </div>
       </div>
-    </section>
 
-    <!-- Process Section -->
-    <section class="process-section">
-      <h2 class="section-title" data-aos="fade-up">Our Process</h2>
-      <div class="timeline">
-        <div class="timeline-item">
-          <div class="timeline-content">
-            <h3>Consultation</h3>
-            <p>Initial assessment of your shipping needs and requirements</p>
-          </div>
+      <div href="solutions.html" class="side-nav-item">
+        <span>Solutions</span>
+        <i class="fa-solid fa-lightbulb"></i>
+      </div>
+
+      <div class="side-nav-dropdown">
+        <div class="side-nav-item">
+          <span>Sectors</span>
+          <i class="fas fa-chevron-down"></i>
         </div>
-        <div class="timeline-item">
-          <div class="timeline-content">
-            <h3>Planning</h3>
-            <p>Developing optimal routing and transportation strategy</p>
-          </div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-content">
-            <h3>Execution</h3>
-            <p>Coordinating pickup, transportation, and delivery</p>
-          </div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-content">
-            <h3>Monitoring</h3>
-            <p>Real-time tracking and status updates throughout transit</p>
-          </div>
+        <div class="side-nav-dropdown-content">
+          <a href="sectors.html">
+            <i class="fa-solid fa-bolt"></i>
+            <span>Energy</span>
+          </a>
+          <a href="sectors.html">
+            <i class="fas fa-capsules"></i>
+            <span>Pharmaceutical</span>
+          </a>
+          <a href="sectors.html">
+            <i class="fas fa-industry"></i>
+            <span>Manufacturing</span>
+          </a>
+          <a href="sectors.html">
+            <i class="fa-solid fa-plus"></i>
+            <span>More</span>
+          </a>
         </div>
       </div>
-    </section>
 
-   <!--Footer Section-->
-   <footer class="footer">
+
+
+      <div href="About.html" class="side-nav-item">
+        <span>About Us</span>
+        <i class="fas fa-info-circle"></i>
+      </div>
+
+      <div href="Home.html#contact" class="side-nav-item">
+        <span>Contact</span>
+        <i class="fas fa-envelope"></i>
+      </div>
+
+      <div href="login.html" class="side-nav-item cta-button">
+        <span>Login</span>
+        <i class="fas fa-sign-in-alt"></i>
+      </div>
+    </div>
+  </nav>
+
+
+  <!-- Corousel section-->
+  <section id="home" class="hero">
+    <div class="hero-carousel">
+      <div class="carousel-slide" style="background-image: url('ff-land.jpg')"></div>
+      <div class="carousel-slide" style="background-image: url('ff-air.jpg')"></div>
+      <div class="carousel-slide" style="background-image: url('ff-ocean.jpg')"></div>
+      <div class="carousel-slide" style="background-image: url('Solution-2.jpg')"></div>
+      <div class="carousel-slide" style="background-image: url('trans-4.jpg')"></div>
+      <div class="carousel-slide" style="background-image: url('ff-NVOCC.jpg')"></div>
+    </div>
+    <div class="hero-content">
+      <h1>Freight Forwarding Services</h1>
+      <p>
+        Your Global Logistics Partner for Air, Ocean, and Land Freight Solutions
+      </p>
+
+    </div>
+    <div class="carousel-dots">
+      <span class="dot active"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+    </div>
+  </section>
+
+
+  <!-- Service Types Section -->
+  <section class="service-types">
+    <h2 class="section-title" data-aos="fade-up">Our Freight Services</h2>
+    <div class="service-grid">
+      <div class="freight-card" data-aos="fade-up" data-aos-delay="100">
+        <img src="ff-air.jpg" alt="Air Freight" />
+        <div class="freight-content">
+          <h3>Air Freight</h3>
+          <p>
+            Express worldwide air freight services with real-time tracking and
+            temperature-controlled options for time-sensitive cargo.
+          </p>
+          <!-- <a href="#" class="read-more-btn">Learn More</a> -->
+        </div>
+      </div>
+      <div class="freight-card" data-aos="fade-up" data-aos-delay="200">
+        <img src="ff-ocean.jpg" alt="Ocean Freight" />
+        <div class="freight-content">
+          <h3>Ocean Freight</h3>
+          <p>
+            Reliable sea freight solutions including FCL, LCL, and special
+            equipment for oversized cargo transportation.
+          </p>
+          <!-- <a href="#" class="read-more-btn">Learn More</a> -->
+        </div>
+      </div>
+      <div class="freight-card" data-aos="fade-up" data-aos-delay="300">
+        <img src="ff-land.jpg" alt="Land Freight" />
+        <div class="freight-content">
+          <h3>Land Freight</h3>
+          <p>
+            Comprehensive road transportation network with door-to-door
+            delivery and cross-border logistics services.
+          </p>
+          <!-- <a href="#" class="read-more-btn">Learn More</a> -->
+        </div>
+      </div>
+      <div class="freight-card" data-aos="fade-up" data-aos-delay="300">
+        <img src="ff-NVOCC.jpg" alt="Land Freight" />
+        <div class="freight-content">
+          <h3>NVOCC</h3>
+          <p>
+            Comprehensive road transportation network with door-to-door
+            delivery and cross-border logistics services.
+          </p>
+          <!-- <a href="#" class="read-more-btn">Learn More</a> -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="features-section">
+    <h2 class="section-title" data-aos="fade-up">
+      Why Choose Our Freight Services
+    </h2>
+    <div class="features-grid">
+      <div class="feature-item" data-aos="zoom-in" data-aos-delay="100">
+        <i class="fas fa-globe"></i>
+        <h4>Global Network</h4>
+        <p>Extensive worldwide network covering 150+ countries</p>
+      </div>
+      <div class="feature-item" data-aos="zoom-in" data-aos-delay="200">
+        <i class="fas fa-clock"></i>
+        <h4>24/7 Support</h4>
+        <p>Round-the-clock customer service and cargo monitoring</p>
+      </div>
+      <div class="feature-item" data-aos="zoom-in" data-aos-delay="300">
+        <i class="fas fa-shield-alt"></i>
+        <h4>Cargo Security</h4>
+        <p>Advanced tracking and security measures for your shipments</p>
+      </div>
+      <div class="feature-item" data-aos="zoom-in" data-aos-delay="400">
+        <i class="fas fa-leaf"></i>
+        <h4>Eco-Friendly</h4>
+        <p>Sustainable shipping solutions reducing carbon footprint</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process Section -->
+  <section class="process-section">
+    <h2 class="section-title" data-aos="fade-up">Our Process</h2>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <h3>Consultation</h3>
+          <p>Initial assessment of your shipping needs and requirements</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <h3>Planning</h3>
+          <p>Developing optimal routing and transportation strategy</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <h3>Execution</h3>
+          <p>Coordinating pickup, transportation, and delivery</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <h3>Monitoring</h3>
+          <p>Real-time tracking and status updates throughout transit</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!--Footer Section-->
+  <footer class="footer">
     <div class="footer-container">
       <div class="footer-col">
         <h3>About Us</h3>
@@ -923,45 +932,46 @@
     </div>
   </footer>
 
-    <!-- Add this script before closing body tag -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-    <script src="script.js"></script>
-    <script>
-      // Wait for DOM to be fully loaded
-      document.addEventListener("DOMContentLoaded", function () {
-        // Initialize AOS
-        AOS.init({
-          duration: 800,
-          easing: "ease-in-out",
-          once: true,
-          mirror: false,
-          offset: 50,
-        });
-
-        // Timeline animations
-        const timelineItems = document.querySelectorAll(".timeline-item");
-
-        const observer14 = new IntersectionObserver(
-          (entries) => {
-            entries.forEach((entry) => {
-              if (entry.isIntersecting) {
-                entry.target.classList.add("visible");
-              }
-            });
-          },
-          {
-            threshold: 0.2,
-            rootMargin: "0px",
-          }
-        );
-
-        timelineItems.forEach((item) => observer14.observe(item));
-
-        // Fallback for older browsers
-        if (!("IntersectionObserver" in window)) {
-          timelineItems.forEach((item) => item.classList.add("visible"));
-        }
+  <!-- Add this script before closing body tag -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script src="script.js"></script>
+  <script>
+    // Wait for DOM to be fully loaded
+    document.addEventListener("DOMContentLoaded", function () {
+      // Initialize AOS
+      AOS.init({
+        duration: 800,
+        easing: "ease-in-out",
+        once: true,
+        mirror: false,
+        offset: 50,
       });
-    </script>
-  </body>
+
+      // Timeline animations
+      const timelineItems = document.querySelectorAll(".timeline-item");
+
+      const observer14 = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+            }
+          });
+        },
+        {
+          threshold: 0.2,
+          rootMargin: "0px",
+        }
+      );
+
+      timelineItems.forEach((item) => observer14.observe(item));
+
+      // Fallback for older browsers
+      if (!("IntersectionObserver" in window)) {
+        timelineItems.forEach((item) => item.classList.add("visible"));
+      }
+    });
+  </script>
+</body>
+
 </html>
