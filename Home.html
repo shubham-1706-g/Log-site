@@ -1,268 +1,450 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Indian Shipping Agency - Connecting the World</title>
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-      rel="stylesheet"
-    />
-    <link rel="icon" href="logo.png" type="image/png" />
-    <link rel="stylesheet" href="nav.css" />
-    <link rel="stylesheet" href="styles.css" />
-  </head>
 
-  <body>
-    <div class="nav-overlay"></div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Indian Shipping Agency - Connecting the World</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+  <link rel="icon" href="logo.png" type="image/png" />
+  <link rel="stylesheet" href="nav.css" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    :root {
+      --primary-color: #1a5f7a;
+      --secondary-color: #159895;
+      --accent-color: #57c5b6;
+      --text-color: #2c3e50;
+      --background-color: #f0f4f8;
+      --card-width: 300px;
+    }
 
-    <nav class="navbar" id="smart-navbar">
-      <div class="container navbar__content">
-        <a href="Home.html" class="logo">
-          <img src="logo.png" alt="Indian Agency Logo" />
-          <!-- <span>Indian Agency</span> -->
-        </a>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Arial", sans-serif;
+    }
 
-        <div class="nav-links">
-          <div class="nav-item">
-            <a href="Home.html">Home</a>
+    body {
+      background-color: var(--background-color);
+      overflow-x: hidden;
+      user-select: none;
+      
+    }
+
+    .section2-title {
+      font-size: 3rem;
+      color: var(--primary-color);
+      text-align: center;
+    }
+
+
+
+
+    .sectors-section {
+      padding: 40px 0;
+      background: var(--background-color);
+    }
+
+
+    .slider-container {
+      width: 100%;
+      height: 600px;
+      /* Increased height to prevent overlap */
+      position: relative;
+      overflow: hidden;
+      padding: 20px 0;
+      cursor: pointer;
+    }
+
+    .slider-track {
+      position: absolute;
+      display: flex;
+      flex-direction: row;
+      gap: 30px;
+      height: 100%;
+      padding: 0 15px;
+      will-change: transform;
+    }
+
+    .slider-track.paused {
+      animation-play-state: paused;
+    }
+
+    .sector-card {
+      flex: 0 0 var(--card-width);
+      min-width: var(--card-width);
+      height: 550px;
+      /* Increased fixed height */
+      background: white;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .sector-card:hover {
+      transform: translateY(-10px);
+    }
+
+    .sector-image {
+      height: 200px;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .sector-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .sector-card:hover .sector-image img {
+      transform: scale(1.1);
+    }
+
+    .sector-content {
+      padding: 25px;
+      flex: 1;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 260px;
+      /* Added minimum height for content */
+    }
+
+    .sector-content h3 {
+      color: var(--primary-color);
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+      position: relative;
+      padding-bottom: 15px;
+    }
+
+    .sector-content h3::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 50px;
+      height: 3px;
+      background: var(--secondary-color);
+    }
+
+    .sector-content p {
+      color: var(--text-color);
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .section-actions {
+      padding-top: 15px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .read-more-btn {
+      background: linear-gradient(45deg,
+          var(--primary-color),
+          var(--secondary-color));
+      border: none;
+      padding: 12px 30px;
+      border-radius: 25px;
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+
+    .read-more-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Media Queries */
+    @media screen and (max-width: 768px) {
+      :root {
+        --card-width: 280px;
+      }
+
+      .slider-container {
+        height: 550px;
+      }
+
+      .sector-card {
+        height: 510px;
+      }
+
+      .sector-image {
+        height: 180px;
+      }
+
+      .sector-content h3 {
+        font-size: 1.25rem;
+      }
+
+      .sector-content p {
+        font-size: 0.9rem;
+      }
+    }
+
+    @media screen and (max-width: 480px) {
+      :root {
+        --card-width: 260px;
+      }
+
+      .slider-container {
+        height: 550px;
+      }
+
+      .sector-card {
+        height: 510px;
+      }
+
+      .sector-image {
+        height: 160px;
+      }
+
+      .sector-content {
+        padding: 20px;
+      }
+
+      .sector-content h3 {
+        font-size: 1.2rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="nav-overlay"></div>
+
+  <nav class="navbar" id="smart-navbar">
+    <div class="container navbar__content">
+      <a href="Home.html" class="logo">
+        <img src="logo.png" alt="Indian Agency Logo" />
+        <!-- <span>Indian Agency</span> -->
+      </a>
+
+      <div class="nav-links">
+        <div class="nav-item">
+          <a href="Home.html">Home</a>
+        </div>
+
+        <div class="nav-item dropdown">
+          <a href="services.html">Services</a>
+          <div class="dropdown-content">
+            <a href="ff.html"><i class="fas fa-ship"></i> Freight Forwarding</a>
+            <a href="transport.html"><i class="fas fa-truck-moving"></i> Transportation</a>
+            <a href="cc.html"><i class="fas fa-file-contract"></i> Custom Clearance</a>
+            <a href="wd.html"><i class="fas fa-warehouse"></i> Warehousing & Distribution</a>
           </div>
+        </div>
 
-          <div class="nav-item dropdown">
-            <a href="services.html">Services</a>
-            <div class="dropdown-content">
-              <a href="ff.html"
-                ><i class="fas fa-ship"></i> Freight Forwarding</a
-              >
-              <a href="transport.html"
-                ><i class="fas fa-truck-moving"></i> Transportation</a
-              >
-              <a href="cc.html"
-                ><i class="fas fa-file-contract"></i> Custom Clearance</a
-              >
-              <a href="wd.html"
-                ><i class="fas fa-warehouse"></i> Warehousing & Distribution</a
-              >
-            </div>
-          </div>
+        <div class="nav-item">
+          <a href="solutions.html">Solutions</a>
+        </div>
 
-          <div class="nav-item">
-            <a href="solutions.html">Solutions</a>
+        <div class="nav-item dropdown">
+          <a href="sectors.html">Sectors</a>
+          <div class="dropdown-content">
+            <a href="sectors.html"><i class="fa-solid fa-bolt"></i> Energy</a>
+            <a href="sectors.html"><i class="fas fa-capsules"></i> Pharmaceutical</a>
+            <a href="sectors.html"><i class="fas fa-industry"></i> Manufacturing</a>
+            <a href="sectors.html"><i class="fa-solid fa-plus"></i> More</a>
           </div>
+        </div>
 
-          <div class="nav-item dropdown">
-            <a href="sectors.html">Sectors</a>
-            <div class="dropdown-content">
-              <a href="sectors.html"><i class="fa-solid fa-bolt"></i> Energy</a>
-              <a href="sectors.html"
-                ><i class="fas fa-capsules"></i> Pharmaceutical</a
-              >
-              <a href="sectors.html"
-                ><i class="fas fa-industry"></i> Manufacturing</a
-              >
-              <a href="sectors.html"><i class="fa-solid fa-plus"></i> More</a>
-            </div>
-          </div>
+        <div class="nav-item">
+          <a href="About.html">About Us</a>
+        </div>
 
-          <div class="nav-item">
-            <a href="About.html">About Us</a>
-          </div>
+        <div class="nav-item">
+          <a href="Home.html#contact">Contact</a>
+        </div>
 
-          <div class="nav-item">
-            <a href="Home.html#contact">Contact</a>
-          </div>
-
-          <div class="nav-item">
-            <a href="login.html" class="cta-button">Login</a>
-          </div>
+        <div class="nav-item">
+          <a href="login.html" class="cta-button">Login</a>
         </div>
       </div>
-    </nav>
+    </div>
+  </nav>
 
-    <button class="mobile-nav-toggle">
-      <i class="fas fa-bars"></i>
-    </button>
+  <button class="mobile-nav-toggle">
+    <i class="fas fa-bars"></i>
+  </button>
 
-    <nav class="side-nav">
-      <div class="side-nav-links">
-        <a href="Home.html" class="side-nav-item">
-          <span>Home</span>
-          <i class="fas fa-home"></i>
-        </a>
+  <nav class="side-nav">
+    <div class="side-nav-links">
+      <a href="Home.html" class="side-nav-item">
+        <span>Home</span>
+        <i class="fas fa-home"></i>
+      </a>
 
-        <div class="side-nav-dropdown">
-          <div class="side-nav-item">
-            <span>Services</span>
-            <i class="fas fa-chevron-down"></i>
-          </div>
-          <div class="side-nav-dropdown-content">
-            <a href="ff.html">
-              <i class="fas fa-ship"></i>
-              <span>Freight Forwarding</span>
-            </a>
-            <a href="transport.html">
-              <i class="fas fa-truck-moving"></i>
-              <span>Transportation</span>
-            </a>
-            <a href="cc.html">
-              <i class="fas fa-file-contract"></i>
-              <span>Customs Clearance</span>
-            </a>
-            <a href="wd.html">
-              <i class="fas fa-warehouse"></i>
-              <span>Warehousing & Distribution</span>
-            </a>
-          </div>
+      <div class="side-nav-dropdown">
+        <div class="side-nav-item">
+          <span>Services</span>
+          <i class="fas fa-chevron-down"></i>
         </div>
-
-        <div href="solutions.html" class="side-nav-item">
-          <span>Solutions</span>
-          <i class="fa-solid fa-lightbulb"></i>
-        </div>
-
-        <div class="side-nav-dropdown">
-          <div class="side-nav-item">
-            <span>Sectors</span>
-            <i class="fas fa-chevron-down"></i>
-          </div>
-          <div class="side-nav-dropdown-content">
-            <a href="sectors.html">
-              <i class="fa-solid fa-bolt"></i>
-              <span>Energy</span>
-            </a>
-            <a href="sectors.html">
-              <i class="fas fa-capsules"></i>
-              <span>Pharmaceutical</span>
-            </a>
-            <a href="sectors.html">
-              <i class="fas fa-industry"></i>
-              <span>Manufacturing</span>
-            </a>
-            <a href="sectors.html">
-              <i class="fa-solid fa-plus"></i>
-              <span>More</span>
-            </a>
-          </div>
-        </div>
-
-        <div href="About.html" class="side-nav-item">
-          <span>About Us</span>
-          <i class="fas fa-info-circle"></i>
-        </div>
-
-        <div href="Home.html#contact" class="side-nav-item">
-          <span>Contact</span>
-          <i class="fas fa-envelope"></i>
-        </div>
-
-        <div href="login.html" class="side-nav-item cta-button">
-          <span>Login</span>
-          <i class="fas fa-sign-in-alt"></i>
-        </div>
-      </div>
-    </nav>
-
-    <!-- Corousel section-->
-    <section id="home" class="hero">
-      <div class="hero-carousel">
-        <div
-          class="carousel-slide"
-          style="background-image: url('ff-land.jpg')"
-        ></div>
-        <div
-          class="carousel-slide"
-          style="background-image: url('ff-air.jpg')"
-        ></div>
-        <div
-          class="carousel-slide"
-          style="background-image: url('ff-ocean.jpg')"
-        ></div>
-        <div
-          class="carousel-slide"
-          style="background-image: url('Solution-2.jpg')"
-        ></div>
-        <div
-          class="carousel-slide"
-          style="background-image: url('trans-4.jpg')"
-        ></div>
-        <div
-          class="carousel-slide"
-          style="background-image: url('ff-NVOCC.jpg')"
-        ></div>
-      </div>
-      <div class="hero-content">
-        <h1>Indian Shipping Agency</h1>
-        <p>
-          Connecting Continents, Delivering Excellence - Your Trusted Logistics
-          Partner
-        </p>
-        <a href="services.html" class="cta-button">Explore Our Services</a>
-      </div>
-      <div class="carousel-dots">
-        <span class="dot active"></span>
-        <span class="dot"></span>
-        <span class="dot"></span>
-        <span class="dot"></span>
-        <span class="dot"></span>
-        <span class="dot"></span>
-      </div>
-    </section>
-
-    <!-- Service Section -->
-    <section id="services" class="section">
-      <div class="section-content">
-        <h2 class="section-title">Our Services</h2>
-        <div class="services-grid">
-          <div class="service-card">
+        <div class="side-nav-dropdown-content">
+          <a href="ff.html">
             <i class="fas fa-ship"></i>
-            <h3>Freight Forwarding</h3>
-            <p>
-              End-to-end global shipping solutions with comprehensive cargo
-              management and tracking.
-            </p>
-            <div class="section-actions">
-              <a href="ff.html" class="read-more-btn">Read more</a>
-            </div>
-          </div>
-          <div class="service-card">
+            <span>Freight Forwarding</span>
+          </a>
+          <a href="transport.html">
             <i class="fas fa-truck-moving"></i>
-            <h3>Transportation</h3>
-            <p>
-              Multi-modal transportation solutions including road, sea and air  logistics networks.
-            </p>
-            <div class="section-actions">
-              <a href="transport.html" class="read-more-btn">Read more</a>
-            </div>
-          </div>
-          <div class="service-card">
+            <span>Transportation</span>
+          </a>
+          <a href="cc.html">
             <i class="fas fa-file-contract"></i>
-            <h3>Customs Clearance</h3>
-            <p>
-              Ensure smooth customs clearance by 
-              handling documentation and compliance.
-            </p>
-            <div class="section-actions">
-              <a href="cc.html" class="read-more-btn">Read more</a>
-            </div>
-          </div>
-          <div class="service-card">
+            <span>Customs Clearance</span>
+          </a>
+          <a href="wd.html">
             <i class="fas fa-warehouse"></i>
-            <h3>Warehouse/Distribution</h3>
-            <p>
-              Secure storage facilities and efficient
-               distribution networks to support your supply chain.
-            </p>
-            <div class="section-actions">
-              <a href="wd.html" class="read-more-btn">Read more</a>
-            </div>
+            <span>Warehousing & Distribution</span>
+          </a>
+        </div>
+      </div>
+
+      <div href="solutions.html" class="side-nav-item">
+        <span>Solutions</span>
+        <i class="fa-solid fa-lightbulb"></i>
+      </div>
+
+      <div class="side-nav-dropdown">
+        <div class="side-nav-item">
+          <span>Sectors</span>
+          <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="side-nav-dropdown-content">
+          <a href="sectors.html">
+            <i class="fa-solid fa-bolt"></i>
+            <span>Energy</span>
+          </a>
+          <a href="sectors.html">
+            <i class="fas fa-capsules"></i>
+            <span>Pharmaceutical</span>
+          </a>
+          <a href="sectors.html">
+            <i class="fas fa-industry"></i>
+            <span>Manufacturing</span>
+          </a>
+          <a href="sectors.html">
+            <i class="fa-solid fa-plus"></i>
+            <span>More</span>
+          </a>
+        </div>
+      </div>
+
+      <div href="About.html" class="side-nav-item">
+        <span>About Us</span>
+        <i class="fas fa-info-circle"></i>
+      </div>
+
+      <div href="Home.html#contact" class="side-nav-item">
+        <span>Contact</span>
+        <i class="fas fa-envelope"></i>
+      </div>
+
+      <div href="login.html" class="side-nav-item cta-button">
+        <span>Login</span>
+        <i class="fas fa-sign-in-alt"></i>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Corousel section-->
+  <section id="home" class="hero">
+    <div class="hero-carousel">
+      <div class="carousel-slide" style="background-image: url('ff-land.jpg')"></div>
+      <div class="carousel-slide" style="background-image: url('ff-air.jpg')"></div>
+      <div class="carousel-slide" style="background-image: url('ff-ocean.jpg')"></div>
+      <div class="carousel-slide" style="background-image: url('Solution-2.jpg')"></div>
+      <div class="carousel-slide" style="background-image: url('trans-4.jpg')"></div>
+      <div class="carousel-slide" style="background-image: url('ff-NVOCC.jpg')"></div>
+    </div>
+    <div class="hero-content">
+      <h1>Indian Shipping Agency</h1>
+      <p>
+        Connecting Continents, Delivering Excellence - Your Trusted Logistics
+        Partner
+      </p>
+      <a href="services.html" class="cta-button">Explore Our Services</a>
+    </div>
+    <div class="carousel-dots">
+      <span class="dot active"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+    </div>
+  </section>
+
+  <!-- Service Section -->
+  <section id="services" class="section">
+    <div class="section-content">
+      <h2 class="section-title">Our Services</h2>
+      <div class="services-grid">
+        <div class="service-card">
+          <i class="fas fa-ship"></i>
+          <h3>Freight Forwarding</h3>
+          <p>
+            End-to-end global shipping solutions with comprehensive cargo
+            management and tracking.
+          </p>
+          <div class="section-actions">
+            <a href="ff.html" class="read-more-btn">Read more</a>
+          </div>
+        </div>
+        <div class="service-card">
+          <i class="fas fa-truck-moving"></i>
+          <h3>Transportation</h3>
+          <p>
+            Multi-modal transportation solutions including road, sea and air
+            logistics networks.
+          </p>
+          <div class="section-actions">
+            <a href="transport.html" class="read-more-btn">Read more</a>
+          </div>
+        </div>
+        <div class="service-card">
+          <i class="fas fa-file-contract"></i>
+          <h3>Customs Clearance</h3>
+          <p>
+            Ensure smooth customs clearance by handling documentation and
+            compliance.
+          </p>
+          <div class="section-actions">
+            <a href="cc.html" class="read-more-btn">Read more</a>
+          </div>
+        </div>
+        <div class="service-card">
+          <i class="fas fa-warehouse"></i>
+          <h3>Warehouse/Distribution</h3>
+          <p>
+            Secure storage facilities and efficient distribution networks to
+            support your supply chain.
+          </p>
+          <div class="section-actions">
+            <a href="wd.html" class="read-more-btn">Read more</a>
           </div>
         </div>
       </div>
-    </section>
-    <!-- Enhanced Sectors Section -->
-    <section id="sectors" class="sectors-section">
-      <h2 class="section-title">Specialized Sector Solutions</h2>
-      <div class="sectors-grid">
+    </div>
+  </section>
+
+  <h2 class="section2-title">Specialized Sector Solutions</h2>
+
+  <!-- Enhanced Sectors Section -->
+
+  <section id="sectors" class="sectors-section">
+    <div class="slider-container">
+      <div class="slider-track">
+        <!-- Energy Sector -->
         <div class="sector-card">
           <div class="sector-image">
             <img src="ener.jpg" alt="Energy Sector" />
@@ -281,6 +463,7 @@
           </div>
         </div>
 
+        <!-- Pharmaceutical Sector -->
         <div class="sector-card">
           <div class="sector-image">
             <img src="pharma.jpg" alt="Pharmaceutical Sector" />
@@ -289,8 +472,8 @@
             <h3>Pharmaceutical</h3>
             <p>
               Advanced temperature-controlled shipping and compliant logistics
-              for medical supplies, pharmaceuticals, and healthcare products. We
-              maintain strict temperature and handling protocols.
+              for medical supplies, pharmaceuticals, and healthcare products.
+              We maintain strict temperature and handling protocols.
             </p>
             <div class="section-actions">
               <a href="sectors.html#pharma" class="read-more-btn">Read more</a>
@@ -298,6 +481,7 @@
           </div>
         </div>
 
+        <!-- Manufacturing Sector -->
         <div class="sector-card">
           <div class="sector-image">
             <img src="manu.jpg" alt="Manufacturing Sector" />
@@ -305,249 +489,489 @@
           <div class="sector-content">
             <h3>Manufacturing</h3>
             <p>
-              Advanced logistics solutions for production facilities and equipment manufacturers worldwide. Supporting global supply chains with precision handling and just-in-time delivery capabilities networks.
+              Advanced logistics solutions for production facilities and
+              equipment manufacturers worldwide. Supporting global supply
+              chains with precision handling and just-in-time delivery
+              capabilities networks.
             </p>
             <div class="section-actions">
-              <a href="sectors.html#manufacturing" class="read-more-btn"
-                >Read more</a
-              >
+              <a href="sectors.html#manufacturing" class="read-more-btn">Read more</a>
             </div>
           </div>
         </div>
+
+        <!-- Tyre Sector -->
         <div class="sector-card">
           <div class="sector-image">
-            <img src="tyre.jpg" alt="Manufacturing Sector" />
+            <img src="tyre.jpg" alt="Tyre Sector" />
           </div>
           <div class="sector-content">
             <h3>Tyre</h3>
             <p>
-              Specialized handling and storage solutions for tire manufacturers and retailers. We ensure optimal product integrity from production to delivery, with expert distribution support
+              Specialized handling and storage solutions for tire
+              manufacturers and retailers. We ensure optimal product integrity
+              from production to delivery, with expert distribution support
             </p>
             <div class="section-actions">
-              <a href="sectors.html#tyre" class="read-more-btn"
-                >Read more</a
-              >
+              <a href="sectors.html#tyre" class="read-more-btn">Read more</a>
             </div>
           </div>
         </div>
+
+        <!-- Chemical Industry -->
         <div class="sector-card">
           <div class="sector-image">
-            <img src="chemical.jpg" alt="Manufacturing Sector" />
+            <img src="chemical.jpg" alt="Chemical Industry" />
           </div>
           <div class="sector-content">
             <h3>Chemical Industry</h3>
             <p>
-              Safe transportation of hazardous and non-hazardous chemicals with certified handling procedures and containment systems. Our processes meet all safety regulations.
+              Safe transportation of hazardous and non-hazardous chemicals
+              with certified handling procedures and containment systems. Our
+              processes meet all safety regulations.
             </p>
             <div class="section-actions">
-              <a href="sectors.html#Chemicals" class="read-more-btn"
-                >Read more</a
-              >
+              <a href="sectors.html#Chemicals" class="read-more-btn">Read more</a>
             </div>
           </div>
         </div>
+
+        <!-- Oil and Gas -->
         <div class="sector-card">
           <div class="sector-image">
-            <img src="oilgas.jpg" alt="Manufacturing Sector" />
+            <img src="oilgas.jpg" alt="Oil and Gas" />
           </div>
           <div class="sector-content">
             <h3>Oil and Gas</h3>
             <p>
-              Logistics support for upstream, midstream, and downstream operations. We deliver equipment and products in challenging environments with industry-leading expertise.
+              Logistics support for upstream, midstream, and downstream
+              operations. We deliver equipment and products in challenging
+              environments with industry-leading expertise.
             </p>
             <div class="section-actions">
-              <a href="sectors.html#OilGas" class="read-more-btn"
-                >Read more</a
-              >
+              <a href="sectors.html#OilGas" class="read-more-btn">Read more</a>
             </div>
           </div>
         </div>
+
+        <!-- Automotive Industry -->
         <div class="sector-card">
           <div class="sector-image">
-            <img src="automotive.jpg" alt="Manufacturing Sector" />
+            <img src="automotive.jpg" alt="Automotive Industry" />
           </div>
           <div class="sector-content">
-            <h3>Automotive Industry </h3>
+            <h3>Automotive Industry</h3>
             <p>
-              Supply chain solutions for vehicle manufacturers and parts suppliers. Supporting production and aftermarket distribution with time-critical logistics and global coverage.
+              Supply chain solutions for vehicle manufacturers and parts
+              suppliers. Supporting production and aftermarket distribution
+              with time-critical logistics and global coverage.
             </p>
             <div class="section-actions">
-              <a href="sectors.html#Automotive" class="read-more-btn"
-                >Read more</a
-              >
+              <a href="sectors.html#Automotive" class="read-more-btn">Read more</a>
+            </div>
+          </div>
+        </div>
+        <!-- Energy Sector -->
+        <div class="sector-card">
+          <div class="sector-image">
+            <img src="ener.jpg" alt="Energy Sector" />
+          </div>
+          <div class="sector-content">
+            <h3>Energy Sector</h3>
+            <p>
+              Comprehensive logistics support for oil, gas, renewable energy,
+              and power infrastructure projects. Our specialized solutions
+              ensure timely and safe transportation of critical energy
+              equipment.
+            </p>
+            <div class="section-actions">
+              <a href="sectors.html#energy" class="read-more-btn">Read more</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pharmaceutical Sector -->
+        <div class="sector-card">
+          <div class="sector-image">
+            <img src="pharma.jpg" alt="Pharmaceutical Sector" />
+          </div>
+          <div class="sector-content">
+            <h3>Pharmaceutical</h3>
+            <p>
+              Advanced temperature-controlled shipping and compliant logistics
+              for medical supplies, pharmaceuticals, and healthcare products.
+              We maintain strict temperature and handling protocols.
+            </p>
+            <div class="section-actions">
+              <a href="sectors.html#pharma" class="read-more-btn">Read more</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Manufacturing Sector -->
+        <div class="sector-card">
+          <div class="sector-image">
+            <img src="manu.jpg" alt="Manufacturing Sector" />
+          </div>
+          <div class="sector-content">
+            <h3>Manufacturing</h3>
+            <p>
+              Advanced logistics solutions for production facilities and
+              equipment manufacturers worldwide. Supporting global supply
+              chains with precision handling and just-in-time delivery
+              capabilities networks.
+            </p>
+            <div class="section-actions">
+              <a href="sectors.html#manufacturing" class="read-more-btn">Read more</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tyre Sector -->
+        <div class="sector-card">
+          <div class="sector-image">
+            <img src="tyre.jpg" alt="Tyre Sector" />
+          </div>
+          <div class="sector-content">
+            <h3>Tyre</h3>
+            <p>
+              Specialized handling and storage solutions for tire
+              manufacturers and retailers. We ensure optimal product integrity
+              from production to delivery, with expert distribution support
+            </p>
+            <div class="section-actions">
+              <a href="sectors.html#tyre" class="read-more-btn">Read more</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Chemical Industry -->
+        <div class="sector-card">
+          <div class="sector-image">
+            <img src="chemical.jpg" alt="Chemical Industry" />
+          </div>
+          <div class="sector-content">
+            <h3>Chemical Industry</h3>
+            <p>
+              Safe transportation of hazardous and non-hazardous chemicals
+              with certified handling procedures and containment systems. Our
+              processes meet all safety regulations.
+            </p>
+            <div class="section-actions">
+              <a href="sectors.html#Chemicals" class="read-more-btn">Read more</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Oil and Gas -->
+        <div class="sector-card">
+          <div class="sector-image">
+            <img src="oilgas.jpg" alt="Oil and Gas" />
+          </div>
+          <div class="sector-content">
+            <h3>Oil and Gas</h3>
+            <p>
+              Logistics support for upstream, midstream, and downstream
+              operations. We deliver equipment and products in challenging
+              environments with industry-leading expertise.
+            </p>
+            <div class="section-actions">
+              <a href="sectors.html#OilGas" class="read-more-btn">Read more</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Automotive Industry -->
+        <div class="sector-card">
+          <div class="sector-image">
+            <img src="automotive.jpg" alt="Automotive Industry" />
+          </div>
+          <div class="sector-content">
+            <h3>Automotive Industry</h3>
+            <p>
+              Supply chain solutions for vehicle manufacturers and parts
+              suppliers. Supporting production and aftermarket distribution
+              with time-critical logistics and global coverage.
+            </p>
+            <div class="section-actions">
+              <a href="sectors.html#Automotive" class="read-more-btn">Read more</a>
             </div>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+    </div>
+    </div>
+  </section>
 
-    <!-- Enhanced About Us Section -->
-    <section id="about" class="about-section">
-      <div class="about-container">
-        <div class="about-content">
-          <h2>About Indian Shipping Agency</h2>
-          <p>
-            With over two decades of industry leadership, we've transformed
-            global logistics through innovation, reliability, and cutting-edge
-            technology. Our mission is to connect businesses worldwide,
-            providing seamless, efficient, and sustainable transportation
-            solutions.
-          </p>
+  <!-- Enhanced About Us Section -->
+  <section id="about" class="about-section">
+    <div class="about-container">
+      <div class="about-content">
+        <h2>About Indian Shipping Agency</h2>
+        <p>
+          With over two decades of industry leadership, we've transformed
+          global logistics through innovation, reliability, and cutting-edge
+          technology. Our mission is to connect businesses worldwide,
+          providing seamless, efficient, and sustainable transportation
+          solutions.
+        </p>
 
-          <div class="stats-grid">
-            <div class="stat-item">
-              <div class="stat-number">20+</div>
-              <div class="stat-label">Years of Experience</div>
-            </div>
-            <div class="stat-item">
-              <div class="stat-number">150+</div>
-              <div class="stat-label">Countries Served</div>
-            </div>
-            <div class="stat-item">
-              <div class="stat-number">5000+</div>
-              <div class="stat-label">Satisfied Clients</div>
-            </div>
+        <div class="stats-grid">
+          <div class="stat-item">
+            <div class="stat-number">20+</div>
+            <div class="stat-label">Years of Experience</div>
           </div>
-        </div>
-        <div class="about-image">
-          <img src="building.jpg" alt="About Indian Agency" />
-        </div>
-      </div>
-    </section>
-
-    <!--Contact us-->
-    <section id="contact" class="contact-section">
-      <h2 class="section-title" data-aos="fade-up">Contact Us</h2>
-      <div class="contact-container">
-        <div class="contact-info" data-aos="fade-right">
-          <div class="info-item">
-            <i class="fas fa-map-marker-alt"></i>
-            <h4>Our Location</h4>
-            <p>407, Rex Chambers,W. H. Marg, Ballard Estate, Mumbai- 400 038</p>
+          <div class="stat-item">
+            <div class="stat-number">150+</div>
+            <div class="stat-label">Countries Served</div>
           </div>
-          <div class="info-item">
-            <i class="fas fa-phone"></i>
-            <h4>Call Us</h4>
-            <p>022 664856000</p>
-          </div>
-          <div class="info-item">
-            <i class="fas fa-envelope"></i>
-            <h4>Email Us</h4>
-            <p>info@indianshipping.com</p>
-          </div>
-        </div>
-        <form
-          class="contact-form"
-          data-aos="fade-left"
-          method="POST"
-          data-netlify="true"
-        >
-          <div class="form-group">
-            <input type="text" placeholder="Your Name" name="name" required />
-          </div>
-          <div class="form-group">
-            <input type="email" placeholder="Your Email" name="mail" required />
-          </div>
-          <div class="form-group">
-            <input type="text" placeholder="Subject" name="subject" required />
-          </div>
-          <div class="form-group">
-            <textarea
-              placeholder="Your Message"
-              rows="5"
-              name="message"
-              required
-            ></textarea>
-          </div>
-          <button type="submit" class="submit-btn">Send Message</button>
-        </form>
-      </div>
-    </section>
-
-    <!-- Testimonials Section -->
-    <!-- <section class="testimonials">
-        <h2 class="section-title">Client Testimonials</h2>
-        <div class="testimonial-grid">
-            <div class="testimonial-card">
-                <img src="test1.png" alt="Client 1">
-
-                <p>"Indian Shipping Agency transformed our supply chain with their innovative approach and reliability."
-                </p>
-                <h4>Sarah Johnson</h4>
-                <p>CEO, EnergyTech Solutions</p>
-            </div>
-            <div class="testimonial-card">
-                <img src="test3.webp" alt="Client 2">
-                <p>"Exceptional service, timely deliveries, and professional support. Couldn't ask for a better
-                    logistics
-                    partner."</p>
-                <h4>Michael Chen</h4>
-                <p>Operations Director, PharmaCorp</p>
-            </div>
-            <div class="testimonial-card">
-                <img src="test3.webp" alt="Client 3">
-                <p>"Their logistics consulting saved us millions in operational costs. Truly world-class service!"</p>
-                <h4>Emma Rodriguez</h4>
-                <p>Supply Chain Manager, ManufacturingGlobal</p>
-            </div>
-        </div>
-    </section> -->
-
-    <!--Footer Section-->
-    <footer class="footer">
-      <div class="footer-container">
-        <div class="footer-col">
-          <h3>About Us</h3>
-          <p>
-            Indian Shipping Agency is your trusted partner for global freight
-            forwarding and logistics solutions. With years of experience, we
-            deliver excellence in shipping services.
-          </p>
-        </div>
-        <div class="footer-col">
-          <h3>Quick Links</h3>
-          <ul>
-            <li><a href="services.html">Our Services</a></li>
-            <li><a href="About.html">About Us</a></li>
-            <li><a href="Home.html#contact">Contact</a></li>
-            <li><a href="solutions.html">Solutions</a></li>
-            <li><a href="Home.html#contact">Get Quote</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h3>Services</h3>
-          <ul>
-            <li><a href="ff.html">Freight Forwarding</a></li>
-            <li><a href="transport.html">Transportation</a></li>
-            <li><a href="cc.html">Custom Clearance</a></li>
-            <li><a href="wd.html">Warehouse and Distribution</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h3>Sectors</h3>
-          <ul>
-            <li><a href="sectors.html">Energy & Resources</a></li>
-            <li><a href="sectors.html">Pharmaceutical</a></li>
-            <li><a href="sectors.html">Manufacturing</a></li>
-            <li><a href="sectors.html">Chemical</a></li>
-            <li><a href="sectors.html">More</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h3>Connect With Us</h3>
-          <div class="social-links">
-            <a href="#"><i class="fab fa-facebook-f"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
-            <a href="#"><i class="fab fa-linkedin-in"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
+          <div class="stat-item">
+            <div class="stat-number">5000+</div>
+            <div class="stat-label">Satisfied Clients</div>
           </div>
         </div>
       </div>
-      <div class="footer-bottom">
-        <p>&copy; 2024 Indian Shipping Agency. All rights reserved.</p>
+      <div class="about-image">
+        <img src="building.jpg" alt="About Indian Agency" />
       </div>
-    </footer>
+    </div>
+  </section>
 
-    <script src="script.js" defer></script>
-  </body>
+  <!--Contact us-->
+  <section id="contact" class="contact-section">
+    <h2 class="section-title" data-aos="fade-up">Contact Us</h2>
+    <div class="contact-container">
+      <div class="contact-info" data-aos="fade-right">
+        <div class="info-item">
+          <i class="fas fa-map-marker-alt"></i>
+          <h4>Our Location</h4>
+          <p>407, Rex Chambers,W. H. Marg, Ballard Estate, Mumbai- 400 038</p>
+        </div>
+        <div class="info-item">
+          <i class="fas fa-phone"></i>
+          <h4>Call Us</h4>
+          <p>022 664856000</p>
+        </div>
+        <div class="info-item">
+          <i class="fas fa-envelope"></i>
+          <h4>Email Us</h4>
+          <p>info@indianshipping.com</p>
+        </div>
+      </div>
+      <form class="contact-form" data-aos="fade-left" method="POST" data-netlify="true">
+        <div class="form-group">
+          <input type="text" placeholder="Your Name" name="name" required />
+        </div>
+        <div class="form-group">
+          <input type="email" placeholder="Your Email" name="mail" required />
+        </div>
+        <div class="form-group">
+          <input type="text" placeholder="Subject" name="subject" required />
+        </div>
+        <div class="form-group">
+          <textarea placeholder="Your Message" rows="5" name="message" required></textarea>
+        </div>
+        <button type="submit" class="submit-btn">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  <!--Footer Section-->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-col">
+        <h3>About Us</h3>
+        <p>
+          Indian Shipping Agency is your trusted partner for global freight
+          forwarding and logistics solutions. With years of experience, we
+          deliver excellence in shipping services.
+        </p>
+      </div>
+      <div class="footer-col">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="services.html">Our Services</a></li>
+          <li><a href="About.html">About Us</a></li>
+          <li><a href="Home.html#contact">Contact</a></li>
+          <li><a href="solutions.html">Solutions</a></li>
+          <li><a href="Home.html#contact">Get Quote</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Services</h3>
+        <ul>
+          <li><a href="ff.html">Freight Forwarding</a></li>
+          <li><a href="transport.html">Transportation</a></li>
+          <li><a href="cc.html">Custom Clearance</a></li>
+          <li><a href="wd.html">Warehouse and Distribution</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Sectors</h3>
+        <ul>
+          <li><a href="sectors.html">Energy & Resources</a></li>
+          <li><a href="sectors.html">Pharmaceutical</a></li>
+          <li><a href="sectors.html">Manufacturing</a></li>
+          <li><a href="sectors.html">Chemical</a></li>
+          <li><a href="sectors.html">More</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Connect With Us</h3>
+        <div class="social-links">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 Indian Shipping Agency. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js" defer></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const track = document.querySelector(".slider-track");
+      const container = document.querySelector(".slider-container");
+      const cards = document.querySelectorAll(".sector-card");
+
+      // Basic setup
+      const cardWidth = cards[0].offsetWidth;
+      const cardMargin = 30;
+      const totalCardWidth = cardWidth + cardMargin;
+      let scrollPos = 0;
+      let isPaused = false;
+
+      // Touch handling variables
+      let isDragging = false;
+      let startX = 0;
+      let startScrollPos = 0;
+      let lastDragTime = 0;
+      let lastDragPos = 0;
+      let dragVelocity = 0;
+
+      // Clone cards
+      function cloneCards() {
+        cards.forEach((card) => {
+          const clone = card.cloneNode(true);
+          track.appendChild(clone);
+        });
+      }
+
+      // Clone cards multiple times
+      for (let i = 0; i < 3; i++) {
+        cloneCards();
+      }
+
+      // Touch/Mouse event handlers
+      function handleDragStart(e) {
+        isDragging = true;
+        startX = e.type === "mousedown" ? e.pageX : e.touches[0].pageX;
+        startScrollPos = scrollPos;
+        lastDragTime = Date.now();
+        lastDragPos = startX;
+        dragVelocity = 0;
+
+        track.classList.add("dragging");
+        isPaused = true;
+      }
+
+      function handleDragMove(e) {
+        if (!isDragging) return;
+        e.preventDefault();
+
+        const currentX =
+          e.type === "mousemove" ? e.pageX : e.touches[0].pageX;
+        const diff = currentX - startX;
+        scrollPos = startScrollPos + diff;
+
+        // Calculate drag velocity
+        const currentTime = Date.now();
+        const timeDiff = currentTime - lastDragTime;
+        if (timeDiff > 0) {
+          dragVelocity = (currentX - lastDragPos) / timeDiff;
+        }
+        lastDragTime = currentTime;
+        lastDragPos = currentX;
+
+        track.style.transform = `translateX(${scrollPos}px)`;
+      }
+
+      function handleDragEnd() {
+        if (!isDragging) return;
+        isDragging = false;
+        track.classList.remove("dragging");
+
+        // Apply momentum if the drag was fast enough
+        if (Math.abs(dragVelocity) > 0.5) {
+          const momentum = dragVelocity * 200;
+          scrollPos += momentum;
+        }
+
+        // Only resume animation if not currently hovered
+        if (!container.matches(":hover")) {
+          setTimeout(() => {
+            isPaused = false;
+          }, 1000);
+        }
+      }
+
+      // Animation
+      function animate() {
+        if (!isPaused && !isDragging) {
+          scrollPos -= 0.6; // Speed
+
+          // Reset position when reaching end
+          if (-scrollPos >= cards.length * totalCardWidth) {
+            scrollPos = 0;
+          }
+
+          track.style.transform = `translateX(${scrollPos}px)`;
+        }
+        requestAnimationFrame(animate);
+      }
+
+      // Event listeners for drag functionality
+      container.addEventListener("mousedown", handleDragStart);
+      container.addEventListener("touchstart", handleDragStart);
+
+      window.addEventListener("mousemove", handleDragMove);
+      window.addEventListener("touchmove", handleDragMove, {
+        passive: false,
+      });
+
+      window.addEventListener("mouseup", handleDragEnd);
+      window.addEventListener("touchend", handleDragEnd);
+
+      // Hover event listeners
+      container.addEventListener("mouseenter", () => {
+        isPaused = true;
+        track.style.cursor = "grab";
+      });
+
+      container.addEventListener("mouseleave", () => {
+        if (!isDragging) {
+          isPaused = false;
+          track.style.cursor = "pointer";
+        }
+      });
+
+      // Pause when tab is not visible
+      document.addEventListener("visibilitychange", () => {
+        isPaused = document.hidden;
+      });
+
+      // Prevent context menu on long press
+      container.addEventListener("contextmenu", (e) => e.preventDefault());
+
+      // Start animation
+      animate();
+    });
+  </script>
+</body>
+
 </html>
